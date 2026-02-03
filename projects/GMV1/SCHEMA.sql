@@ -94,7 +94,10 @@ CREATE TABLE IF NOT EXISTS products_daily (
   FOREIGN KEY (store_id) REFERENCES stores(id)
 );
 
--- 4) 广告日表（可后续接入）
+-- 4) 达人表现（Seller Center，可后续接入）
+-- See: CREATOR_SCHEMA.sql
+
+-- 5) 广告日表（可后续接入）
 CREATE TABLE IF NOT EXISTS ads_daily (
   store_id TEXT NOT NULL,
   day TEXT NOT NULL,

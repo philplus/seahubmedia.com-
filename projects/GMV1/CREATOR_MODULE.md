@@ -2,7 +2,7 @@
 
 ## 1. 已确认前提
 - 平台：TikTok Shop 印尼 Seller Center
-- 达人表现口径：按“成交”（非下单创建）
+- 达人表现口径：按“达人销售 GMV”（Seller Center 归因/统计口径）
 - 同品类定义：同一级类目或二级类目
 - 建联渠道：WhatsApp
 
@@ -40,9 +40,9 @@
 - content_type（video/live/other，可选）
 
 ### 指标（Metrics）
-- gmv_net_deal（成交净GMV：扣退货，平台口径）
-- orders_deal（成交订单数）
-- aov_deal（成交客单）
+- creator_gmv（达人销售GMV：平台口径，按 Seller Center 归因/统计）
+- creator_orders（达人成交/成交订单数，如平台提供）
+- creator_aov（达人客单，如可计算/平台提供）
 - returns_amount / returns_rate（如平台提供达人归因的退货/退款）
 - commission_amount / commission_rate（如可取）
 - cost_total（坑位费/样品成本等，若你有内部记录）
@@ -71,7 +71,7 @@
 
 ### 建联字段（CRM）
 - outreach_status：uncontacted / messaged / replied / negotiating / sample_sent /合作中 /复购
-- whatsapp_number（若可合法获取/你人工补充）
+- whatsapp_number（保存达人 WhatsApp 号码：你人工录入/导入）
 - last_contacted_at
 - next_followup_at
 - notes
