@@ -1,5 +1,5 @@
-/* Dark TikTok-inspired theme (brand blue accent) */
-:root{--accent:#0b6ef6;--bg:#0b0b0d;--panel:#0f1214;--muted:#9aa4b2;--text:#e6eef8}
+/* Dark TikTok-inspired theme (brand blue accent) - adjusted for warmer dark and better contrast */
+:root{--accent:#0b6ef6;--bg:#0f1418;--panel:#12161a;--muted:#9aa4b2;--text:#e6eef8}
 *{box-sizing:border-box}
 body{font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial;line-height:1.45;color:var(--text);margin:0;background:var(--bg)}
 .wrap{max-width:1100px;margin:0 auto;padding:28px}
@@ -9,7 +9,11 @@ body{font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial;l
 .nav{margin-left:auto}
 .nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
 
-.hero-banner{display:flex;align-items:center;gap:28px;padding:48px;background:linear-gradient(180deg,rgba(11,110,246,0.06),rgba(11,110,246,0.02));border-radius:14px}
+.hero-banner{display:flex;align-items:center;gap:28px;padding:40px;background:linear-gradient(180deg, rgba(11,110,246,0.04), rgba(11,110,246,0.01));border-radius:14px}
+@media (max-width:900px){
+  .hero-banner{flex-direction:column;align-items:flex-start;padding:20px}
+  .hero-art{width:220px;flex:0 0 220px}
+}
 .hero{flex:1;padding:20px 0}
 .hero h1{font-size:44px;margin:4px 0 10px;line-height:1.05;color:var(--text)}
 .sub{color:var(--muted);font-size:18px;margin-bottom:18px}
@@ -24,7 +28,12 @@ body{font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial;l
 main{padding:36px 28px}
 .section-panel{background:var(--panel);border-radius:12px;padding:24px;margin-bottom:24px;border:1px solid rgba(255,255,255,0.03)}
 #services .grid, #packages .grid, #cases .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-article{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:20px;border-radius:12px;display:flex;flex-direction:column;gap:12px}
+article{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.008));border:1px solid rgba(255,255,255,0.035);padding:18px;border-radius:12px;display:flex;flex-direction:column;gap:12px}
+
+@media (max-width:900px){
+  article{padding:14px}
+  .service-media img{width:140px}
+}
 article h3{margin-top:0;color:var(--text)}
 article p{color:var(--muted)}
 .service-media{width:100%;display:flex;justify-content:center}
