@@ -22,3 +22,18 @@
   viewport.addEventListener('pointerup', (e) => { isDown=false; track.style.animationPlayState='running'; viewport.releasePointerCapture(e.pointerId); });
   viewport.addEventListener('pointercancel', () => { isDown=false; track.style.animationPlayState='running'; });
 })();
+// Modal video player for thumbnails
+(function(){
+  const modal = document.createElement('div'); modal.className='modal';
+  modal.innerHTML = '<div class="box"><button class="close">✕</button><iframe src="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+  document.body.appendChild(modal);
+  const iframe = modal.querySelector('iframe');
+  const close = modal.querySelector('.close');
+  function open(url){ iframe.src = url + '?autoplay=1'; modal.classList.add('open'); }
+  function closeModal(){ iframe.src=''; modal.classList.remove('open'); }
+  document.querySelectorAll('.thumb').forEach(btn=>{
+    btn.addEventListener('click',()=> open(btn.dataset.video));
+  });
+  close.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e)=>{ if (e.target===modal) closeModal(); });
+})();

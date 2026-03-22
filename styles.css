@@ -46,6 +46,19 @@ article p{color:var(--muted)}
 .scene img{width:100%;height:160px;object-fit:cover;border-radius:8px}
 .muted{color:var(--muted)}
 
+.thumb{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);padding:8px 12px;border-radius:8px;cursor:pointer}
+
+/* modal */
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,12,0.6);z-index:1200}
+.modal.open{display:flex}
+.modal .box{width:min(960px,92%);background:var(--panel);border-radius:12px;padding:12px}
+.modal iframe{width:100%;height:540px;border:0;border-radius:8px}
+.modal .close{position:absolute;right:20px;top:18px;background:transparent;border:0;color:#fff;font-size:22px;cursor:pointer}
+
+@media (max-width:900px){
+  .modal iframe{height:260px}
+}
+
 @media (max-width:900px){
   .brands-track{animation-duration:14s}
   .brands-grid{grid-template-columns:repeat(3,1fr)}
