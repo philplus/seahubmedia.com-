@@ -1,11 +1,28 @@
-/* Minimal styles for Seahub Media */
-:root{--accent:#0b6ef6;--bg:#fff;--muted:#666}
+/* Visual style: Brand-forward (Large hero, strong visuals) */
+:root{--accent:#0b6ef6;--dark:#0b1b2b;--muted:#6b7280;--bg:#ffffff}
 *{box-sizing:border-box}
-body{font-family:Inter,system-ui,Segoe UI,Arial, sans-serif;margin:0;background:var(--bg);color:#111}
-.wrap{max-width:900px;margin:0 auto;padding:28px}
-.site-header{background:#f6f9ff;border-bottom:1px solid #eee}
-.site-header h1{margin:0;font-size:28px}
-.tag{color:var(--muted);margin-top:6px}
-h2{margin-top:0}
-.site-footer{border-top:1px solid #eee;padding:18px;text-align:center;color:var(--muted)}
+body{font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial;line-height:1.45;color:var(--dark);margin:0;background:var(--bg)}
+.wrap{max-width:1100px;margin:0 auto;padding:28px}
+.site-header{background:linear-gradient(180deg,rgba(11,110,246,0.08),transparent);border-bottom:1px solid #eef2ff}
+.header-inner{display:flex;align-items:center;gap:24px}
+.logo{height:56px;width:auto;border-radius:6px}
+.hero{flex:1}
+.hero h1{font-size:36px;margin:4px 0 8px}
+.sub{color:var(--muted);font-size:16px;margin-bottom:16px}
+.cta{display:inline-block;background:var(--accent);color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:600}
 
+main{padding:36px 28px}
+#services .grid, #packages .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+article{background:#fff;border:1px solid #f1f5f9;padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(11,30,60,0.04)}
+article h3{margin-top:0}
+.stats{display:flex;gap:24px;list-style:none;padding:0}
+.stats li{background:linear-gradient(90deg,#f8fbff,#fff);padding:18px;border-radius:10px;flex:1;text-align:center}
+.stats strong{display:block;font-size:20px;color:var(--accent)}
+.site-footer{border-top:1px solid #eef2ff;padding:20px;text-align:center;color:var(--muted)}
+
+/* Responsive */
+@media (max-width:900px){
+  .header-inner{flex-direction:column;align-items:flex-start}
+  #services .grid, #packages .grid{grid-template-columns:1fr}
+  .hero h1{font-size:28px}
+}
