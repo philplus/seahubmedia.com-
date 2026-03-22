@@ -6,11 +6,13 @@ body{font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial;l
 .site-header{background:linear-gradient(180deg,rgba(11,110,246,0.12),rgba(11,110,246,0.02));border-bottom:1px solid #eef2ff;padding:28px 0}
 .header-inner{display:flex;align-items:center;gap:24px}
 .logo{height:64px;width:auto;border-radius:8px}
+.hero-banner{display:flex;align-items:center;gap:28px;padding:28px;background:linear-gradient(90deg, rgba(11,110,246,0.06), rgba(11,110,246,0.01));border-radius:12px}
 .hero{flex:1;padding:20px 0}
 .hero h1{font-size:44px;margin:4px 0 10px;line-height:1.05}
 .sub{color:var(--muted);font-size:18px;margin-bottom:18px}
 .cta{display:inline-block;background:var(--accent);color:#fff;padding:14px 22px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 8px 24px rgba(11,110,246,0.12)}
-.hero{background:linear-gradient(90deg, rgba(11,110,246,0.06), rgba(11,110,246,0.01));border-radius:12px;padding:28px}
+.hero-art{width:220px;flex:0 0 220px}
+.hero-art img{width:100%;height:auto;border-radius:12px;box-shadow:0 12px 40px rgba(11,30,60,0.12)}
 
 main{padding:36px 28px}
 #services .grid, #packages .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
