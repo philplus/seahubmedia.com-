@@ -24,9 +24,11 @@ body{font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial;l
 main{padding:36px 28px}
 .section-panel{background:var(--panel);border-radius:12px;padding:24px;margin-bottom:24px;border:1px solid rgba(255,255,255,0.03)}
 #services .grid, #packages .grid, #cases .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-article{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:20px;border-radius:12px}
+article{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:20px;border-radius:12px;display:flex;flex-direction:column;gap:12px}
 article h3{margin-top:0;color:var(--text)}
 article p{color:var(--muted)}
+.service-media{width:100%;display:flex;justify-content:center}
+.service-media img{width:220px;height:auto;border-radius:8px}
 .stats{display:flex;gap:24px;list-style:none;padding:0}
 
 .brands-viewport{overflow:hidden;padding:6px 0}
