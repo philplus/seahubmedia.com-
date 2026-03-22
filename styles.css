@@ -1,0 +1,11 @@
+/* Minimal styles for Seahub Media */
+:root{--accent:#0b6ef6;--bg:#fff;--muted:#666}
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,Segoe UI,Arial, sans-serif;margin:0;background:var(--bg);color:#111}
+.wrap{max-width:900px;margin:0 auto;padding:28px}
+.site-header{background:#f6f9ff;border-bottom:1px solid #eee}
+.site-header h1{margin:0;font-size:28px}
+.tag{color:var(--muted);margin-top:6px}
+h2{margin-top:0}
+.site-footer{border-top:1px solid #eee;padding:18px;text-align:center;color:var(--muted)}
+
