@@ -151,3 +151,8 @@ button:focus, a:focus, .cta:focus{outline:3px solid rgba(66,133,244,0.18);outlin
 .partners-table th{background:transparent;color:var(--muted);font-weight:700}
 .partners-table img{display:block}
 @media (max-width:900px){.partners-table-wrap{overflow:auto}}
+/* visual highlight for partners table */
+.panel--highlight{background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96));box-shadow:0 12px 40px rgba(2,6,23,0.04)}
+
+/* MCN specific tweaks reuse TSP styles */
+#gmv-mcn{font-weight:800}

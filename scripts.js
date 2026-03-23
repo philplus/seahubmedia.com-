@@ -113,3 +113,31 @@ document.addEventListener('DOMContentLoaded',function(){
     td.textContent = (years>0? years+'y ':'') + (months>0? months+'m':'') || '<1m';
   });
 });
+
+
+// helper: init counters by id and base value
+function initGMVCounter(id, base){
+  const elem=document.getElementById(id); if(!elem) return;
+  const startBase = new Date(); const gmStart = base;
+  const incDay = {dayTicks:68,nightTicks:28,dayInc:4352,nightInc:2343};
+  const TICK_MS = 15*60*1000;
+  function calculate(){
+    const now=new Date(); let total=gmStart;
+    const minutesSince = Math.floor((now - startBase)/60000);
+    const ticks = Math.floor(minutesSince/15);
+    for(let i=0;i<=ticks;i++){
+      const tickTime = new Date(startBase.getTime() + i*15*60000);
+      const h = tickTime.getHours();
+      if(h>=6 && h<23) total += incDay.dayInc; else total += incDay.nightInc;
+    }
+    return total;
+  }
+  function formatUSD(n){return '$'+n.toLocaleString('en-US',{maximumFractionDigits:0})}
+  let prev=calculate(); elem.textContent=formatUSD(prev);
+  function tick(){const target=calculate(); const start=prev,end=target; prev=end; const duration=800,st=Date.now(); (function raf(){const t=(Date.now()-st)/duration; const v=Math.round(start+(end-start)*Math.min(1,t)); elem.textContent=formatUSD(v); if(t<1) requestAnimationFrame(raf);})();}
+  function scheduleNext(){const now=new Date(); const next=Math.ceil(now.getTime()/TICK_MS)*TICK_MS+50; setTimeout(function(){tick(); scheduleNext();}, next-now.getTime());}
+  scheduleNext();
+}
+
+initGMVCounter('gmv-value',120000000);
+initGMVCounter('gmv-mcn',318630000);
