@@ -1,7 +1,7 @@
 /* Dark TikTok-inspired theme (brand blue accent) - adjusted for warmer dark and better contrast */
 :root{--accent1:#f58529;--accent2:#dd2a7b;--accent3:#962fbf;--accent4:#405DE6;--accent:linear-gradient(135deg,var(--accent1),var(--accent2),var(--accent3),var(--accent4));--bg:#ffffff;--panel:#ffffff;--muted:#6b7280;--text:#0f1724}
 *{box-sizing:border-box}
-body{font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial;line-height:1.45;color:var(--text);margin:0;background:linear-gradient(135deg, rgba(245,133,41,0.06), rgba(221,42,123,0.06), rgba(150,47,191,0.04), rgba(64,93,230,0.03));}
+body{font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial;line-height:1.45;color:var(--text);margin:0;background:linear-gradient(135deg, rgba(245,133,41,0.14), rgba(221,42,123,0.12), rgba(150,47,191,0.08), rgba(64,93,230,0.06));}
 .wrap{max-width:1100px;margin:0 auto;padding:28px}
 .site-header{background:transparent;border-bottom:1px solid rgba(255,255,255,0.04);padding:10px 0}
 .header-inner{display:flex;align-items:center;gap:16px}
