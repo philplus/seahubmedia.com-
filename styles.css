@@ -96,3 +96,11 @@ article p{color:var(--muted)}
 @media (max-width:900px){ .brand{ flex:0 1 calc(33% - 18px);} .brand img{height:64px;padding:16px;} }
 @media (max-width:480px){ .brand{ flex:0 1 calc(50% - 12px);} .brand img{height:56px;padding:12px;} }
 .brand img:hover{ transform:translateY(-4px); box-shadow:0 10px 24px rgba(12,24,48,0.12); transition:all .18s ease; }
+/* marquee */
+.brands-marquee{ overflow:hidden; width:100%;}
+.brands-track{ display:flex; gap:18px; align-items:center; padding:12px 0; animation:scroll 30s linear infinite;}
+.brands-track--clone{ margin-left:18px;}
+.brand{ flex:0 0 auto; width:160px;}
+.brand img{ width:100%; height:80px; object-fit:contain; background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 16px rgba(12,24,48,0.08);}
+.brands-marquee:hover .brands-track{ animation-play-state:paused; }
+@keyframes scroll{ 0%{ transform:translateX(0);} 100%{ transform:translateX(-50%);} }

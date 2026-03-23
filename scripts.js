@@ -37,3 +37,12 @@
   close.addEventListener('click', closeModal);
   modal.addEventListener('click', (e)=>{ if (e.target===modal) closeModal(); });
 })();
+// ensure marquee clones width matches
+document.addEventListener('DOMContentLoaded',function(){
+  const tracks=document.querySelectorAll('.brands-track');
+  if(tracks.length>=2){
+    const first=tracks[0], clone=tracks[1];
+    // set clone width to first's width
+    clone.style.width=first.offsetWidth+'px';
+  }
+});
