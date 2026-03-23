@@ -99,3 +99,17 @@ document.addEventListener('DOMContentLoaded',function(){
   }
   scheduleNext();
 })();
+// compute partnership duration for any td[data-start]
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('td[data-start]').forEach(function(td){
+    const s=td.getAttribute('data-start');
+    const start=new Date(s+'T00:00:00');
+    if(isNaN(start)) return;
+    const now=new Date();
+    let years=now.getFullYear()-start.getFullYear();
+    let months=now.getMonth()-start.getMonth();
+    if(now.getDate()<start.getDate()) months--;
+    if(months<0){years--;months+=12}
+    td.textContent = (years>0? years+'y ':'') + (months>0? months+'m':'') || '<1m';
+  });
+});
