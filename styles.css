@@ -88,3 +88,11 @@ article p{color:var(--muted)}
   .hero h1{font-size:28px}
   .hero-art{width:160px}
 }
+/* Brands grid styling */
+.brands-viewport { margin-top: 1rem; }
+.brands-grid { display:flex; flex-wrap:wrap; gap:18px; justify-content:center; }
+.brand { flex: 0 1 calc(16% - 18px); box-sizing:border-box; }
+.brand img { display:block; width:100%; height:80px; object-fit:contain; background:#fff; padding:20px; border-radius:12px; box-shadow:0 6px 16px rgba(12,24,48,0.08); }
+@media (max-width:900px){ .brand{ flex:0 1 calc(33% - 18px);} .brand img{height:64px;padding:16px;} }
+@media (max-width:480px){ .brand{ flex:0 1 calc(50% - 12px);} .brand img{height:56px;padding:12px;} }
+.brand img:hover{ transform:translateY(-4px); box-shadow:0 10px 24px rgba(12,24,48,0.12); transition:all .18s ease; }
