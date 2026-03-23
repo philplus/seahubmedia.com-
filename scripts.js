@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 // TSP GMV live counter (since 2025-01-01 local timezone)
 (function(){
-  const startBase = new Date(2025,0,1,0,0,0); // Jan 1 2025 local
-  const gmStart = 120000000; // base USD
+  const startBase = new Date(); // baseline timestamp (now)
+  const gmStart = 120000000; // base USD at baseline
   const incDay = {dayTicks:68,nightTicks:28,dayInc:4352,nightInc:2343};
   const TICK_MS = 15*60*1000;
   const valueEl = document.getElementById('gmv-value');
