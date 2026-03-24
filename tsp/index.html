@@ -64,10 +64,16 @@
         el.innerHTML = `<h3>${c.title}</h3><p>${c.summary}</p>`;
         wrap.appendChild(el);
       });
-      // init GMV if present
-      const gmv = document.getElementById('tsp-gmv');
-      if(gmv && data.gmvBase) gmv.textContent = '$'+Number(data.gmvBase).toLocaleString();
+      // init GMV if present (use generic initGMVCounter if available)
+      try{ if(window.initGMVCounter && data.gmvBase) initGMVCounter('tsp-gmv', data.gmvBase); }
+      catch(e){ const gmv = document.getElementById('tsp-gmv'); if(gmv && data.gmvBase) gmv.textContent = '$'+Number(data.gmvBase).toLocaleString(); }
     }).catch(()=>{});
+
+    // simple quotation CTA: open WA chat with prefilled text
+    function quoteWhatsApp(service){
+      const text = encodeURIComponent(`Hi Seahub, I want a quotation for ${service}. Name: [your name], Brand: [brand], Brief:`);
+      window.open('https://wa.me/6281288895020?text='+text,'_blank');
+    }
   </script>
 </body>
 </html>

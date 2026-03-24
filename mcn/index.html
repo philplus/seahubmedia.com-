@@ -60,9 +60,14 @@
         el.innerHTML = `<h3>${c.title}</h3><p>${c.summary}</p>`;
         wrap.appendChild(el);
       });
-      const gmv = document.getElementById('mcn-gmv');
-      if(gmv && data.gmvBase) gmv.textContent = '$'+Number(data.gmvBase).toLocaleString();
+      try{ if(window.initGMVCounter && data.gmvBase) initGMVCounter('mcn-gmv', data.gmvBase); }
+      catch(e){ const gmv = document.getElementById('mcn-gmv'); if(gmv && data.gmvBase) gmv.textContent = '$'+Number(data.gmvBase).toLocaleString(); }
     }).catch(()=>{});
+
+    function quoteWhatsApp(service){
+      const text = encodeURIComponent(`Hi Seahub, I want a quotation for ${service}. Name: [your name], Brand: [brand], Brief:`);
+      window.open('https://wa.me/6281288895020?text='+text,'_blank');
+    }
   </script>
 </body>
 </html>
