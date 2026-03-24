@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Seahub Media — MCN Services</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <img src="/assets/logo.jpg" alt="Seahub Media" class="logo" width="160" height="72">
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/tsp/">TSP</a>
+        <a href="/mcn/">MCN</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="section-panel">
+      <h1>MCN — Creator & Affiliate Services</h1>
+      <p class="muted">Creator sourcing, affiliate tracking, campaign collaboration and post-campaign analysis.</p>
+      <div class="grid">
+        <article>
+          <h3>Our MCN Services</h3>
+          <ul>
+            <li>Creator Matchmaking & Onboarding</li>
+            <li>Affiliate & Performance Tracking</li>
+            <li>Creative Support & CRO</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Quick Metrics</h3>
+          <div class="gmv-card"><div class="gmv-label">Total GMV to date</div><div id="mcn-gmv" class="gmv-value">$318,630,000</div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-panel">
+      <h2>MCN Case Studies</h2>
+      <div id="mcn-cases" class="grid"></div>
+    </section>
+
+    <section class="section-panel">
+      <h2>Get a quotation</h2>
+      <p><a class="cta" href="#contact">Click to get quotation</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="wrap">© Seahub Media</div></footer>
+  <script src="/scripts.js" defer></script>
+  <script>
+    fetch('/site/data/mcn.json').then(r=>r.json()).then(data=>{
+      const wrap=document.getElementById('mcn-cases');
+      if(!wrap) return;
+      data.cases.forEach(c=>{
+        const el=document.createElement('article');
+        el.innerHTML = `<h3>${c.title}</h3><p>${c.summary}</p>`;
+        wrap.appendChild(el);
+      });
+      const gmv = document.getElementById('mcn-gmv');
+      if(gmv && data.gmvBase) gmv.textContent = '$'+Number(data.gmvBase).toLocaleString();
+    }).catch(()=>{});
+  </script>
+</body>
+</html>
