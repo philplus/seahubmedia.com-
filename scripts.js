@@ -140,5 +140,43 @@ function initGMVCounter(id, base){
   scheduleNext();
 }
 
-initGMVCounter('gmv-value',120000000);
-initGMVCounter('gmv-mcn',318630000);
+// initialize MCN counter with the same smooth continuous algorithm
+(function(){
+  const startBase = new Date();
+  const gmStart = 318630000;
+  const incDay = {dayTicks:68,nightTicks:28,dayInc:4352,nightInc:2343};
+  const TICK_MS = 15*60*1000;
+  const valueEl = document.getElementById('gmv-mcn');
+  function formatUSD(n){return '$'+Math.round(n).toLocaleString('en-US',{maximumFractionDigits:0})}
+  function calculateContinuous(){
+    const now = new Date();
+    let days = Math.floor((now - startBase)/(24*60*60*1000));
+    if(days<0) days=0;
+    const perDay = incDay.dayTicks*incDay.dayInc + incDay.nightTicks*incDay.nightInc;
+    let total = gmStart + days*perDay;
+    const dayStart = new Date(now.getFullYear(),now.getMonth(),now.getDate());
+    const minutesSinceMid = (now - dayStart)/60000;
+    const ticksToday = Math.floor(minutesSinceMid/15);
+    for(let i=0;i<=ticksToday;i++){
+      const tickTime = new Date(dayStart.getTime() + i*15*60000);
+      const h = tickTime.getHours();
+      if(h>=6 && h<23) total += incDay.dayInc; else total += incDay.nightInc;
+    }
+    const tickPrevTime = new Date(dayStart.getTime() + (ticksToday)*15*60000);
+    const tickDuration = TICK_MS;
+    const nowMs = now.getTime();
+    const tickElapsed = Math.max(0, Math.min(nowMs - tickPrevTime.getTime(), tickDuration));
+    const hPrev = tickPrevTime.getHours();
+    const upcomingInc = (hPrev>=6 && hPrev<23) ? incDay.dayInc : incDay.nightInc;
+    total += (tickElapsed / tickDuration) * upcomingInc;
+    return total;
+  }
+  let lastRendered = calculateContinuous();
+  if(valueEl) valueEl.textContent = formatUSD(lastRendered);
+  const SMOOTH_MS = 800;
+  setInterval(function(){
+    const current = calculateContinuous();
+    lastRendered = lastRendered + (current - lastRendered) * 0.35;
+    if(valueEl) valueEl.textContent = formatUSD(lastRendered);
+  }, SMOOTH_MS);
+})();
