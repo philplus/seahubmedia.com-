@@ -140,43 +140,49 @@ function initGMVCounter(id, base){
   scheduleNext();
 }
 
-// initialize MCN counter with the same smooth continuous algorithm
+// initialize MCN counter with monthly non-linear growth model and 2-minute tick
 (function(){
   const startBase = new Date();
-  const gmStart = 318630000;
-  const incDay = {dayTicks:68,nightTicks:28,dayInc:4352,nightInc:2343};
-  const TICK_MS = 15*60*1000;
+  const gmStart = 318630000; // cumulative baseline
+  const monthlyInc = 7000000; // approx monthly added GMV
+  const monthlyRate = 1.03; // +3% month-over-month growth
+  const TICK_MS = 2*60*1000; // update frequency: every 2 minutes
   const valueEl = document.getElementById('gmv-mcn');
   function formatUSD(n){return '$'+Math.round(n).toLocaleString('en-US',{maximumFractionDigits:0})}
-  function calculateContinuous(){
-    const now = new Date();
-    let days = Math.floor((now - startBase)/(24*60*60*1000));
-    if(days<0) days=0;
-    const perDay = incDay.dayTicks*incDay.dayInc + incDay.nightTicks*incDay.nightInc;
-    let total = gmStart + days*perDay;
-    const dayStart = new Date(now.getFullYear(),now.getMonth(),now.getDate());
-    const minutesSinceMid = (now - dayStart)/60000;
-    const ticksToday = Math.floor(minutesSinceMid/15);
-    for(let i=0;i<=ticksToday;i++){
-      const tickTime = new Date(dayStart.getTime() + i*15*60000);
-      const h = tickTime.getHours();
-      if(h>=6 && h<23) total += incDay.dayInc; else total += incDay.nightInc;
-    }
-    const tickPrevTime = new Date(dayStart.getTime() + (ticksToday)*15*60000);
-    const tickDuration = TICK_MS;
-    const nowMs = now.getTime();
-    const tickElapsed = Math.max(0, Math.min(nowMs - tickPrevTime.getTime(), tickDuration));
-    const hPrev = tickPrevTime.getHours();
-    const upcomingInc = (hPrev>=6 && hPrev<23) ? incDay.dayInc : incDay.nightInc;
-    total += (tickElapsed / tickDuration) * upcomingInc;
-    return total;
+
+  // compute months difference and fractional month since startBase
+  function monthDiffAndFraction(now){
+    const startYear = startBase.getFullYear(), startMonth = startBase.getMonth();
+    const nowYear = now.getFullYear(), nowMonth = now.getMonth();
+    const monthsElapsed = (nowYear - startYear)*12 + (nowMonth - startMonth);
+    // compute start of current month and length of this month
+    const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+    const nextMonthStart = new Date(now.getFullYear(), now.getMonth()+1, 1);
+    const fraction = (now - monthStart) / (nextMonthStart - monthStart);
+    return {monthsElapsed: Math.max(0, monthsElapsed), fraction: Math.max(0, Math.min(1, fraction))};
   }
-  let lastRendered = calculateContinuous();
+
+  function calculateNonLinearTotal(){
+    const now = new Date();
+    const mf = monthDiffAndFraction(now);
+    const m = mf.monthsElapsed;
+    const f = mf.fraction;
+    // sum of geometric series for full months: monthlyInc * (1 - r^m) / (1 - r)
+    let fullMonthsSum = 0;
+    if(monthlyRate === 1) fullMonthsSum = monthlyInc * m; else fullMonthsSum = monthlyInc * (1 - Math.pow(monthlyRate, m)) / (1 - monthlyRate);
+    // fractional current month contribution: monthlyInc * r^m * f
+    const fractional = monthlyInc * Math.pow(monthlyRate, m) * f;
+    return gmStart + fullMonthsSum + fractional;
+  }
+
+  // render loop: update every TICK_MS with smoothing to appear natural
+  let lastRendered = calculateNonLinearTotal();
   if(valueEl) valueEl.textContent = formatUSD(lastRendered);
-  const SMOOTH_MS = 800;
+  const SMOOTH_MS = TICK_MS; // update display on same cadence
   setInterval(function(){
-    const current = calculateContinuous();
-    lastRendered = lastRendered + (current - lastRendered) * 0.35;
+    const current = calculateNonLinearTotal();
+    // interpolate moderately for natural feel
+    lastRendered = lastRendered + (current - lastRendered) * 0.5;
     if(valueEl) valueEl.textContent = formatUSD(lastRendered);
   }, SMOOTH_MS);
 })();
