@@ -178,7 +178,7 @@ function initGMVCounter(id, base){
   // render loop: update every TICK_MS with smoothing to appear natural
   let lastRendered = calculateNonLinearTotal();
   if(valueEl) valueEl.textContent = formatUSD(lastRendered);
-  const SMOOTH_MS = TICK_MS; // update display on same cadence
+  const SMOOTH_MS = 1000; // display updates every 1s for smoother visual (target still advances on 2-min cadence)
   setInterval(function(){
     const current = calculateNonLinearTotal();
     // interpolate moderately for natural feel
