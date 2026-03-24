@@ -46,58 +46,59 @@ document.addEventListener('DOMContentLoaded',function(){
     clone.style.width=first.offsetWidth+'px';
   }
 });
-// TSP GMV live counter (since 2025-01-01 local timezone)
+// TSP GMV live counter (smoother & continuous updates)
 (function(){
   const startBase = new Date(); // baseline timestamp (now)
   const gmStart = 120000000; // base USD at baseline
   const incDay = {dayTicks:68,nightTicks:28,dayInc:4352,nightInc:2343};
   const TICK_MS = 15*60*1000;
   const valueEl = document.getElementById('gmv-value');
-  function calculateCurrent(){
-    const now=new Date();
+  function formatUSD(n){return '$'+Math.round(n).toLocaleString('en-US',{maximumFractionDigits:0})}
+
+  // calculate a continuous (fractional) current GMV based on time within current 15-min tick
+  function calculateContinuous(){
+    const now = new Date();
     let days = Math.floor((now - startBase)/(24*60*60*1000));
     if(days<0) days=0;
-    // total from full days
     const perDay = incDay.dayTicks*incDay.dayInc + incDay.nightTicks*incDay.nightInc;
     let total = gmStart + days*perDay;
-    // partial today
+
     const dayStart = new Date(now.getFullYear(),now.getMonth(),now.getDate());
-    let minutesSinceMid = Math.floor((now - dayStart)/60000);
-    // count 15-min ticks elapsed today
+    const minutesSinceMid = (now - dayStart)/60000;
     const ticksToday = Math.floor(minutesSinceMid/15);
-    // compute ticks in today's ticks by classifying each tick's time
+
+    // full ticks already elapsed today
     for(let i=0;i<=ticksToday;i++){
       const tickTime = new Date(dayStart.getTime() + i*15*60000);
       const h = tickTime.getHours();
-      // day period 6:00 - 22:59 (6..22)
       if(h>=6 && h<23) total += incDay.dayInc; else total += incDay.nightInc;
     }
+
+    // fractional progress into the next tick
+    const tickStartTime = new Date(dayStart.getTime() + (ticksToday+1)*15*60000);
+    const tickPrevTime = new Date(dayStart.getTime() + (ticksToday)*15*60000);
+    const tickDuration = TICK_MS;
+    const nowMs = now.getTime();
+    const tickElapsed = Math.max(0, Math.min(nowMs - tickPrevTime.getTime(), tickDuration));
+    // determine which increment applies for the upcoming tick (use tickPrevTime hour)
+    const hPrev = tickPrevTime.getHours();
+    const upcomingInc = (hPrev>=6 && hPrev<23) ? incDay.dayInc : incDay.nightInc;
+    // add fractional portion of upcoming tick so the number grows smoothly
+    total += (tickElapsed / tickDuration) * upcomingInc;
+
     return total;
   }
-  function formatUSD(n){return '$'+n.toLocaleString('en-US',{maximumFractionDigits:0})}
-  // animate number from previous to target
-  let prev = calculateCurrent();
-  function tick(){
-    const target = calculateCurrent();
-    // animate in 1s
-    const start=prev, end=target; prev=end;
-    const duration=800, startTime=Date.now();
-    const raf=function(){
-      const t=(Date.now()-startTime)/duration; const v=Math.round(start + (end-start)*Math.min(1,t));
-      if(valueEl) valueEl.textContent = formatUSD(v);
-      if(t<1) requestAnimationFrame(raf);
-    };
-    raf();
-  }
-  // initial
-  if(valueEl) valueEl.textContent = formatUSD(prev);
-  // schedule ticks aligned to real-world 15-minute boundaries
-  function scheduleNext(){
-    const now=new Date();
-    const next = Math.ceil(now.getTime()/TICK_MS)*TICK_MS + 50; // small offset
-    setTimeout(function(){ tick(); scheduleNext(); }, next - now.getTime());
-  }
-  scheduleNext();
+
+  // update display at a smooth interval (every 800ms) using the continuous calculation
+  let lastRendered = calculateContinuous();
+  if(valueEl) valueEl.textContent = formatUSD(lastRendered);
+  const SMOOTH_MS = 800;
+  setInterval(function(){
+    const current = calculateContinuous();
+    // small damping to avoid micro-jitter: interpolate from lastRendered to current
+    lastRendered = lastRendered + (current - lastRendered) * 0.35;
+    if(valueEl) valueEl.textContent = formatUSD(lastRendered);
+  }, SMOOTH_MS);
 })();
 // compute partnership duration for any td[data-start]
 document.addEventListener('DOMContentLoaded',function(){
