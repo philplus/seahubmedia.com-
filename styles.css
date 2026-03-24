@@ -127,7 +127,7 @@ button:focus, a:focus, .cta:focus{outline:3px solid rgba(66,133,244,0.18);outlin
 .tsp-dashboard{display:flex;justify-content:center}
 .gmv-card{background:rgba(255,255,255,0.95);padding:28px;border-radius:14px;box-shadow:0 12px 40px rgba(2,6,23,0.06);text-align:center;max-width:720px}
 .gmv-label{color:var(--muted);font-size:14px}
-.gmv-value{font-size:40px;font-weight:800;margin:12px 0;color:transparent;background:var(--accent);-webkit-background-clip:text;background-clip:text}
+.gmv-value{font-size:64px;font-weight:900;margin:12px 0;color:transparent;background:var(--accent);-webkit-background-clip:text;background-clip:text;display:inline-block;transform:scaleX(1.08);transform-origin:left center;letter-spacing:0.6px}
 .gmv-meta{color:var(--muted);font-size:13px}
 .partners-table-wrap{overflow:auto}
 .partners-table{width:100%;border-collapse:collapse}
@@ -155,4 +155,4 @@ button:focus, a:focus, .cta:focus{outline:3px solid rgba(66,133,244,0.18);outlin
 .panel--highlight{background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96));box-shadow:0 12px 40px rgba(2,6,23,0.04)}
 
 /* MCN specific tweaks reuse TSP styles */
-#gmv-mcn{font-weight:800}
+#gmv-mcn{font-weight:900;font-size:56px;display:inline-block;transform:scaleX(1.06);transform-origin:left center;letter-spacing:0.4px}
