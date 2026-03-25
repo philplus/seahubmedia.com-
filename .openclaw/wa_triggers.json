@@ -1,0 +1,10 @@
+{
+  "authorized_numbers": ["+6281288895020"],
+  "triggers": {
+    "开始部署": {
+      "action": "deploy_main",
+      "description": "直接合并/推送主分支并触发 CI 部署（免确认）"
+    }
+  },
+  "created_at": "2026-03-24T11:45:00+07:00"
+}
