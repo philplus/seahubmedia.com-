@@ -192,3 +192,13 @@ button:focus, a:focus, .cta:focus{outline:3px solid rgba(66,133,244,0.18);outlin
 @media (min-width: 881px) {
   .nav a:first-child { margin-left: 6px; }
 }
+/* Tweak: move logo and banner closer and right-align header+banner on desktop */
+.header-inner { justify-content: flex-end; }
+.logo { margin-right: 8px; }
+.hero-banner { margin-top: 6px; }
+.hero-art { display:flex; justify-content:flex-end; }
+@media (max-width:880px){
+  /* keep mobile stacked center behavior */
+  .header-inner { justify-content: center; }
+  .hero-art { justify-content: center; }
+}
