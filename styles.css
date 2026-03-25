@@ -156,3 +156,39 @@ button:focus, a:focus, .cta:focus{outline:3px solid rgba(66,133,244,0.18);outlin
 
 /* MCN specific tweaks reuse TSP styles */
 #gmv-mcn{font-weight:900;font-size:56px;display:inline-block;transform:scaleX(1.06);transform-origin:left center;letter-spacing:0.4px}
+/* Layout tweak: make logo larger on mobile and reduce header gap on desktop */
+.logo {
+  display: inline-block;
+  width: 180px;
+  height: auto;
+  vertical-align: middle;
+  object-fit: contain;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+@media (max-width: 880px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .logo {
+    width: 100%;
+    max-width: 360px;
+    padding: 6px 16px;
+  }
+  .nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+}
+@media (min-width: 881px) {
+  .nav a:first-child { margin-left: 6px; }
+}
