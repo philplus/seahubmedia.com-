@@ -1,0 +1,31 @@
+name: Daily changelog
+on:
+  schedule:
+    - cron: '0 17 * * *' # daily at 17:00 UTC (adjust as needed)
+  workflow_dispatch: {}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Generate changelog
+        run: |
+          DATE=$(date -u +'%Y-%m-%d')
+          FILE=CHANGELOG-${DATE}.md
+          echo "# CHANGELOG - ${DATE}" > $FILE
+          echo "" >> $FILE
+          echo "## Commits" >> $FILE
+          echo '```' >> $FILE
+          git --no-pager log --since="$DATE 00:00:00" --until="$DATE 23:59:59" --pretty=format:"%h %ad %s" --date=local >> $FILE || true
+          echo '```' >> $FILE
+          git add $FILE
+          git commit -m "chore(changelog): add daily changelog $DATE" || echo "No changes to commit"
+          git push origin HEAD:main || echo "Push failed"
+      - name: Upload changelog artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: changelog-${{ github.run_id }}
+          path: CHANGELOG-*.md
