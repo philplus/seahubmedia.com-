@@ -1,10 +1,10 @@
 name: Daily changelog
 on:
   schedule:
-    - cron: '0 17 * * *' # daily at 17:00 UTC (adjust as needed)
+    - cron: '0 16 * * *' # 23:00 Asia/Jakarta
   workflow_dispatch: {}
 jobs:
-  build:
+  generate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

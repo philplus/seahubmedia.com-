@@ -1,0 +1,31 @@
+name: Daily memory read
+on:
+  schedule:
+    - cron: '0 4 * * *' # 11:00 Asia/Jakarta (04:00 UTC)
+  workflow_dispatch: {}
+jobs:
+  read:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Determine yesterday
+        id: dates
+        run: |
+          YESTERDAY=$(date -u -d "yesterday" +"%Y-%m-%d")
+          echo "::set-output name=YESTERDAY::$YESTERDAY"
+      - name: Copy changelog into memory
+        run: |
+          Y=$({{ steps.dates.outputs.YESTERDAY }})
+          SRC=CHANGELOG-${Y}.md
+          DST=memory/${Y}.md
+          if [ -f "$SRC" ]; then
+            mkdir -p memory
+            cp "$SRC" "$DST"
+            git add "$DST"
+            git commit -m "memory: add changelog $Y to memory" || echo "No change to memory"
+            git push origin HEAD:main || echo "Push failed"
+          else
+            echo "No changelog $SRC found; skipping"
+          fi
