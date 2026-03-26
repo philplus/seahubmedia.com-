@@ -1,2 +1,0 @@
-# seahubmedia.com-
-company webside
