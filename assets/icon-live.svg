@@ -1,0 +1,13 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='240' height='140' viewBox='0 0 240 140'>
+  <style>
+    .pulse{fill:#0b6ef6;opacity:0.9;transform-origin:60px 70px;animation:pulse 2s ease-in-out infinite}
+    @keyframes pulse{0%{transform:scale(0.9)}50%{transform:scale(1.05)}100%{transform:scale(0.95)}}
+  </style>
+  <rect rx='12' width='240' height='140' fill='#071226'/>
+  <g transform='translate(20,20)'>
+    <rect x='0' y='50' width='140' height='10' rx='6' fill='#18324a'/>
+    <circle class='pulse' cx='40' cy='45' r='24'/>
+    <circle cx='92' cy='45' r='18' fill='#18324a'/>
+    <rect x='150' y='22' width='70' height='92' rx='8' fill='#0b6ef6' fill-opacity='0.06'/>
+  </g>
+</svg>
