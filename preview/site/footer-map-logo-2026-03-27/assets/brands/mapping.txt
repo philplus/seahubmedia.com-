@@ -1,0 +1,19 @@
+Adidas -> tile_01.png
+POPMART -> tile_02.png
+vivo -> tile_03.png
+OPPO -> tile_11.png
+DAZZLE Me -> tile_05.png
+摩托罗拉 -> tile_06.png
+Skintific -> tile_07.png
+欧莱雅 -> tile_08.png
+focallure -> tile_20.png
+YOU -> tile_10.png
+HUAWEI -> tile_11.png
+Tineco -> tile_12.png
+TCL -> tile_13.png
+Metoo -> tile_14.png
+Ulike -> tile_15.png
+Haier -> tile_16.png
+advance -> tile_17.png
+subron -> tile_18.png
+miniso -> tile_19.png
