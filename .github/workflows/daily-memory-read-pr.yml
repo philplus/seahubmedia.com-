@@ -1,5 +1,9 @@
 name: Daily memory read (PR)
 
+permissions:
+  contents: write
+  pull-requests: write
+
 on:
   schedule:
     - cron: '0 4 * * *' # 11:00 Asia/Jakarta
@@ -12,6 +16,11 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Set git identity
+        run: |
+          git config user.email "phil+bot@example.com"
+          git config user.name "seahub-bot"
 
       - name: Find yesterday changelog and copy to memory
         run: |
