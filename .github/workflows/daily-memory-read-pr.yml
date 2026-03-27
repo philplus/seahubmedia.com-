@@ -1,0 +1,40 @@
+name: Daily memory read (PR)
+
+on:
+  schedule:
+    - cron: '0 4 * * *' # 11:00 Asia/Jakarta
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Find yesterday changelog and copy to memory
+        run: |
+          Y=$(date -d "yesterday" +"%Y-%m-%d" || date -v-1d +"%Y-%m-%d")
+          SRC=CHANGELOG-$Y.md
+          if [ -f "$SRC" ]; then
+            mkdir -p memory
+            cp "$SRC" memory/$Y.md
+            git add memory/$Y.md
+            git commit -m "chore(ci): import $SRC -> memory/$Y.md [auto]" || echo "no changes"
+          else
+            echo "No changelog $SRC"
+          fi
+
+      - name: Create branch and push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BR=workflow/daily-memory-read/${{ github.run_id }}
+          git checkout -b "$BR"
+          git push origin HEAD:$BR
+
+      - name: Create PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr create --title "daily-memory-read: ${{ github.run_id }}" --body "Automated memory import; please review." --base main --head "$BR"

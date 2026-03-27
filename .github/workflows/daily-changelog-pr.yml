@@ -1,0 +1,34 @@
+name: Daily changelog (PR)
+
+on:
+  schedule:
+    - cron: '0 16 * * *' # 23:00 Asia/Jakarta
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Generate changelog
+        run: |
+          # (placeholder) generate CHANGELOG-$(date +"%Y-%m-%d").md
+          echo "# CHANGELOG - $(date -I)" > CHANGELOG-$(date +"%Y-%m-%d").md
+          git add CHANGELOG-$(date +"%Y-%m-%d").md
+          git commit -m "chore(ci): generate daily changelog [auto]" || echo "no changes"
+
+      - name: Create branch and push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BR=workflow/daily-changelog/${{ github.run_id }}
+          git checkout -b "$BR"
+          git push origin HEAD:$BR
+
+      - name: Create PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr create --title "daily-changelog: ${{ github.run_id }}" --body "Automated daily changelog; please review." --base main --head "$BR"
