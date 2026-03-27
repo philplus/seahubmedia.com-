@@ -12,6 +12,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Find yesterday changelog and copy to memory
         run: |
           Y=$(date -d "yesterday" +"%Y-%m-%d" || date -v-1d +"%Y-%m-%d")
@@ -19,22 +20,18 @@ jobs:
           if [ -f "$SRC" ]; then
             mkdir -p memory
             cp "$SRC" memory/$Y.md
-            git add memory/$Y.md
-            git commit -m "chore(ci): import $SRC -> memory/$Y.md [auto]" || echo "no changes"
+            git add memory/$Y.md || true
+            git commit -m "chore(ci): import $SRC -> memory/$Y.md [auto]" || true
           else
             echo "No changelog $SRC"
           fi
 
-      - name: Create branch and push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          BR=workflow/daily-memory-read/${{ github.run_id }}
-          git checkout -b "$BR"
-          git push origin HEAD:$BR
-
-      - name: Create PR
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh pr create --title "daily-memory-read: ${{ github.run_id }}" --body "Automated memory import; please review." --base main --head "$BR"
+      - name: Create PR via action
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore(ci): daily memory read ${{ github.run_id }} [auto]"
+          branch: "workflow/daily-memory-read/${{ github.run_id }}"
+          title: "daily-memory-read: ${{ github.run_id }}"
+          body: "Automated memory import; please review."
+          base: main
