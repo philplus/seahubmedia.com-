@@ -202,3 +202,16 @@ button:focus, a:focus, .cta:focus{outline:3px solid rgba(66,133,244,0.18);outlin
   .header-inner { justify-content: center; }
   .hero-art { justify-content: center; }
 }
+/* Placeholder image normalization for Seahub replacer */
+img[src*="seahub-replacer.png"]{
+  max-height:120px;
+  width:auto;
+  display:block;
+  margin:0 auto;
+  object-fit:contain;
+  background:transparent;
+  padding:12px;
+}
+/* Ensure table partner logos stay compact */
+.partners-table img, .partner-card img, .brand img { max-height:120px; height:auto; object-fit:contain; }
+@media (max-width:900px){ .partners-table img, .partner-card img, .brand img { max-height:64px; padding:8px; } }
