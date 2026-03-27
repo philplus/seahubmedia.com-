@@ -38,7 +38,7 @@ jobs:
       - name: Create PR via action
         uses: peter-evans/create-pull-request@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.REPO_WRITE_TOKEN }}
           commit-message: "chore(ci): daily memory read ${{ github.run_id }} [auto]"
           branch: "workflow/daily-memory-read/${{ github.run_id }}"
           title: "daily-memory-read: ${{ github.run_id }}"
