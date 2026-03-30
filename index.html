@@ -320,44 +320,333 @@
     <!-- Our Showcase -->
     <section id="cases" class="section-panel">
       <h2>Our Showcase</h2>
-      <div class="grid">
-        <article>
-          <h3>Brand Launch — Fashion</h3>
-          <p>Kickstarted a TikTok Shop launch with 3 back-to-back livestreams in week one.</p>
-          <ul class="case-metrics">
-            <li><strong>GMV</strong><span>+120% first-week</span></li>
-            <li><strong>Conversion</strong><span>+4.2%</span></li>
-          </ul>
-        </article>
-        <article>
-          <h3>Creator Campaign — Beauty</h3>
-          <p>Creator-led affiliate campaign with 30+ targeted KOLs across SEA.</p>
-          <ul class="case-metrics">
-            <li><strong>Engagement</strong><span>+38% MoM</span></li>
-            <li><strong>Sales</strong><span>+30% MoM</span></li>
-          </ul>
-        </article>
-        <article>
-          <h3>Performance Boost — FMCG</h3>
-          <p>Integrated ads + live commerce campaign optimized for ROAS.</p>
-          <ul class="case-metrics">
-            <li><strong>ROAS</strong><span>2.8x</span></li>
-            <li><strong>CPA</strong><span>−34%</span></li>
-          </ul>
-        </article>
+
+      <style>
+        .showcase-tabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+        .showcase-tab{padding:9px 22px;border-radius:24px;border:1.5px solid #e5e7eb;background:#fff;font-size:13px;font-weight:700;color:#6b7280;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:8px}
+        .showcase-tab img{height:20px;width:auto;object-fit:contain}
+        .showcase-tab.active{background:linear-gradient(135deg,#f58529,#dd2a7b);color:#fff;border-color:transparent}
+        .showcase-panel{display:none}
+        .showcase-panel.active{display:block}
+
+        /* Mosaic grid */
+        .showcase-mosaic{display:grid;gap:12px;grid-template-columns:repeat(3,1fr);grid-template-rows:auto}
+        .showcase-mosaic .sm-item{border-radius:14px;overflow:hidden;position:relative;background:#f3f4f6}
+        .showcase-mosaic .sm-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+        .showcase-mosaic .sm-item:hover img{transform:scale(1.04)}
+        .showcase-mosaic .sm-item .sm-badge{position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,0.6);backdrop-filter:blur(6px);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px}
+        /* Featured card takes 2 cols */
+        .sm-featured{grid-column:span 2;min-height:280px}
+        .sm-tall{grid-row:span 2}
+        .sm-normal{min-height:180px}
+
+        /* Stats row */
+        .showcase-stats{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap}
+        .showcase-stat{flex:1;min-width:120px;background:#fff;border:1px solid #f0f0f0;border-radius:14px;padding:16px 20px;text-align:center}
+        .showcase-stat .sv{font-size:22px;font-weight:900;background:linear-gradient(135deg,#f58529,#dd2a7b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .showcase-stat .sl{font-size:11px;color:#6b7280;margin-top:4px;font-weight:600}
+      </style>
+
+      <!-- Tabs -->
+      <div class="showcase-tabs">
+        <button class="showcase-tab active" onclick="switchShowcase('adidas')">
+          <img src="/assets/brands/final/adidas2.png" alt="Adidas"> Adidas
+        </button>
+        <button class="showcase-tab" onclick="switchShowcase('popmart')">
+          <img src="/assets/brands/final/popmart.png" alt="POP MART"> POP MART
+        </button>
       </div>
+
+      <!-- Adidas Panel -->
+      <div id="showcase-adidas" class="showcase-panel active">
+        <div class="showcase-mosaic">
+          <!-- Row 1 -->
+          <div class="sm-item sm-featured" style="min-height:300px">
+            <img src="/assets/showcase/adidas/studio_main.jpg" alt="Adidas Live Studio — main setup" loading="lazy">
+            <span class="sm-badge">📍 Live Studio Setup</span>
+          </div>
+          <div class="sm-item sm-tall">
+            <img src="/assets/showcase/adidas/live_17k.jpg" alt="Adidas live 17.1K viewers" loading="lazy">
+            <span class="sm-badge">🔥 17.1K Viewers</span>
+          </div>
+          <!-- Row 2 -->
+          <div class="sm-item sm-normal">
+            <img src="/assets/showcase/adidas/event_stage.jpg" alt="TikTok Shop × Adidas event stage" loading="lazy">
+            <span class="sm-badge">🎪 TikTok Shop Event</span>
+          </div>
+          <div class="sm-item sm-normal">
+            <img src="/assets/showcase/adidas/live_female_6k.jpg" alt="Female host 6.5K viewers" loading="lazy">
+            <span class="sm-badge">👥 6.5K Viewers</span>
+          </div>
+          <div class="sm-item sm-normal">
+            <img src="/assets/showcase/adidas/studio_prep.jpg" alt="Studio team preparing" loading="lazy">
+            <span class="sm-badge">🎬 Behind the Scenes</span>
+          </div>
+          <!-- Row 3 -->
+          <div class="sm-item sm-normal">
+            <img src="/assets/showcase/adidas/live_lunar.jpg" alt="Lunar New Year campaign" loading="lazy">
+            <span class="sm-badge">🎊 Lunar New Year Campaign</span>
+          </div>
+          <div class="sm-item sm-normal">
+            <img src="/assets/showcase/adidas/kol_ratu.jpg" alt="KOL Ratu Aulia 59K" loading="lazy">
+            <span class="sm-badge">⭐ KOL · 59K Followers</span>
+          </div>
+          <div class="sm-item sm-normal">
+            <img src="/assets/showcase/adidas/live_33.jpg" alt="3.3 Game On campaign" loading="lazy">
+            <span class="sm-badge">🛍️ 3.3 Game On</span>
+          </div>
+        </div>
+        <div class="showcase-stats">
+          <div class="showcase-stat"><div class="sv">17.1K</div><div class="sl">Peak Live Viewers</div></div>
+          <div class="showcase-stat"><div class="sv">656K+</div><div class="sl">Store Followers</div></div>
+          <div class="showcase-stat"><div class="sv">212K</div><div class="sl">Total Sold</div></div>
+          <div class="showcase-stat"><div class="sv">2y+</div><div class="sl">Partnership</div></div>
+        </div>
+      </div>
+
+      <!-- POP MART Panel -->
+      <div id="showcase-popmart" class="showcase-panel">
+        <div class="showcase-mosaic">
+          <!-- Row 1 -->
+          <div class="sm-item sm-featured" style="min-height:300px">
+            <img src="/assets/showcase/popmart/live_main.jpg" alt="POP MART TikTok Live" loading="lazy">
+            <span class="sm-badge">🔴 LIVE · 133.8K Followers</span>
+          </div>
+          <div class="sm-item sm-tall">
+            <img src="/assets/showcase/popmart/product_twinkle.jpg" alt="Twinkle Twinkle collection" loading="lazy">
+            <span class="sm-badge">✨ Twinkle Twinkle Series</span>
+          </div>
+          <!-- Row 2 -->
+          <div class="sm-item sm-normal">
+            <img src="/assets/showcase/popmart/live_crybaby.jpg" alt="CryBaby Coconut live" loading="lazy">
+            <span class="sm-badge">🎭 CryBaby Coconut</span>
+          </div>
+          <div class="sm-item sm-normal">
+            <img src="/assets/showcase/popmart/live_buying.jpg" alt="112 users buying during live" loading="lazy">
+            <span class="sm-badge">🛒 112 Users Buying Live</span>
+          </div>
+          <div class="sm-item sm-normal">
+            <img src="/assets/showcase/popmart/live_closeup.jpg" alt="Host showing blind box" loading="lazy">
+            <span class="sm-badge">📦 Blind Box Drop</span>
+          </div>
+        </div>
+        <div class="showcase-stats">
+          <div class="showcase-stat"><div class="sv">133.8K</div><div class="sl">Store Followers</div></div>
+          <div class="showcase-stat"><div class="sv">612</div><div class="sl">Peak Live Viewers</div></div>
+          <div class="showcase-stat"><div class="sv">112</div><div class="sl">Concurrent Buyers</div></div>
+          <div class="showcase-stat"><div class="sv">1y+</div><div class="sl">Partnership</div></div>
+        </div>
+      </div>
+
+      <script>
+        function switchShowcase(brand){
+          document.querySelectorAll('.showcase-tab').forEach(t=>t.classList.remove('active'));
+          document.querySelectorAll('.showcase-panel').forEach(p=>p.classList.remove('active'));
+          event.currentTarget.classList.add('active');
+          document.getElementById('showcase-'+brand).classList.add('active');
+        }
+      </script>
     </section>
 
     <!-- Live Studio -->
-    <section id="studio" class="section-panel">
+    <section id="studio" class="section-panel" style="padding-bottom:0">
       <h2>Live Studio & Scenes</h2>
-      <div class="gallery-grid">
-        <div class="scene"><img src="/assets/site/studio_1.jpg" alt="Studio scene 1" loading="lazy"></div>
-        <div class="scene"><img src="/assets/site/studio_2.jpg" alt="Studio scene 2" loading="lazy"></div>
-        <div class="scene"><img src="/assets/site/studio_3.jpg" alt="Studio scene 3" loading="lazy"></div>
-        <div class="scene"><img src="/assets/site/studio_4.jpg" alt="Studio scene 4" loading="lazy"></div>
+      <p class="muted" style="margin-bottom:24px">Professional multi-theme studios — brand-ready, fully equipped, built for TikTok Live commerce.</p>
+
+      <style>
+        #studio-sphere-wrap{
+          width:100%;height:580px;position:relative;
+          background:#060b14;border-radius:20px;overflow:hidden;
+          margin-bottom:0;
+        }
+        #studio-sphere-wrap canvas{width:100%;height:100%;display:block}
+        .sphere-hint{
+          position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
+          color:rgba(255,255,255,0.3);font-size:11px;font-weight:600;
+          letter-spacing:2px;pointer-events:none;transition:opacity 1s;
+          white-space:nowrap;
+        }
+        .sphere-ring-badge{
+          position:absolute;top:20px;right:20px;
+          background:rgba(255,255,255,0.08);backdrop-filter:blur(10px);
+          border:1px solid rgba(255,255,255,0.12);border-radius:10px;
+          padding:8px 14px;color:rgba(255,255,255,0.6);font-size:11px;
+          font-weight:600;letter-spacing:0.5px;pointer-events:none;
+        }
+        .studio-visit-bar{
+          display:flex;align-items:center;justify-content:center;gap:12px;
+          padding:18px;background:#f8f9fa;border-radius:0 0 20px 20px;
+          font-size:13px;color:#6b7280;
+        }
+      </style>
+
+      <div id="studio-sphere-wrap">
+        <canvas id="studio-sphere-canvas"></canvas>
+        <div class="sphere-ring-badge">DRAG · ROTATE · ZOOM</div>
+        <div class="sphere-hint" id="sphere-hint">drag to explore</div>
       </div>
-      <p class="muted" style="margin-top:16px">Want to tour our studio? <a class="cta" href="#contact">Book a visit</a></p>
+
+      <div class="studio-visit-bar">
+        Want to tour our studio?
+        <a class="cta" href="#contact" style="margin:0">Book a visit →</a>
+      </div>
+
+      <script>
+      (function(){
+        const PHOTOS = [
+          '/assets/studio/seahub_pink_studio.jpg',
+          '/assets/showcase/adidas/studio_main.jpg',
+          '/assets/studio/greenscreen_studio.jpg',
+          '/assets/studio/hexagon_studio.jpg',
+          '/assets/studio/shoes_studio.jpg',
+          '/assets/studio/greenscreen_ops.jpg',
+          '/assets/studio/adidas_studio_team.jpg',
+          '/assets/studio/event_stage_wide.jpg',
+          '/assets/studio/event_models.jpg',
+          '/assets/showcase/adidas/live_17k.jpg',
+          '/assets/showcase/adidas/event_stage.jpg',
+          '/assets/showcase/adidas/live_female_6k.jpg',
+        ];
+
+        function initSphere(){
+          if(typeof THREE === 'undefined'){
+            setTimeout(initSphere, 100); return;
+          }
+          const wrap = document.getElementById('studio-sphere-wrap');
+          const canvas = document.getElementById('studio-sphere-canvas');
+          const W = wrap.clientWidth, H = wrap.clientHeight;
+
+          const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+          renderer.setSize(W,H);
+          renderer.setClearColor(0x000000,0);
+
+          const scene = new THREE.Scene();
+          const camera = new THREE.PerspectiveCamera(52, W/H, 0.1, 100);
+          camera.position.z = 4.8;
+
+          const pivot = new THREE.Group();
+          scene.add(pivot);
+
+          const loader = new THREE.TextureLoader();
+          const R = 2.0, N = PHOTOS.length;
+
+          PHOTOS.forEach((url, i) => {
+            const phi   = Math.acos(-1 + (2*i+1)/N);
+            const theta = Math.sqrt(N*Math.PI)*phi;
+            const x = R*Math.sin(phi)*Math.cos(theta);
+            const y = R*Math.sin(phi)*Math.sin(theta);
+            const z = R*Math.cos(phi);
+
+            const mat = new THREE.MeshBasicMaterial({
+              transparent:true, opacity:0, depthWrite:false, side:THREE.DoubleSide
+            });
+            const mesh = new THREE.Mesh(new THREE.PlaneGeometry(0.75,0.52), mat);
+            mesh.position.set(x,y,z);
+            mesh.lookAt(0,0,0);
+            mesh.rotateY(Math.PI);
+            pivot.add(mesh);
+
+            loader.load(url, tex => {
+              mat.map = tex; mat.needsUpdate = true;
+              let op=0;
+              const t=setInterval(()=>{ op+=0.05; mat.opacity=Math.min(op,1); if(op>=1)clearInterval(t); },16);
+            }, undefined, ()=>{
+              mat.color=new THREE.Color(0x1a2a3a); mat.opacity=0.5;
+            });
+          });
+
+          /* Decorative particles */
+          const pGeo = new THREE.BufferGeometry();
+          const pPos = new Float32Array(320*3);
+          for(let i=0;i<320;i++){
+            const t2=Math.random()*Math.PI*2, p2=Math.acos(2*Math.random()-1), r=2.55+Math.random()*0.7;
+            pPos[i*3]=r*Math.sin(p2)*Math.cos(t2);
+            pPos[i*3+1]=r*Math.sin(p2)*Math.sin(t2);
+            pPos[i*3+2]=r*Math.cos(p2);
+          }
+          pGeo.setAttribute('position',new THREE.BufferAttribute(pPos,3));
+          pivot.add(new THREE.Points(pGeo,
+            new THREE.PointsMaterial({color:0x4466ff,size:0.022,transparent:true,opacity:0.5})));
+
+          /* Rings */
+          const addRing=(r,color,rx,ry,rz)=>{
+            const m=new THREE.Mesh(
+              new THREE.TorusGeometry(r,0.006,2,200),
+              new THREE.MeshBasicMaterial({color,transparent:true,opacity:0.28})
+            );
+            m.rotation.set(rx,ry,rz); pivot.add(m); return m;
+          };
+          const ring1=addRing(2.44,0xdd2a7b, Math.PI/3,0,0);
+          const ring2=addRing(2.54,0x405DE6,-Math.PI/5,Math.PI/4,0);
+          const ring3=addRing(2.49,0xf58529, Math.PI/6,Math.PI/3,0);
+
+          /* Drag */
+          let dragging=false, px=0, py=0, vx=0, vy=0, autoRot=true;
+          const hint=document.getElementById('sphere-hint');
+
+          const startDrag=(cx,cy)=>{ dragging=true; autoRot=false; px=cx; py=cy; vx=vy=0; hint.style.opacity='0'; };
+          const moveDrag=(cx,cy)=>{
+            if(!dragging)return;
+            const dx=cx-px, dy=cy-py;
+            vy=dx*0.006; vx=dy*0.006;
+            pivot.rotation.x+=vx; pivot.rotation.y+=vy;
+            px=cx; py=cy;
+          };
+          const endDrag=()=>{ dragging=false; setTimeout(()=>autoRot=true,2500); };
+
+          canvas.addEventListener('mousedown',e=>startDrag(e.clientX,e.clientY));
+          canvas.addEventListener('mousemove',e=>moveDrag(e.clientX,e.clientY));
+          canvas.addEventListener('mouseup',endDrag);
+          canvas.addEventListener('mouseleave',endDrag);
+          canvas.addEventListener('touchstart',e=>startDrag(e.touches[0].clientX,e.touches[0].clientY),{passive:true});
+          canvas.addEventListener('touchmove',e=>moveDrag(e.touches[0].clientX,e.touches[0].clientY),{passive:true});
+          canvas.addEventListener('touchend',endDrag);
+          canvas.addEventListener('wheel',e=>{
+            camera.position.z=Math.min(8,Math.max(2.5,camera.position.z+e.deltaY*0.007));
+          },{passive:true});
+
+          /* Render loop */
+          const meshes=pivot.children.filter(c=>c.isMesh&&!c.isPoints&&c.geometry.type==='PlaneGeometry'||false);
+          const allCards=[...pivot.children].filter(c=>c.type==='Mesh'&&c.geometry&&c.geometry.type==='PlaneGeometry');
+
+          function animate(){
+            requestAnimationFrame(animate);
+            if(!dragging){ vx*=0.93; vy*=0.93; pivot.rotation.x+=vx; pivot.rotation.y+=vy; }
+            if(autoRot){ pivot.rotation.y+=0.003; pivot.rotation.x+=0.0005; }
+            ring1.rotation.z+=0.003;
+            ring2.rotation.z-=0.002;
+            ring3.rotation.z+=0.0015;
+
+            allCards.forEach(mesh=>{
+              const wp=new THREE.Vector3();
+              mesh.getWorldPosition(wp);
+              const dot=wp.clone().normalize().dot(camera.position.clone().normalize());
+              const target=THREE.MathUtils.clamp((dot-0.1)*2.5,0,1);
+              mesh.material.opacity+=(target-mesh.material.opacity)*0.1;
+              mesh.scale.setScalar(0.8+0.2*Math.max(0,dot));
+            });
+
+            renderer.render(scene,camera);
+          }
+          animate();
+
+          window.addEventListener('resize',()=>{
+            const nW=wrap.clientWidth, nH=wrap.clientHeight;
+            camera.aspect=nW/nH; camera.updateProjectionMatrix();
+            renderer.setSize(nW,nH);
+          });
+        }
+
+        if(typeof THREE!=='undefined'){ initSphere(); }
+        else {
+          const s=document.createElement('script');
+          s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+          s.onload=initSphere;
+          document.head.appendChild(s);
+        }
+      })();
+      </script>
     </section>
 
     <!-- Talent / Hosts -->
