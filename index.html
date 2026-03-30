@@ -336,9 +336,9 @@
         .showcase-mosaic .sm-item:hover img{transform:scale(1.04)}
         .showcase-mosaic .sm-item .sm-badge{position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,0.6);backdrop-filter:blur(6px);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px}
         /* Featured card takes 2 cols */
-        .sm-featured{grid-column:span 2;min-height:280px}
+        .sm-featured{grid-column:span 2;min-height:180px}
         .sm-tall{grid-row:span 2}
-        .sm-normal{min-height:180px}
+        .sm-normal{min-height:120px}
 
         /* Stats row */
         .showcase-stats{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap}
@@ -361,7 +361,7 @@
       <div id="showcase-adidas" class="showcase-panel active">
         <div class="showcase-mosaic">
           <!-- Row 1 -->
-          <div class="sm-item sm-featured" style="min-height:300px">
+          <div class="sm-item sm-featured" style="min-height:180px">
             <img src="/assets/showcase/adidas/studio_main.jpg" alt="Adidas Live Studio — main setup" loading="lazy">
             <span class="sm-badge">📍 Live Studio Setup</span>
           </div>
@@ -408,7 +408,7 @@
       <div id="showcase-popmart" class="showcase-panel">
         <div class="showcase-mosaic">
           <!-- Row 1 -->
-          <div class="sm-item sm-featured" style="min-height:300px">
+          <div class="sm-item sm-featured" style="min-height:180px">
             <img src="/assets/showcase/popmart/live_main.jpg" alt="POP MART TikTok Live" loading="lazy">
             <span class="sm-badge">🔴 LIVE · 133.8K Followers</span>
           </div>
@@ -455,23 +455,56 @@
 
       <style>
         #studio-sphere-wrap{
-          width:100%;height:580px;position:relative;
+          width:100%;height:620px;position:relative;
           background:#060b14;border-radius:20px;overflow:hidden;
-          margin-bottom:0;
         }
-        #studio-sphere-wrap canvas{width:100%;height:100%;display:block}
-        .sphere-hint{
-          position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
-          color:rgba(255,255,255,0.3);font-size:11px;font-weight:600;
-          letter-spacing:2px;pointer-events:none;transition:opacity 1s;
-          white-space:nowrap;
-        }
-        .sphere-ring-badge{
-          position:absolute;top:20px;right:20px;
-          background:rgba(255,255,255,0.08);backdrop-filter:blur(10px);
+        #studio-sphere-wrap canvas{width:100%;height:100%;display:block;cursor:grab}
+        #studio-sphere-wrap canvas:active{cursor:grabbing}
+        .sphere-badge{
+          position:absolute;top:18px;right:18px;
+          background:rgba(255,255,255,0.07);backdrop-filter:blur(12px);
           border:1px solid rgba(255,255,255,0.12);border-radius:10px;
-          padding:8px 14px;color:rgba(255,255,255,0.6);font-size:11px;
-          font-weight:600;letter-spacing:0.5px;pointer-events:none;
+          padding:7px 14px;color:rgba(255,255,255,0.55);font-size:11px;
+          font-weight:600;letter-spacing:0.8px;pointer-events:none;
+        }
+        .sphere-hint-txt{
+          position:absolute;bottom:18px;left:50%;transform:translateX(-50%);
+          color:rgba(255,255,255,0.28);font-size:11px;font-weight:600;
+          letter-spacing:2px;pointer-events:none;transition:opacity .8s;white-space:nowrap;
+        }
+        /* Lightbox */
+        #sphere-lightbox{
+          display:none;position:fixed;inset:0;z-index:9999;
+          background:rgba(0,0,0,0.92);backdrop-filter:blur(18px);
+          align-items:center;justify-content:center;flex-direction:column;
+          cursor:zoom-out;
+        }
+        #sphere-lightbox.open{display:flex}
+        #sphere-lightbox img{
+          max-width:90vw;max-height:85vh;object-fit:contain;
+          border-radius:12px;box-shadow:0 32px 80px rgba(0,0,0,0.6);
+          transform:scale(0.92);opacity:0;
+          transition:transform .3s cubic-bezier(.34,1.56,.64,1), opacity .25s;
+        }
+        #sphere-lightbox.open img{transform:scale(1);opacity:1}
+        #lb-close{
+          position:fixed;top:22px;right:28px;color:#fff;font-size:28px;
+          cursor:pointer;line-height:1;opacity:0.7;z-index:10000;
+          background:none;border:none;padding:0;
+        }
+        #lb-nav-prev,#lb-nav-next{
+          position:fixed;top:50%;transform:translateY(-50%);
+          background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
+          color:#fff;font-size:22px;width:48px;height:48px;border-radius:50%;
+          cursor:pointer;display:flex;align-items:center;justify-content:center;
+          z-index:10000;transition:background .2s;
+        }
+        #lb-nav-prev:hover,#lb-nav-next:hover{background:rgba(255,255,255,0.22)}
+        #lb-nav-prev{left:20px}
+        #lb-nav-next{right:20px}
+        #lb-counter{
+          color:rgba(255,255,255,0.4);font-size:12px;margin-top:16px;
+          letter-spacing:1px;font-weight:600;
         }
         .studio-visit-bar{
           display:flex;align-items:center;justify-content:center;gap:12px;
@@ -480,10 +513,19 @@
         }
       </style>
 
+      <!-- Lightbox overlay -->
+      <div id="sphere-lightbox">
+        <button id="lb-close" onclick="closeLightbox()">&#215;</button>
+        <button id="lb-nav-prev" onclick="lbNav(-1)">&#8249;</button>
+        <img id="lb-img" src="" alt="">
+        <button id="lb-nav-next" onclick="lbNav(1)">&#8250;</button>
+        <div id="lb-counter"></div>
+      </div>
+
       <div id="studio-sphere-wrap">
         <canvas id="studio-sphere-canvas"></canvas>
-        <div class="sphere-ring-badge">DRAG · ROTATE · ZOOM</div>
-        <div class="sphere-hint" id="sphere-hint">drag to explore</div>
+        <div class="sphere-badge">DRAG · ROTATE · SCROLL TO ZOOM</div>
+        <div class="sphere-hint-txt" id="sphere-hint">click a photo to enlarge</div>
       </div>
 
       <div class="studio-visit-bar">
@@ -506,125 +548,216 @@
           '/assets/showcase/adidas/live_17k.jpg',
           '/assets/showcase/adidas/event_stage.jpg',
           '/assets/showcase/adidas/live_female_6k.jpg',
+          '/assets/showcase/adidas/live_lunar.jpg',
+          '/assets/showcase/adidas/kol_ratu.jpg',
+          '/assets/showcase/adidas/live_33.jpg',
+          '/assets/showcase/adidas/studio_prep.jpg',
+          '/assets/showcase/adidas/live_female_6k_2.jpg',
+          '/assets/showcase/popmart/live_main.jpg',
+          '/assets/showcase/popmart/live_crybaby.jpg',
+          '/assets/showcase/popmart/live_buying.jpg',
+          '/assets/showcase/popmart/product_twinkle.jpg',
+          '/assets/showcase/popmart/live_closeup.jpg',
         ];
 
+        /* ── Lightbox ── */
+        let lbIndex = 0;
+        window.openLightbox = function(i){
+          lbIndex = i;
+          const lb = document.getElementById('sphere-lightbox');
+          const img = document.getElementById('lb-img');
+          lb.classList.remove('open');
+          img.src = PHOTOS[i];
+          document.getElementById('lb-counter').textContent = (i+1) + ' / ' + PHOTOS.length;
+          requestAnimationFrame(()=>{ lb.classList.add('open'); });
+          lb.onclick = function(e){ if(e.target===lb) closeLightbox(); };
+        };
+        window.closeLightbox = function(){
+          document.getElementById('sphere-lightbox').classList.remove('open');
+        };
+        window.lbNav = function(dir){
+          event.stopPropagation();
+          lbIndex = (lbIndex + dir + PHOTOS.length) % PHOTOS.length;
+          const img = document.getElementById('lb-img');
+          img.style.opacity = '0';
+          setTimeout(()=>{
+            img.src = PHOTOS[lbIndex];
+            document.getElementById('lb-counter').textContent = (lbIndex+1) + ' / ' + PHOTOS.length;
+            img.style.opacity = '';
+          }, 150);
+        };
+        document.addEventListener('keydown', e=>{
+          const lb = document.getElementById('sphere-lightbox');
+          if(!lb.classList.contains('open')) return;
+          if(e.key==='Escape') closeLightbox();
+          if(e.key==='ArrowLeft') lbNav(-1);
+          if(e.key==='ArrowRight') lbNav(1);
+        });
+
+        /* ── Three.js Sphere ── */
         function initSphere(){
-          if(typeof THREE === 'undefined'){
-            setTimeout(initSphere, 100); return;
-          }
-          const wrap = document.getElementById('studio-sphere-wrap');
+          if(typeof THREE==='undefined'){ setTimeout(initSphere,100); return; }
+
+          const wrap   = document.getElementById('studio-sphere-wrap');
           const canvas = document.getElementById('studio-sphere-canvas');
           const W = wrap.clientWidth, H = wrap.clientHeight;
 
-          const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
+          const renderer = new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
           renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
           renderer.setSize(W,H);
           renderer.setClearColor(0x000000,0);
 
-          const scene = new THREE.Scene();
-          const camera = new THREE.PerspectiveCamera(52, W/H, 0.1, 100);
-          camera.position.z = 4.8;
+          const scene  = new THREE.Scene();
+          const camera = new THREE.PerspectiveCamera(52,W/H,0.1,100);
+          camera.position.z = 4.6;
 
-          const pivot = new THREE.Group();
+          const pivot  = new THREE.Group();
           scene.add(pivot);
 
-          const loader = new THREE.TextureLoader();
-          const R = 2.0, N = PHOTOS.length;
+          const loader  = new THREE.TextureLoader();
+          const R = 2.1, N = PHOTOS.length;
+          const raycaster = new THREE.Raycaster();
+          const mouse     = new THREE.Vector2();
+          const cardMeshes = [];
 
-          PHOTOS.forEach((url, i) => {
-            const phi   = Math.acos(-1 + (2*i+1)/N);
+          PHOTOS.forEach((url,i)=>{
+            const phi   = Math.acos(-1+(2*i+1)/N);
             const theta = Math.sqrt(N*Math.PI)*phi;
             const x = R*Math.sin(phi)*Math.cos(theta);
             const y = R*Math.sin(phi)*Math.sin(theta);
             const z = R*Math.cos(phi);
 
             const mat = new THREE.MeshBasicMaterial({
-              transparent:true, opacity:0, depthWrite:false, side:THREE.DoubleSide
+              transparent:true,opacity:0,depthWrite:false,side:THREE.DoubleSide
             });
-            const mesh = new THREE.Mesh(new THREE.PlaneGeometry(0.75,0.52), mat);
+            const mesh = new THREE.Mesh(new THREE.PlaneGeometry(0.78,0.54),mat);
             mesh.position.set(x,y,z);
             mesh.lookAt(0,0,0);
             mesh.rotateY(Math.PI);
+            mesh.userData.photoIndex = i;
             pivot.add(mesh);
+            cardMeshes.push(mesh);
 
-            loader.load(url, tex => {
-              mat.map = tex; mat.needsUpdate = true;
+            loader.load(url, tex=>{
+              mat.map=tex; mat.needsUpdate=true;
               let op=0;
               const t=setInterval(()=>{ op+=0.05; mat.opacity=Math.min(op,1); if(op>=1)clearInterval(t); },16);
             }, undefined, ()=>{
-              mat.color=new THREE.Color(0x1a2a3a); mat.opacity=0.5;
+              mat.color=new THREE.Color(0x1a2a3a); mat.opacity=0.45;
             });
           });
 
-          /* Decorative particles */
-          const pGeo = new THREE.BufferGeometry();
-          const pPos = new Float32Array(320*3);
-          for(let i=0;i<320;i++){
-            const t2=Math.random()*Math.PI*2, p2=Math.acos(2*Math.random()-1), r=2.55+Math.random()*0.7;
+          /* Particles */
+          const pGeo=new THREE.BufferGeometry();
+          const pPos=new Float32Array(400*3);
+          for(let i=0;i<400;i++){
+            const t2=Math.random()*Math.PI*2, p2=Math.acos(2*Math.random()-1), r=2.6+Math.random()*0.8;
             pPos[i*3]=r*Math.sin(p2)*Math.cos(t2);
             pPos[i*3+1]=r*Math.sin(p2)*Math.sin(t2);
             pPos[i*3+2]=r*Math.cos(p2);
           }
           pGeo.setAttribute('position',new THREE.BufferAttribute(pPos,3));
           pivot.add(new THREE.Points(pGeo,
-            new THREE.PointsMaterial({color:0x4466ff,size:0.022,transparent:true,opacity:0.5})));
+            new THREE.PointsMaterial({color:0x4466ff,size:0.02,transparent:true,opacity:0.45})));
 
           /* Rings */
-          const addRing=(r,color,rx,ry,rz)=>{
+          const mkRing=(r,col,rx,ry,rz)=>{
             const m=new THREE.Mesh(
-              new THREE.TorusGeometry(r,0.006,2,200),
-              new THREE.MeshBasicMaterial({color,transparent:true,opacity:0.28})
+              new THREE.TorusGeometry(r,0.005,2,220),
+              new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:0.25})
             );
             m.rotation.set(rx,ry,rz); pivot.add(m); return m;
           };
-          const ring1=addRing(2.44,0xdd2a7b, Math.PI/3,0,0);
-          const ring2=addRing(2.54,0x405DE6,-Math.PI/5,Math.PI/4,0);
-          const ring3=addRing(2.49,0xf58529, Math.PI/6,Math.PI/3,0);
+          const ring1=mkRing(2.46,0xdd2a7b, Math.PI/3,0,0);
+          const ring2=mkRing(2.56,0x405DE6,-Math.PI/5,Math.PI/4,0);
+          const ring3=mkRing(2.51,0xf58529, Math.PI/6,Math.PI/3,0);
 
-          /* Drag */
-          let dragging=false, px=0, py=0, vx=0, vy=0, autoRot=true;
+          /* Drag + click */
+          let dragging=false,moved=false,px=0,py=0,vx=0,vy=0,autoRot=true;
           const hint=document.getElementById('sphere-hint');
 
-          const startDrag=(cx,cy)=>{ dragging=true; autoRot=false; px=cx; py=cy; vx=vy=0; hint.style.opacity='0'; };
-          const moveDrag=(cx,cy)=>{
-            if(!dragging)return;
+          const getXY=e=>e.touches?[e.touches[0].clientX,e.touches[0].clientY]:[e.clientX,e.clientY];
+
+          canvas.addEventListener('mousedown',e=>{
+            const [cx,cy]=getXY(e);
+            dragging=true; moved=false; autoRot=false;
+            px=cx; py=cy; vx=vy=0;
+            hint.style.opacity='0';
+          });
+          canvas.addEventListener('touchstart',e=>{
+            const [cx,cy]=getXY(e);
+            dragging=true; moved=false; autoRot=false;
+            px=cx; py=cy; vx=vy=0;
+          },{passive:true});
+
+          const onMove=(cx,cy)=>{
+            if(!dragging) return;
             const dx=cx-px, dy=cy-py;
+            if(Math.abs(dx)>2||Math.abs(dy)>2) moved=true;
             vy=dx*0.006; vx=dy*0.006;
             pivot.rotation.x+=vx; pivot.rotation.y+=vy;
             px=cx; py=cy;
           };
-          const endDrag=()=>{ dragging=false; setTimeout(()=>autoRot=true,2500); };
-
-          canvas.addEventListener('mousedown',e=>startDrag(e.clientX,e.clientY));
-          canvas.addEventListener('mousemove',e=>moveDrag(e.clientX,e.clientY));
-          canvas.addEventListener('mouseup',endDrag);
-          canvas.addEventListener('mouseleave',endDrag);
-          canvas.addEventListener('touchstart',e=>startDrag(e.touches[0].clientX,e.touches[0].clientY),{passive:true});
-          canvas.addEventListener('touchmove',e=>moveDrag(e.touches[0].clientX,e.touches[0].clientY),{passive:true});
-          canvas.addEventListener('touchend',endDrag);
-          canvas.addEventListener('wheel',e=>{
-            camera.position.z=Math.min(8,Math.max(2.5,camera.position.z+e.deltaY*0.007));
+          canvas.addEventListener('mousemove',e=>onMove(e.clientX,e.clientY));
+          canvas.addEventListener('touchmove',e=>{
+            const [cx,cy]=getXY(e); onMove(cx,cy);
           },{passive:true});
 
-          /* Render loop */
-          const meshes=pivot.children.filter(c=>c.isMesh&&!c.isPoints&&c.geometry.type==='PlaneGeometry'||false);
-          const allCards=[...pivot.children].filter(c=>c.type==='Mesh'&&c.geometry&&c.geometry.type==='PlaneGeometry');
+          const onUp=e=>{
+            if(!moved){
+              /* Click — raycast */
+              const rect=canvas.getBoundingClientRect();
+              const [cx,cy]=getXY(e);
+              mouse.x=((cx-rect.left)/rect.width)*2-1;
+              mouse.y=-((cy-rect.top)/rect.height)*2+1;
+              raycaster.setFromCamera(mouse,camera);
+              const hits=raycaster.intersectObjects(cardMeshes);
+              if(hits.length){
+                const best=hits.reduce((a,b)=>a.object.material.opacity>b.object.material.opacity?a:b);
+                if(best.object.material.opacity>0.5){
+                  openLightbox(best.object.userData.photoIndex);
+                }
+              }
+            }
+            dragging=false;
+            setTimeout(()=>autoRot=true,2800);
+          };
+          canvas.addEventListener('mouseup',onUp);
+          canvas.addEventListener('touchend',onUp);
+          canvas.addEventListener('mouseleave',()=>{ dragging=false; setTimeout(()=>autoRot=true,2800); });
 
+          canvas.addEventListener('wheel',e=>{
+            camera.position.z=Math.min(8,Math.max(2.4,camera.position.z+e.deltaY*0.007));
+          },{passive:true});
+
+          /* Hover cursor */
+          canvas.addEventListener('mousemove',e=>{
+            const rect=canvas.getBoundingClientRect();
+            mouse.x=((e.clientX-rect.left)/rect.width)*2-1;
+            mouse.y=-((e.clientY-rect.top)/rect.height)*2+1;
+            raycaster.setFromCamera(mouse,camera);
+            const hits=raycaster.intersectObjects(cardMeshes);
+            canvas.style.cursor=hits.length&&hits[0].object.material.opacity>0.5?'pointer':'grab';
+          });
+
+          /* Animate */
           function animate(){
             requestAnimationFrame(animate);
             if(!dragging){ vx*=0.93; vy*=0.93; pivot.rotation.x+=vx; pivot.rotation.y+=vy; }
-            if(autoRot){ pivot.rotation.y+=0.003; pivot.rotation.x+=0.0005; }
-            ring1.rotation.z+=0.003;
+            if(autoRot){ pivot.rotation.y+=0.0025; pivot.rotation.x+=0.0004; }
+            ring1.rotation.z+=0.0028;
             ring2.rotation.z-=0.002;
-            ring3.rotation.z+=0.0015;
+            ring3.rotation.z+=0.0016;
 
-            allCards.forEach(mesh=>{
+            cardMeshes.forEach(mesh=>{
               const wp=new THREE.Vector3();
               mesh.getWorldPosition(wp);
               const dot=wp.clone().normalize().dot(camera.position.clone().normalize());
-              const target=THREE.MathUtils.clamp((dot-0.1)*2.5,0,1);
-              mesh.material.opacity+=(target-mesh.material.opacity)*0.1;
-              mesh.scale.setScalar(0.8+0.2*Math.max(0,dot));
+              const targetOp=THREE.MathUtils.clamp((dot-0.08)*2.8,0,1);
+              mesh.material.opacity+=(targetOp-mesh.material.opacity)*0.1;
+              /* Scale: front cards grow bigger */
+              const s=0.75+0.38*Math.max(0,dot);
+              mesh.scale.setScalar(s);
             });
 
             renderer.render(scene,camera);
@@ -632,14 +765,14 @@
           animate();
 
           window.addEventListener('resize',()=>{
-            const nW=wrap.clientWidth, nH=wrap.clientHeight;
+            const nW=wrap.clientWidth,nH=wrap.clientHeight;
             camera.aspect=nW/nH; camera.updateProjectionMatrix();
             renderer.setSize(nW,nH);
           });
         }
 
-        if(typeof THREE!=='undefined'){ initSphere(); }
-        else {
+        if(typeof THREE!=='undefined') initSphere();
+        else{
           const s=document.createElement('script');
           s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
           s.onload=initSphere;
