@@ -379,7 +379,6 @@
       <h2>Our Showcase</h2>
 
       <style>
-        /* ── Tab buttons ── */
         .sc-tabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
         .sc-tab{padding:8px 20px;border-radius:24px;border:1.5px solid #e5e7eb;background:#fff;font-size:13px;font-weight:700;color:#6b7280;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:7px}
         .sc-tab img{height:18px;width:auto;object-fit:contain}
@@ -387,39 +386,61 @@
         .sc-panel{display:none}
         .sc-panel.active{display:block}
 
-        /* ── Masonry columns ── */
-        .sc-masonry{
-          columns:3;column-gap:10px;
+        /* Highlight reel */
+        .hr-wrap{display:flex;flex-direction:column;gap:8px}
+        .hr-row{display:flex;gap:8px;height:130px}
+
+        /* stat block */
+        .hr-stat{
+          width:130px;flex-shrink:0;border-radius:14px;
+          background:#0b1120;
+          display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+          padding:12px;
         }
-        .sc-item{
-          break-inside:avoid;
-          margin-bottom:10px;
-          border-radius:12px;overflow:hidden;
-          position:relative;cursor:pointer;
-          display:block;
-          background:#f3f4f6;
+        .hr-stat .hs-val{
+          font-size:22px;font-weight:900;line-height:1;
+          background:linear-gradient(135deg,#f58529,#dd2a7b);
+          -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
         }
-        .sc-item img{
-          width:100%;display:block;
-          transition:transform .35s;
+        .hr-stat .hs-lbl{font-size:10px;color:#8899aa;font-weight:600;text-align:center;line-height:1.3}
+
+        /* photo strip */
+        .hr-photos{display:flex;gap:8px;flex:1;overflow:hidden}
+        .hr-photo{
+          flex:1;border-radius:14px;overflow:hidden;position:relative;
+          background:#f3f4f6;cursor:pointer;
         }
-        .sc-item:hover img{transform:scale(1.04)}
-        .sc-item .sc-badge{
-          position:absolute;bottom:8px;left:8px;
-          background:rgba(0,0,0,0.55);backdrop-filter:blur(6px);
-          color:#fff;font-size:10px;font-weight:700;
-          padding:3px 9px;border-radius:20px;
-          pointer-events:none;
+        .hr-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+        .hr-photo:hover img{transform:scale(1.06)}
+        .hr-photo .hp-badge{
+          position:absolute;bottom:7px;left:8px;
+          background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);
+          color:#fff;font-size:9px;font-weight:700;
+          padding:2px 8px;border-radius:20px;pointer-events:none;
+          white-space:nowrap;
         }
 
-        /* ── Stats row ── */
-        .sc-stats{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
-        .sc-stat{flex:1;min-width:100px;background:#fff;border:1px solid #f0f0f0;border-radius:12px;padding:14px 16px;text-align:center}
-        .sc-stat .sv{font-size:20px;font-weight:900;background:linear-gradient(135deg,#f58529,#dd2a7b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-        .sc-stat .sl{font-size:10px;color:#6b7280;margin-top:3px;font-weight:600}
-
-        @media(max-width:640px){.sc-masonry{columns:2}}
+        /* lightbox */
+        #sc-lightbox{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.94);backdrop-filter:blur(20px);align-items:center;justify-content:center;flex-direction:column}
+        #sc-lightbox.open{display:flex}
+        #sc-lightbox img{max-width:92vw;max-height:86vh;object-fit:contain;border-radius:12px;transform:scale(0.9);opacity:0;transition:transform .3s cubic-bezier(.34,1.56,.64,1),opacity .22s}
+        #sc-lightbox.open img{transform:scale(1);opacity:1}
+        #sclb-close{position:fixed;top:20px;right:26px;color:#fff;font-size:30px;cursor:pointer;background:none;border:none;opacity:0.6;z-index:10000}
+        #sclb-close:hover{opacity:1}
+        #sclb-prev,#sclb-next{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:#fff;font-size:24px;width:50px;height:50px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10000;transition:background .2s}
+        #sclb-prev:hover,#sclb-next:hover{background:rgba(255,255,255,0.2)}
+        #sclb-prev{left:18px}#sclb-next{right:18px}
+        #sclb-counter{color:rgba(255,255,255,0.38);font-size:12px;margin-top:14px;letter-spacing:1px;font-weight:600}
       </style>
+
+      <!-- Lightbox -->
+      <div id="sc-lightbox">
+        <button id="sclb-close" onclick="sclbClose()">&#215;</button>
+        <button id="sclb-prev" onclick="sclbNav(-1)">&#8249;</button>
+        <img id="sclb-img" src="" alt="">
+        <button id="sclb-next" onclick="sclbNav(1)">&#8250;</button>
+        <div id="sclb-counter"></div>
+      </div>
 
       <div class="sc-tabs">
         <button class="sc-tab active" onclick="switchSC('adidas',this)">
@@ -432,49 +453,122 @@
 
       <!-- Adidas -->
       <div id="sc-adidas" class="sc-panel active">
-        <div class="sc-masonry">
-          <div class="sc-item"><img src="/assets/showcase/adidas/live_17k.jpg" alt=""><span class="sc-badge">🔥 17.1K Viewers</span></div>
-          <div class="sc-item"><img src="/assets/showcase/adidas/studio_main.jpg" alt=""><span class="sc-badge">📍 Live Studio</span></div>
-          <div class="sc-item"><img src="/assets/showcase/adidas/live_female_6k.jpg" alt=""><span class="sc-badge">👥 6.5K Viewers</span></div>
-          <div class="sc-item"><img src="/assets/showcase/adidas/event_stage.jpg" alt=""><span class="sc-badge">🎪 TikTok Shop Event</span></div>
-          <div class="sc-item"><img src="/assets/showcase/adidas/live_lunar.jpg" alt=""><span class="sc-badge">🎊 Lunar New Year</span></div>
-          <div class="sc-item"><img src="/assets/showcase/adidas/studio_prep.jpg" alt=""><span class="sc-badge">🎬 Behind the Scenes</span></div>
-          <div class="sc-item"><img src="/assets/showcase/adidas/kol_ratu.jpg" alt=""><span class="sc-badge">⭐ KOL · 59K Followers</span></div>
-          <div class="sc-item"><img src="/assets/showcase/adidas/live_33.jpg" alt=""><span class="sc-badge">🛍️ 3.3 Game On</span></div>
-          <div class="sc-item"><img src="/assets/showcase/adidas/live_female_6k_2.jpg" alt=""><span class="sc-badge">📡 Fashion Playground</span></div>
-        </div>
-        <div class="sc-stats">
-          <div class="sc-stat"><div class="sv">17.1K</div><div class="sl">Peak Live Viewers</div></div>
-          <div class="sc-stat"><div class="sv">656K+</div><div class="sl">Store Followers</div></div>
-          <div class="sc-stat"><div class="sv">212K</div><div class="sl">Total Sold</div></div>
-          <div class="sc-stat"><div class="sv">2y+</div><div class="sl">Partnership</div></div>
+        <div class="hr-wrap">
+          <div class="hr-row">
+            <div class="hr-stat"><div class="hs-val">17.1K</div><div class="hs-lbl">Peak Live Viewers</div></div>
+            <div class="hr-photos">
+              <div class="hr-photo" onclick="sclbOpen('adidas',0)"><img src="/assets/showcase/adidas/live_17k.jpg" alt=""><span class="hp-badge">🔥 17.1K Viewers</span></div>
+              <div class="hr-photo" onclick="sclbOpen('adidas',1)"><img src="/assets/showcase/adidas/live_female_6k.jpg" alt=""><span class="hp-badge">👥 6.5K Viewers</span></div>
+              <div class="hr-photo" onclick="sclbOpen('adidas',2)"><img src="/assets/showcase/adidas/live_lunar.jpg" alt=""><span class="hp-badge">🎊 Lunar New Year</span></div>
+              <div class="hr-photo" onclick="sclbOpen('adidas',3)"><img src="/assets/showcase/adidas/live_33.jpg" alt=""><span class="hp-badge">🛍️ 3.3 Game On</span></div>
+            </div>
+          </div>
+          <div class="hr-row">
+            <div class="hr-stat"><div class="hs-val">656K+</div><div class="hs-lbl">Store Followers</div></div>
+            <div class="hr-photos">
+              <div class="hr-photo" onclick="sclbOpen('adidas',4)"><img src="/assets/showcase/adidas/studio_main.jpg" alt=""><span class="hp-badge">📍 Live Studio</span></div>
+              <div class="hr-photo" onclick="sclbOpen('adidas',5)"><img src="/assets/showcase/adidas/event_stage.jpg" alt=""><span class="hp-badge">🎪 TikTok Shop Event</span></div>
+              <div class="hr-photo" onclick="sclbOpen('adidas',6)"><img src="/assets/showcase/adidas/studio_prep.jpg" alt=""><span class="hp-badge">🎬 Behind the Scenes</span></div>
+              <div class="hr-photo" onclick="sclbOpen('adidas',7)"><img src="/assets/showcase/adidas/kol_ratu.jpg" alt=""><span class="hp-badge">⭐ KOL · 59K</span></div>
+            </div>
+          </div>
+          <div class="hr-row">
+            <div class="hr-stat"><div class="hs-val">212K</div><div class="hs-lbl">Products Sold</div></div>
+            <div class="hr-photos">
+              <div class="hr-photo" onclick="sclbOpen('adidas',8)"><img src="/assets/showcase/adidas/live_female_6k_2.jpg" alt=""><span class="hp-badge">📡 Fashion Playground</span></div>
+              <div class="hr-photo" onclick="sclbOpen('adidas',9)"><img src="/assets/showcase/adidas/live_lunar.jpg" alt=""><span class="hp-badge">🎁 Campaign</span></div>
+              <div class="hr-photo" onclick="sclbOpen('adidas',10)"><img src="/assets/showcase/adidas/studio_main.jpg" alt=""><span class="hp-badge">🏪 Store Ops</span></div>
+              <div class="hr-photo" onclick="sclbOpen('adidas',11)"><img src="/assets/showcase/adidas/live_17k.jpg" alt=""><span class="hp-badge">📈 Peak Season</span></div>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- POP MART -->
       <div id="sc-popmart" class="sc-panel">
-        <div class="sc-masonry">
-          <div class="sc-item"><img src="/assets/showcase/popmart/live_main.jpg" alt=""><span class="sc-badge">🔴 133.8K Followers</span></div>
-          <div class="sc-item"><img src="/assets/showcase/popmart/live_crybaby.jpg" alt=""><span class="sc-badge">🎭 CryBaby Coconut</span></div>
-          <div class="sc-item"><img src="/assets/showcase/popmart/product_twinkle.jpg" alt=""><span class="sc-badge">✨ Twinkle Twinkle</span></div>
-          <div class="sc-item"><img src="/assets/showcase/popmart/live_buying.jpg" alt=""><span class="sc-badge">🛒 112 Buyers Live</span></div>
-          <div class="sc-item"><img src="/assets/showcase/popmart/live_closeup.jpg" alt=""><span class="sc-badge">📦 Blind Box Drop</span></div>
-        </div>
-        <div class="sc-stats">
-          <div class="sc-stat"><div class="sv">133.8K</div><div class="sl">Store Followers</div></div>
-          <div class="sc-stat"><div class="sv">612</div><div class="sl">Peak Live Viewers</div></div>
-          <div class="sc-stat"><div class="sv">112</div><div class="sl">Concurrent Buyers</div></div>
-          <div class="sc-stat"><div class="sv">1y+</div><div class="sl">Partnership</div></div>
+        <div class="hr-wrap">
+          <div class="hr-row">
+            <div class="hr-stat"><div class="hs-val">133.8K</div><div class="hs-lbl">Store Followers</div></div>
+            <div class="hr-photos">
+              <div class="hr-photo" onclick="sclbOpen('popmart',0)"><img src="/assets/showcase/popmart/live_main.jpg" alt=""><span class="hp-badge">🔴 LIVE · 133.8K</span></div>
+              <div class="hr-photo" onclick="sclbOpen('popmart',1)"><img src="/assets/showcase/popmart/live_crybaby.jpg" alt=""><span class="hp-badge">🎭 CryBaby Coconut</span></div>
+              <div class="hr-photo" onclick="sclbOpen('popmart',2)"><img src="/assets/showcase/popmart/product_twinkle.jpg" alt=""><span class="hp-badge">✨ Twinkle Twinkle</span></div>
+            </div>
+          </div>
+          <div class="hr-row">
+            <div class="hr-stat"><div class="hs-val">112</div><div class="hs-lbl">Concurrent Buyers</div></div>
+            <div class="hr-photos">
+              <div class="hr-photo" onclick="sclbOpen('popmart',3)"><img src="/assets/showcase/popmart/live_buying.jpg" alt=""><span class="hp-badge">🛒 112 Buying Live</span></div>
+              <div class="hr-photo" onclick="sclbOpen('popmart',4)"><img src="/assets/showcase/popmart/live_closeup.jpg" alt=""><span class="hp-badge">📦 Blind Box Drop</span></div>
+              <div class="hr-photo" onclick="sclbOpen('popmart',0)"><img src="/assets/showcase/popmart/live_main.jpg" alt=""><span class="hp-badge">🎯 Live Session</span></div>
+            </div>
+          </div>
         </div>
       </div>
 
       <script>
+        var SC_PHOTOS = {
+          adidas: [
+            '/assets/showcase/adidas/live_17k.jpg',
+            '/assets/showcase/adidas/live_female_6k.jpg',
+            '/assets/showcase/adidas/live_lunar.jpg',
+            '/assets/showcase/adidas/live_33.jpg',
+            '/assets/showcase/adidas/studio_main.jpg',
+            '/assets/showcase/adidas/event_stage.jpg',
+            '/assets/showcase/adidas/studio_prep.jpg',
+            '/assets/showcase/adidas/kol_ratu.jpg',
+            '/assets/showcase/adidas/live_female_6k_2.jpg',
+            '/assets/showcase/adidas/live_lunar.jpg',
+            '/assets/showcase/adidas/studio_main.jpg',
+            '/assets/showcase/adidas/live_17k.jpg',
+          ],
+          popmart: [
+            '/assets/showcase/popmart/live_main.jpg',
+            '/assets/showcase/popmart/live_crybaby.jpg',
+            '/assets/showcase/popmart/product_twinkle.jpg',
+            '/assets/showcase/popmart/live_buying.jpg',
+            '/assets/showcase/popmart/live_closeup.jpg',
+          ]
+        };
+        var sclbBrand = 'adidas', sclbIdx = 0;
+
         function switchSC(brand, btn){
-          document.querySelectorAll('.sc-tab').forEach(t=>t.classList.remove('active'));
-          document.querySelectorAll('.sc-panel').forEach(p=>p.classList.remove('active'));
+          document.querySelectorAll('.sc-tab').forEach(function(t){t.classList.remove('active')});
+          document.querySelectorAll('.sc-panel').forEach(function(p){p.classList.remove('active')});
           btn.classList.add('active');
           document.getElementById('sc-'+brand).classList.add('active');
         }
+        function sclbOpen(brand, i){
+          sclbBrand = brand; sclbIdx = i;
+          var photos = SC_PHOTOS[brand];
+          var lb = document.getElementById('sc-lightbox');
+          var img = document.getElementById('sclb-img');
+          lb.classList.remove('open');
+          img.src = photos[i];
+          document.getElementById('sclb-counter').textContent = (i+1) + ' / ' + photos.length;
+          requestAnimationFrame(function(){ lb.classList.add('open'); });
+          lb.onclick = function(e){ if(e.target===lb) sclbClose(); };
+        }
+        function sclbClose(){ document.getElementById('sc-lightbox').classList.remove('open'); }
+        function sclbNav(dir){
+          event.stopPropagation();
+          var photos = SC_PHOTOS[sclbBrand];
+          sclbIdx = (sclbIdx + dir + photos.length) % photos.length;
+          var img = document.getElementById('sclb-img');
+          img.style.opacity = '0';
+          setTimeout(function(){
+            img.src = photos[sclbIdx];
+            document.getElementById('sclb-counter').textContent = (sclbIdx+1) + ' / ' + photos.length;
+            img.style.opacity = '';
+          }, 150);
+        }
+        document.addEventListener('keydown', function(e){
+          var lb = document.getElementById('sc-lightbox');
+          if(!lb.classList.contains('open')) return;
+          if(e.key==='Escape') sclbClose();
+          if(e.key==='ArrowLeft') sclbNav(-1);
+          if(e.key==='ArrowRight') sclbNav(1);
+        });
       </script>
     </section>
     <!-- Live Studio -->
