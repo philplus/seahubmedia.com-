@@ -1,16 +1,344 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Careers — Seahub Media</title>
-<link rel="stylesheet" href="/styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Careers — Seahub Media</title>
+  <meta name="description" content="Join Seahub Media — We're hiring Live Hosts, Operations and Talent Managers across Indonesia and SEA.">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:#f9fafb;color:#0f1724}
+    .site-header{padding:0;border-bottom:1px solid rgba(0,0,0,0.08);background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);position:sticky;top:0;z-index:100}
+    .header-inner{padding:12px 28px;display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;gap:16px}
+    .brand-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .brand-logo img{height:36px;width:auto;border-radius:6px;object-fit:contain}
+    .brand-logo-text .name{font-size:18px;font-weight:800;color:#0f1724}
+    .brand-logo-text .name span{color:#dd2a7b}
+    .brand-logo-text .tagline{font-size:10px;color:#6b7280;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;margin-top:2px;display:block}
+    .nav a{color:#4b5563;font-size:13px;font-weight:600;text-decoration:none;margin-left:20px}
+    .nav a:hover,.nav a.active{color:#dd2a7b}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+    .page-body{padding:48px 0 80px}
+
+    /* Hero */
+    .careers-hero{background:#0b1120;border-radius:20px;padding:56px 52px;margin-bottom:40px;position:relative;overflow:hidden}
+    .careers-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(221,42,123,0.12) 0%,transparent 70%);pointer-events:none}
+    .careers-hero::after{content:'';position:absolute;bottom:-40px;left:-40px;width:240px;height:240px;background:radial-gradient(circle,rgba(64,93,230,0.1) 0%,transparent 70%);pointer-events:none}
+    .ch-eyebrow{font-size:11px;font-weight:700;color:#dd2a7b;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+    .careers-hero h1{font-size:44px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:16px}
+    .careers-hero h1 span{background:linear-gradient(90deg,#f58529,#dd2a7b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .careers-hero p{font-size:15px;color:#8899aa;line-height:1.7;max-width:580px;margin-bottom:32px}
+    .ch-roles{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px}
+    .ch-role-pill{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:7px 18px;font-size:13px;font-weight:700;color:#fff;display:flex;align-items:center;gap:7px}
+    .ch-cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-primary{background:linear-gradient(135deg,#f58529,#dd2a7b);color:#fff;padding:13px 26px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none;display:inline-block;border:none;cursor:pointer}
+    .btn-outline-w{border:1.5px solid rgba(255,255,255,0.25);color:#fff;padding:13px 26px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none;display:inline-block}
+    .btn-outline-w:hover{border-color:rgba(255,255,255,0.5)}
+
+    /* Section title */
+    .sec-head{margin-bottom:24px}
+    .sec-head h2{font-size:24px;font-weight:900;color:#0f1724;display:inline-block;padding:8px 20px;border-radius:8px;background:linear-gradient(135deg,rgba(245,133,41,0.12),rgba(221,42,123,0.10));border-left:4px solid #dd2a7b;margin-bottom:6px}
+    .sec-head p{font-size:14px;color:#6b7280;padding-left:4px}
+
+    /* Role cards */
+    .roles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px}
+    .role-card{background:#fff;border:1px solid #f0f0f0;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
+    .role-card:hover{box-shadow:0 8px 32px rgba(221,42,123,0.10);transform:translateY(-2px)}
+    .role-card-top{padding:28px 24px 20px;flex:1}
+    .role-icon{font-size:32px;margin-bottom:14px}
+    .role-dept{font-size:10px;font-weight:700;color:#dd2a7b;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+    .role-title{font-size:20px;font-weight:900;color:#0f1724;margin-bottom:12px;line-height:1.2}
+    .role-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+    .role-tag{font-size:11px;background:#f5f5f5;color:#555;border-radius:20px;padding:3px 10px;font-weight:600}
+    .role-desc{font-size:13px;color:#6b7280;line-height:1.65;margin-bottom:16px}
+    .role-reqs{list-style:none;display:flex;flex-direction:column;gap:6px}
+    .role-reqs li{font-size:13px;color:#374151;display:flex;align-items:flex-start;gap:8px}
+    .role-reqs li::before{content:'✓';color:#dd2a7b;font-weight:700;flex-shrink:0;margin-top:1px}
+    .role-card-bottom{padding:20px 24px;border-top:1px solid #f5f5f5;display:flex;gap:10px;flex-wrap:wrap;background:#fafafa}
+    .btn-apply-wa{background:linear-gradient(135deg,#f58529,#dd2a7b);color:#fff;padding:10px 20px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+    .btn-apply-email{border:1.5px solid #e5e7eb;color:#374151;padding:10px 20px;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;background:#fff}
+    .btn-apply-email:hover{border-color:#dd2a7b;color:#dd2a7b}
+
+    /* Process */
+    .process-wrap{background:#fff;border:1px solid #f0f0f0;border-radius:20px;padding:40px;margin-bottom:48px}
+    .process-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-top:32px}
+    .process-steps::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,#f58529,#dd2a7b);z-index:0}
+    .ps{display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1;padding:0 8px}
+    .ps-circle{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#f58529,#dd2a7b);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:12px;box-shadow:0 4px 16px rgba(221,42,123,0.25)}
+    .ps-num{font-size:10px;font-weight:700;color:#dd2a7b;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+    .ps-title{font-size:13px;font-weight:800;color:#0f1724;margin-bottom:4px}
+    .ps-desc{font-size:11px;color:#6b7280;line-height:1.5}
+
+    /* Contact HR */
+    .hr-contact{background:#0b1120;border-radius:20px;padding:44px 48px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:40px}
+    .hr-contact-left h2{font-size:26px;font-weight:900;color:#fff;margin-bottom:10px}
+    .hr-contact-left h2 span{background:linear-gradient(90deg,#f58529,#dd2a7b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hr-contact-left p{font-size:14px;color:#8899aa;line-height:1.65;margin-bottom:0}
+    .hr-contact-right{display:flex;flex-direction:column;gap:14px}
+    .hr-channel{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:16px;text-decoration:none;transition:border-color .2s,background .2s}
+    .hr-channel:hover{border-color:rgba(221,42,123,0.5);background:rgba(221,42,123,0.06)}
+    .hr-channel-icon{font-size:26px;flex-shrink:0}
+    .hr-channel-label{font-size:11px;font-weight:700;color:#8899aa;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+    .hr-channel-val{font-size:15px;font-weight:700;color:#fff}
+    .hr-channel-hint{font-size:11px;color:#8899aa;margin-top:2px}
+
+    /* Culture */
+    .culture-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:48px}
+    .culture-card{background:#fff;border:1px solid #f0f0f0;border-radius:16px;padding:22px 18px}
+    .culture-icon{font-size:26px;margin-bottom:10px}
+    .culture-title{font-size:14px;font-weight:800;color:#0f1724;margin-bottom:6px}
+    .culture-desc{font-size:12px;color:#6b7280;line-height:1.55}
+
+    .site-footer{text-align:center;padding:32px;font-size:13px;color:#9ca3af;border-top:1px solid #f0f0f0;margin-top:48px}
+
+    @media(max-width:900px){.roles-grid,.process-steps{grid-template-columns:1fr}.process-steps::before{display:none}.hr-contact,.culture-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.hr-contact,.culture-grid{grid-template-columns:1fr}.careers-hero{padding:36px 24px}.careers-hero h1{font-size:30px}}
+  </style>
 </head>
 <body>
-<header class="site-header"><div class="wrap header-inner"><img src="/assets/logo.jpg" class="logo" alt="Seahub Media"><nav class="nav"><a href="/">Home</a><a href="/careers">Careers</a></nav></div></header>
-<main class="wrap"><h1>Join Seahub Media</h1><p>We're hiring hosts, production staff, account managers, and creators. Send your CV to <a href="mailto:jobs@seahubmedia.co">jobs@seahubmedia.co</a> or apply via the form (coming soon).</p>
-<section class="section-panel"><h2>Open Roles (placeholder)</h2><ul><li>Live Host — Jakarta</li><li>Production Assistant — Jakarta</li><li>Creator Manager — Remote/SEA</li></ul></section>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand-logo" href="/">
+      <img src="/assets/logo.jpg" alt="Seahub Media logo">
+      <div class="brand-logo-text">
+        <span class="name">Sea<span>Hub</span> Media</span>
+        <span class="tagline">e-Commerce Partner &amp; MCN</span>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/tsp/">TSP</a>
+      <a href="/mcn/">MCN</a>
+      <a href="/careers/" class="active">Careers</a>
+      <a href="/#about">About Us</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap page-body">
+
+  <!-- Hero -->
+  <div class="careers-hero">
+    <div class="ch-eyebrow">We're Hiring · Jakarta, Indonesia · SEA</div>
+    <h1>Build the future of<br><span>live commerce with us</span></h1>
+    <p>Seahub Media is one of Southeast Asia's fastest-growing live commerce companies. We work with top brands like Adidas and POP MART, manage 3,000+ creators, and drive hundreds of millions in GMV. Join a team that's shaping how brands sell online.</p>
+    <div class="ch-roles">
+      <div class="ch-role-pill"><span>🎤</span> Live Host</div>
+      <div class="ch-role-pill"><span>⚙️</span> Operations</div>
+      <div class="ch-role-pill"><span>🌟</span> Talent Manager</div>
+    </div>
+    <div class="ch-cta">
+      <a href="#open-roles" class="btn-primary">See Open Roles →</a>
+      <a href="https://wa.me/6285860439931?text=Hi%2C%20I%27m%20interested%20in%20joining%20Seahub%20Media" target="_blank" rel="noopener" class="btn-outline-w">WhatsApp HR →</a>
+    </div>
+  </div>
+
+  <!-- Culture -->
+  <div class="sec-head">
+    <h2>Why Seahub</h2>
+    <p>What it's like to work here</p>
+  </div>
+  <div class="culture-grid">
+    <div class="culture-card">
+      <div class="culture-icon">🚀</div>
+      <div class="culture-title">Fast-Moving Environment</div>
+      <div class="culture-desc">We move at the speed of live commerce. You'll learn more in 6 months here than most places in 2 years.</div>
+    </div>
+    <div class="culture-card">
+      <div class="culture-icon">🌏</div>
+      <div class="culture-title">Regional Exposure</div>
+      <div class="culture-desc">Work across Indonesia, Malaysia and broader SEA markets. Real exposure to multi-market e-commerce operations.</div>
+    </div>
+    <div class="culture-card">
+      <div class="culture-icon">🏆</div>
+      <div class="culture-title">Work with Top Brands</div>
+      <div class="culture-desc">Manage accounts for brands like Adidas, POP MART, and more. Your work has direct GMV impact from day one.</div>
+    </div>
+    <div class="culture-card">
+      <div class="culture-icon">📈</div>
+      <div class="culture-title">Performance-Driven Growth</div>
+      <div class="culture-desc">We reward results. Strong performers grow fast — promotions, responsibility, and compensation tied to real impact.</div>
+    </div>
+  </div>
+
+  <!-- Open Roles -->
+  <div id="open-roles" class="sec-head">
+    <h2>Open Roles</h2>
+    <p>3 positions currently open — apply directly via WhatsApp or Email</p>
+  </div>
+  <div class="roles-grid">
+
+    <!-- Live Host -->
+    <div class="role-card">
+      <div class="role-card-top">
+        <div class="role-icon">🎤</div>
+        <div class="role-dept">Live Commerce</div>
+        <div class="role-title">Live Host (Host Livestream)</div>
+        <div class="role-tags">
+          <span class="role-tag">Full-time</span>
+          <span class="role-tag">Jakarta</span>
+          <span class="role-tag">Entry – Mid</span>
+        </div>
+        <p class="role-desc">You'll be the face of our brand partners' live sessions — presenting products, engaging audiences, and driving real-time sales across TikTok Shop and Shopee Live.</p>
+        <ul class="role-reqs">
+          <li>Confident on camera, natural communicator</li>
+          <li>Interest in fashion, beauty, FMCG or lifestyle</li>
+          <li>Available for flexible live session schedules</li>
+          <li>TikTok / Shopee live experience is a plus</li>
+          <li>Fluent in Indonesian; English is a bonus</li>
+        </ul>
+      </div>
+      <div class="role-card-bottom">
+        <a class="btn-apply-wa" href="https://wa.me/6285860439931?text=Hi%2C%20I%27d%20like%20to%20apply%20for%20the%20Live%20Host%20position%20at%20Seahub%20Media.%20My%20name%20is%20[Name]%20and%20I%27m%20interested%20because..." target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Apply via WhatsApp
+        </a>
+        <a class="btn-apply-email" href="mailto:seahubmediahr@gmail.com?subject=Application%20—%20Live%20Host&body=Hi%20Seahub%20HR%2C%0A%0AI%27d%20like%20to%20apply%20for%20the%20Live%20Host%20position.%0A%0AName%3A%0AExperience%3A%0AWhy%20I%27m%20a%20fit%3A">
+          ✉ Email
+        </a>
+      </div>
+    </div>
+
+    <!-- Operations -->
+    <div class="role-card">
+      <div class="role-card-top">
+        <div class="role-icon">⚙️</div>
+        <div class="role-dept">Operations</div>
+        <div class="role-title">Live Commerce Operations</div>
+        <div class="role-tags">
+          <span class="role-tag">Full-time</span>
+          <span class="role-tag">Jakarta</span>
+          <span class="role-tag">Mid-level</span>
+        </div>
+        <p class="role-desc">You'll manage the day-to-day operations of live sessions and brand store accounts — coordinating schedules, monitoring performance, and optimizing results in real time.</p>
+        <ul class="role-reqs">
+          <li>Experience in TikTok Shop / Shopee store ops</li>
+          <li>Comfortable with data and performance metrics</li>
+          <li>Strong coordination and multitasking skills</li>
+          <li>Ability to handle multiple brand accounts</li>
+          <li>Familiar with live commerce workflows</li>
+        </ul>
+      </div>
+      <div class="role-card-bottom">
+        <a class="btn-apply-wa" href="https://wa.me/6285860439931?text=Hi%2C%20I%27d%20like%20to%20apply%20for%20the%20Operations%20position%20at%20Seahub%20Media.%20My%20name%20is%20[Name]%20and%20I%27m%20interested%20because..." target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Apply via WhatsApp
+        </a>
+        <a class="btn-apply-email" href="mailto:seahubmediahr@gmail.com?subject=Application%20—%20Operations&body=Hi%20Seahub%20HR%2C%0A%0AI%27d%20like%20to%20apply%20for%20the%20Operations%20position.%0A%0AName%3A%0AExperience%3A%0AWhy%20I%27m%20a%20fit%3A">
+          ✉ Email
+        </a>
+      </div>
+    </div>
+
+    <!-- Talent Manager -->
+    <div class="role-card">
+      <div class="role-card-top">
+        <div class="role-icon">🌟</div>
+        <div class="role-dept">Talent Management</div>
+        <div class="role-title">Talent Manager (Creator Manager)</div>
+        <div class="role-tags">
+          <span class="role-tag">Full-time</span>
+          <span class="role-tag">Jakarta</span>
+          <span class="role-tag">Mid-level</span>
+        </div>
+        <p class="role-desc">You'll manage relationships with our creator roster — scouting new talent, handling briefings, coordinating campaigns, and helping creators grow their performance and income.</p>
+        <ul class="role-reqs">
+          <li>Experience managing KOLs or content creators</li>
+          <li>Strong network in the creator / influencer space</li>
+          <li>Excellent communication and negotiation skills</li>
+          <li>Familiar with TikTok / Shopee affiliate ecosystem</li>
+          <li>Data-driven approach to creator performance</li>
+        </ul>
+      </div>
+      <div class="role-card-bottom">
+        <a class="btn-apply-wa" href="https://wa.me/6285860439931?text=Hi%2C%20I%27d%20like%20to%20apply%20for%20the%20Talent%20Manager%20position%20at%20Seahub%20Media.%20My%20name%20is%20[Name]%20and%20I%27m%20interested%20because..." target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Apply via WhatsApp
+        </a>
+        <a class="btn-apply-email" href="mailto:seahubmediahr@gmail.com?subject=Application%20—%20Talent%20Manager&body=Hi%20Seahub%20HR%2C%0A%0AI%27d%20like%20to%20apply%20for%20the%20Talent%20Manager%20position.%0A%0AName%3A%0AExperience%3A%0AWhy%20I%27m%20a%20fit%3A">
+          ✉ Email
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Application Process -->
+  <div class="sec-head">
+    <h2>How to Apply</h2>
+    <p>Simple 5-step process — from application to your first day</p>
+  </div>
+  <div class="process-wrap">
+    <div class="process-steps">
+      <div class="ps">
+        <div class="ps-circle">📩</div>
+        <div class="ps-num">Step 01</div>
+        <div class="ps-title">Apply</div>
+        <div class="ps-desc">Send your CV via WhatsApp or Email to our HR team</div>
+      </div>
+      <div class="ps">
+        <div class="ps-circle">📞</div>
+        <div class="ps-num">Step 02</div>
+        <div class="ps-title">Screening Call</div>
+        <div class="ps-desc">Quick 15-min call with HR to discuss your background and the role</div>
+      </div>
+      <div class="ps">
+        <div class="ps-circle">🎯</div>
+        <div class="ps-num">Step 03</div>
+        <div class="ps-title">Interview</div>
+        <div class="ps-desc">In-person or video interview with the team lead for your department</div>
+      </div>
+      <div class="ps">
+        <div class="ps-circle">✅</div>
+        <div class="ps-num">Step 04</div>
+        <div class="ps-title">Offer</div>
+        <div class="ps-desc">We'll send an offer within 3 working days of the final interview</div>
+      </div>
+      <div class="ps">
+        <div class="ps-circle">🚀</div>
+        <div class="ps-num">Step 05</div>
+        <div class="ps-title">Onboard</div>
+        <div class="ps-desc">Join the team — orientation, tools access, and first project kickoff</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact HR -->
+  <div class="sec-head">
+    <h2>Contact HR</h2>
+    <p>Reach out directly — we usually respond within 1 business day</p>
+  </div>
+  <div class="hr-contact">
+    <div class="hr-contact-left">
+      <h2>Talk to our <span>HR Team</span></h2>
+      <p>Have questions about a role or the application process? Reach us on WhatsApp for the fastest response, or send a detailed email with your CV attached. We read every message.</p>
+    </div>
+    <div class="hr-contact-right">
+      <a class="hr-channel" href="https://wa.me/6285860439931?text=Hi%20Seahub%20HR%2C%20I%27m%20interested%20in%20applying%20for%20a%20position." target="_blank" rel="noopener">
+        <div class="hr-channel-icon">💬</div>
+        <div>
+          <div class="hr-channel-label">WhatsApp — Fastest Response</div>
+          <div class="hr-channel-val">+62 858 6043 9931</div>
+          <div class="hr-channel-hint">Tap to open WhatsApp chat</div>
+        </div>
+      </a>
+      <a class="hr-channel" href="mailto:seahubmediahr@gmail.com?subject=Career%20Enquiry&body=Hi%20Seahub%20HR%2C%0A%0AI%27m%20interested%20in%20applying%20for%20a%20position.%20Please%20find%20my%20details%20below%3A%0A%0AName%3A%0APosition%20of%20interest%3A%0ALinkedIn%20%2F%20Portfolio%3A%0A%0ABrief%20intro%3A">
+        <div class="hr-channel-icon">✉️</div>
+        <div>
+          <div class="hr-channel-label">Email — Attach your CV</div>
+          <div class="hr-channel-val">seahubmediahr@gmail.com</div>
+          <div class="hr-channel-hint">Tap to compose email</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
 </main>
-<footer class="site-footer"><div class="wrap">© Seahub Media</div></footer>
+
+<footer class="site-footer"><p>© 2025 Seahub Media. All rights reserved.</p></footer>
 </body>
 </html>
