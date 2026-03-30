@@ -212,57 +212,45 @@
     <!-- TSP Services -->
     <section id="services" class="section-panel">
       <h2>TSP Service</h2>
-      <div class="grid">
-        <article>
-          <figure class="service-media">
-            <img src="/assets/site/service_tsp.jpg" alt="TikTok Shop Partner service" loading="lazy">
-          </figure>
-          <h3>TikTok Shop Partner (TSP)</h3>
-          <ul>
-            <li><strong>Shop Onboarding & Setup</strong> — 账户开通、商品上架与首波 SKU 策划。</li>
-            <li><strong>Co‑managed Operations</strong> — 与品牌共同管理日常运营与 SOP。</li>
-            <li><strong>Shop Growth Playbook</strong> — 首播/促销计划与数据复盘建议。</li>
-          </ul>
-        </article>
-        <article>
-          <figure class="service-media">
-            <img src="/assets/site/service_live.jpg" alt="Live Commerce service" loading="lazy">
-          </figure>
-          <h3>Live Commerce</h3>
-          <ul>
-            <li><strong>Full Production Studio</strong> — 专业直播间与全套设备与技术团队。</li>
-            <li><strong>Dedicated Show Team</strong> — 运营负责人、主持、导演、剪辑全程支持。</li>
-            <li><strong>Live Optimization</strong> — 实时转化策略与后续复盘优化。</li>
-          </ul>
-        </article>
-        <article>
-          <figure class="service-media">
-            <img src="/assets/site/service_creators.jpg" alt="Creators & Affiliates service" loading="lazy">
-          </figure>
-          <h3>Creators & Affiliates <span style="font-size:11px;font-weight:600;background:linear-gradient(135deg,#f58529,#dd2a7b);color:#fff;border-radius:20px;padding:2px 10px;vertical-align:middle;margin-left:6px">MCN</span></h3>
-          <p style="font-size:13px;color:#6b7280;line-height:1.6;margin:8px 0 14px">3,000+ curated creators, end-to-end campaign management, and affiliate strategies — all built to drive GMV.</p>
-          <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:16px">
-            <a href="/mcn/services/creator-network/" style="font-size:12px;color:#dd2a7b;text-decoration:none;font-weight:600">→ Creator Network Access</a>
-            <a href="/mcn/services/live-commerce/" style="font-size:12px;color:#dd2a7b;text-decoration:none;font-weight:600">→ Live Commerce Execution</a>
-            <a href="/mcn/services/campaign-management/" style="font-size:12px;color:#dd2a7b;text-decoration:none;font-weight:600">→ Campaign Management</a>
-            <a href="/mcn/services/affiliate/" style="font-size:12px;color:#dd2a7b;text-decoration:none;font-weight:600">→ Affiliate Partner Service</a>
-            <a href="/mcn/services/cross-platform/" style="font-size:12px;color:#dd2a7b;text-decoration:none;font-weight:600">→ Cross-Platform Strategy</a>
-          </div>
-          <p><a class="cta" href="/mcn/">View MCN Overview →</a></p>
-        </article>
-        <article>
-          <figure class="service-media">
-            <img src="/assets/site/service_ads.jpg" alt="Ads & Performance service" loading="lazy">
-          </figure>
-          <h3>Ads & Performance</h3>
-          <ul>
-            <li><strong>Paid Campaigns</strong> — TikTok、Shopee 及 YouTube 多平台广告投放策略与素材测试。</li>
-            <li><strong>Creative & CRO</strong> — 创意生产与转化率优化。</li>
-            <li><strong>Analytics & Reporting</strong> — KPI 仪表盘与运营建议。</li>
-          </ul>
-          <p><a class="cta" href="#contact">Click to get quotation</a></p>
-        </article>
+      <p class="muted" style="margin-bottom:20px">Full-service e-commerce store management — from setup to scale.</p>
+
+      <style>
+        .tsp-svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+        .tsp-svc-card{background:#fff;border:1px solid #f0f0f0;border-radius:16px;padding:22px 18px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;transition:box-shadow .2s,transform .2s;position:relative;overflow:hidden}
+        .tsp-svc-card:hover{box-shadow:0 6px 24px rgba(221,42,123,0.10);transform:translateY(-2px)}
+        .tsp-svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#f58529,#dd2a7b);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+        .tsp-svc-card:hover::after{transform:scaleX(1)}
+        .tsp-svc-icon{font-size:22px}
+        .tsp-svc-title{font-size:13px;font-weight:800;color:#0f1724;line-height:1.3}
+        .tsp-svc-desc{font-size:12px;color:#6b7280;line-height:1.5;flex:1}
+        .tsp-svc-link{font-size:12px;font-weight:700;color:#dd2a7b;margin-top:4px}
+        @media(max-width:640px){.tsp-svc-grid{grid-template-columns:1fr}}
+      </style>
+
+      <div class="tsp-svc-grid">
+        <a class="tsp-svc-card" href="/tsp/services/shop-setup/">
+          <div class="tsp-svc-icon">🏪</div>
+          <div class="tsp-svc-title">Shop Setup & Operations</div>
+          <div class="tsp-svc-desc">Account setup, product listing, co-managed daily operations and growth playbook across TikTok & Shopee.</div>
+          <div class="tsp-svc-link">Learn more →</div>
+        </a>
+        <a class="tsp-svc-card" href="/tsp/services/live-commerce/">
+          <div class="tsp-svc-icon">📡</div>
+          <div class="tsp-svc-title">Live Commerce</div>
+          <div class="tsp-svc-desc">Full production studio, dedicated show team, and real-time optimization — built to convert viewers into buyers.</div>
+          <div class="tsp-svc-link">Learn more →</div>
+        </a>
+        <a class="tsp-svc-card" href="/tsp/services/ads-performance/">
+          <div class="tsp-svc-icon">📊</div>
+          <div class="tsp-svc-title">Ads & Performance</div>
+          <div class="tsp-svc-desc">Multi-platform paid campaigns, creative production and CRO across TikTok, Shopee and YouTube.</div>
+          <div class="tsp-svc-link">Learn more →</div>
+        </a>
       </div>
+
+      <p style="margin-top:18px;text-align:center">
+        <a href="/tsp/" class="cta">View full TSP overview →</a>
+      </p>
     </section>
 
     <!-- MCN Dashboard -->

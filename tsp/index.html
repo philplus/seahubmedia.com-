@@ -3,110 +3,307 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Seahub Media — TSP Services</title>
+  <title>TSP Services — Seahub Media</title>
+  <meta name="description" content="Seahub Media TSP — Full-service e-commerce store management across TikTok Shop, Shopee and YouTube. From setup to scale.">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:#f9fafb;color:#0f1724}
+    .site-header{padding:0;border-bottom:1px solid rgba(0,0,0,0.08);background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);position:sticky;top:0;z-index:100}
+    .header-inner{padding:12px 28px;display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;gap:16px}
+    .brand-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .brand-logo img{height:36px;width:auto;border-radius:6px;object-fit:contain}
+    .brand-logo-text .name{font-size:18px;font-weight:800;color:#0f1724;letter-spacing:-0.3px}
+    .brand-logo-text .name span{color:#dd2a7b}
+    .brand-logo-text .tagline{font-size:10px;color:#6b7280;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;margin-top:2px;display:block}
+    .nav a{color:#4b5563;font-size:13px;font-weight:600;text-decoration:none;margin-left:20px}
+    .nav a:hover,.nav a.active{color:#dd2a7b}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+    .page-body{padding:48px 0 80px}
+
+    /* Hero */
+    .tsp-hero{background:#0b1120;border-radius:20px;padding:56px 52px;display:flex;align-items:center;gap:48px;margin-bottom:40px}
+    .tsp-hero-left{flex:1;min-width:0}
+    .tsp-hero-eyebrow{font-size:11px;font-weight:600;color:#dd2a7b;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+    .tsp-hero h1{font-size:42px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:16px}
+    .tsp-hero h1 span{background:linear-gradient(90deg,#f58529,#dd2a7b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .tsp-hero-desc{font-size:15px;color:#8899aa;line-height:1.7;margin-bottom:28px}
+    .tsp-hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-primary{background:linear-gradient(135deg,#f58529,#dd2a7b);color:#fff;padding:13px 26px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none;display:inline-block;border:none;cursor:pointer}
+    .btn-outline{border:1.5px solid rgba(255,255,255,0.2);color:#fff;padding:13px 26px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none;display:inline-block}
+    .tsp-hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;flex-shrink:0}
+    .hero-stat{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:22px;text-align:center}
+    .hero-stat-val{font-size:28px;font-weight:900}
+    .hero-stat-lbl{font-size:11px;color:#8899aa;margin-top:4px}
+
+    /* Shared */
+    .section-title{font-size:26px;font-weight:900;color:#0f1724;display:inline-block;padding:8px 20px;border-radius:8px;background:linear-gradient(135deg,rgba(245,133,41,0.12),rgba(221,42,123,0.10));border-left:4px solid #dd2a7b;margin-bottom:8px}
+    .section-sub{font-size:14px;color:#6b7280;margin-bottom:28px;padding-left:4px}
+
+    /* Impact */
+    .impact-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:40px}
+    .impact-card{background:#fff;border:1px solid #f0f0f0;border-radius:16px;padding:20px;text-align:center}
+    .impact-val{font-size:26px;font-weight:900;background:linear-gradient(135deg,#f58529,#dd2a7b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .impact-lbl{font-size:11px;color:#6b7280;margin-top:6px;font-weight:600;line-height:1.4}
+
+    /* Why */
+    .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:40px}
+    .why-card{background:#fff;border:1px solid #f0f0f0;border-radius:16px;padding:22px 20px}
+    .why-icon{font-size:24px;margin-bottom:12px}
+    .why-title{font-size:14px;font-weight:800;color:#0f1724;margin-bottom:6px}
+    .why-desc{font-size:13px;color:#6b7280;line-height:1.55}
+
+    /* Services */
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px}
+    .svc-card{background:#fff;border:1px solid #f0f0f0;border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:10px;transition:box-shadow .2s,transform .2s;text-decoration:none;color:inherit;position:relative;overflow:hidden}
+    .svc-card:hover{box-shadow:0 8px 32px rgba(221,42,123,0.10);transform:translateY(-2px)}
+    .svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#f58529,#dd2a7b);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+    .svc-card:hover::after{transform:scaleX(1)}
+    .svc-num{font-size:11px;font-weight:700;color:#dd2a7b;letter-spacing:1.5px;text-transform:uppercase}
+    .svc-title{font-size:17px;font-weight:800;color:#0f1724}
+    .svc-desc{font-size:13px;color:#6b7280;line-height:1.6;flex:1}
+    .svc-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+    .svc-tag{font-size:11px;background:#f5f5f5;color:#555;border-radius:20px;padding:3px 10px;font-weight:600}
+    .svc-arrow{font-size:18px;color:#dd2a7b;margin-top:auto;font-weight:700}
+
+    /* Workflow */
+    .workflow-wrap{background:#0b1120;border-radius:20px;padding:44px 48px;margin-bottom:40px}
+    .workflow-wrap .section-title{color:#fff;background:linear-gradient(135deg,rgba(245,133,41,0.18),rgba(221,42,123,0.15))}
+    .workflow-wrap .section-sub{color:#8899aa}
+    .workflow-steps{display:flex;align-items:flex-start;gap:0}
+    .wf-step{flex:1;text-align:center;position:relative;padding:0 8px}
+    .wf-step:not(:last-child)::after{content:'→';position:absolute;right:-10px;top:18px;color:#dd2a7b;font-size:18px;font-weight:700}
+    .wf-circle{width:56px;height:56px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:20px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12)}
+    .wf-label{font-size:13px;font-weight:700;color:#fff}
+    .wf-sub{font-size:11px;color:#8899aa;margin-top:4px;line-height:1.4}
+
+    /* Platforms */
+    .platform-strip{display:flex;gap:12px;margin-bottom:40px}
+    .platform-pill{flex:1;background:#fff;border:1px solid #f0f0f0;border-radius:14px;padding:16px 20px;display:flex;align-items:center;gap:12px}
+    .platform-pill-icon{font-size:24px}
+    .platform-pill-name{font-size:14px;font-weight:800;color:#0f1724}
+    .platform-pill-desc{font-size:12px;color:#6b7280;margin-top:2px}
+
+    /* CTA */
+    .cta-banner{background:linear-gradient(135deg,#f58529,#dd2a7b);border-radius:20px;padding:48px;text-align:center}
+    .cta-banner h2{font-size:28px;font-weight:900;color:#fff;margin-bottom:10px}
+    .cta-banner p{font-size:15px;color:rgba(255,255,255,0.8);margin-bottom:28px}
+    .btn-white{background:#fff;color:#dd2a7b;padding:14px 32px;border-radius:10px;font-weight:800;font-size:15px;text-decoration:none;display:inline-block;border:none;cursor:pointer}
+
+    .site-footer{text-align:center;padding:32px;font-size:13px;color:#9ca3af;border-top:1px solid #f0f0f0;margin-top:48px}
+
+    /* Quote modal */
+    #quote-modal{display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.55);align-items:center;justify-content:center}
+
+    @media(max-width:900px){.tsp-hero{flex-direction:column;padding:36px 28px}.impact-strip,.why-grid,.services-grid{grid-template-columns:repeat(2,1fr)}.platform-strip{flex-wrap:wrap}.workflow-steps{flex-wrap:wrap;gap:16px}.wf-step::after{display:none}}
+    @media(max-width:540px){.impact-strip,.services-grid,.why-grid{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <img src="/assets/logo.jpg" alt="Seahub Media" class="logo" width="160" height="72">
-      <nav class="nav">
-        <a href="/">Home</a>
-        <a href="/tsp/">TSP</a>
-        <a href="/mcn/">MCN</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <section class="section-panel">
-      <h1>TikTok Shop Partner (TSP)</h1>
-      <p class="muted">End-to-end shop operations, onboarding, livestream support and growth playbooks.</p>
-      <div class="grid">
-        <article>
-          <h3>Our Services</h3>
-          <ul>
-            <li>Shop Onboarding & Setup</li>
-            <li>Co-managed Operations</li>
-            <li>Live Commerce & Production</li>
-            <li>Ads & Performance</li>
-          </ul>
-        </article>
-        <article>
-          <h3>Quick Metrics</h3>
-          <div class="gmv-card"><div class="gmv-label">Total GMV to date</div><div id="tsp-gmv" class="gmv-value">$120,000,000</div></div>
-        </article>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand-logo" href="/">
+      <img src="/assets/logo.jpg" alt="Seahub Media logo">
+      <div class="brand-logo-text">
+        <span class="name">Sea<span>Hub</span> Media</span>
+        <span class="tagline">e-Commerce Partner &amp; MCN</span>
       </div>
-    </section>
+    </a>
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/tsp/" class="active">TSP</a>
+      <a href="/mcn/">MCN</a>
+      <a href="/#talent">Talent Recruitment</a>
+      <a href="/#about">About Us</a>
+    </nav>
+  </div>
+</header>
 
-    <section class="section-panel">
-      <h2>Case Studies</h2>
-      <div id="tsp-cases" class="grid">
-        <!-- populated from static JSON -->
-      </div>
-    </section>
+<main class="wrap page-body">
 
-    <section class="section-panel">
-      <h2>Get a quotation</h2>
-      <p><button class="cta" onclick="openQuoteModal('TSP')">Click to get quotation</button></p>
-    </section>
-
-    <!-- Quote modal -->
-    <div id="quote-modal" class="modal" role="dialog" aria-hidden="true">
-      <div class="box">
-        <button class="close" onclick="closeQuoteModal()">✕</button>
-        <h3>Request a Quotation</h3>
-        <form id="quote-form" onsubmit="submitQuote(event)">
-          <label>Name<br><input name="name" required></label><br>
-          <label>Email<br><input name="email" type="email"></label><br>
-          <label>Brand / Company<br><input name="brand"></label><br>
-          <label>Service<br><input name="service" id="quote-service"></label><br>
-          <label>Message<br><textarea name="message" rows="4"></textarea></label><br>
-          <button type="submit" class="cta">Send via WhatsApp</button>
-        </form>
+  <!-- Hero -->
+  <div class="tsp-hero">
+    <div class="tsp-hero-left">
+      <div class="tsp-hero-eyebrow">TSP · e-Commerce Store Management · SEA</div>
+      <h1>We run your store.<br><span>You focus on growth.</span></h1>
+      <p class="tsp-hero-desc">Full-service e-commerce management across TikTok Shop, Shopee and YouTube — from onboarding and live commerce to paid performance. One team, all platforms.</p>
+      <div class="tsp-hero-cta">
+        <a href="#services" class="btn-primary">Explore Services →</a>
+        <a href="/#contact" class="btn-outline">Talk to Us</a>
       </div>
     </div>
-  </main>
+    <div class="tsp-hero-stats">
+      <div class="hero-stat"><div class="hero-stat-val" style="color:#f58529">$400M+</div><div class="hero-stat-lbl">Total GMV</div></div>
+      <div class="hero-stat"><div class="hero-stat-val" style="color:#dd2a7b">50+</div><div class="hero-stat-lbl">Brand Partners</div></div>
+      <div class="hero-stat"><div class="hero-stat-val" style="color:#962fbf">3</div><div class="hero-stat-lbl">Platforms</div></div>
+      <div class="hero-stat"><div class="hero-stat-val" style="color:#405DE6">5+</div><div class="hero-stat-lbl">Countries</div></div>
+    </div>
+  </div>
 
-  <footer class="site-footer"><div class="wrap">© Seahub Media</div></footer>
-  <script src="/scripts.js" defer></script>
-  <script>
-    // fetch static JSON to populate cases
-    fetch('/site/data/tsp.json').then(r=>r.json()).then(data=>{
-      const wrap=document.getElementById('tsp-cases');
-      if(!wrap) return;
-      data.cases.forEach(c=>{
-        const el=document.createElement('article');
-        el.innerHTML = `<h3>${c.title}</h3><p>${c.summary}</p>`;
-        wrap.appendChild(el);
-      });
-      // init GMV if present (use generic initGMVCounter if available)
-      try{ if(window.initGMVCounter && data.gmvBase) initGMVCounter('tsp-gmv', data.gmvBase); }
-      catch(e){ const gmv = document.getElementById('tsp-gmv'); if(gmv && data.gmvBase) gmv.textContent = '$'+Number(data.gmvBase).toLocaleString(); }
-    }).catch(()=>{});
+  <!-- Impact -->
+  <div class="impact-strip">
+    <div class="impact-card"><div class="impact-val">$400M+</div><div class="impact-lbl">Total GMV</div></div>
+    <div class="impact-card"><div class="impact-val">50+</div><div class="impact-lbl">Brand Partners</div></div>
+    <div class="impact-card"><div class="impact-val">212K+</div><div class="impact-lbl">Products Sold</div></div>
+    <div class="impact-card"><div class="impact-val">656K+</div><div class="impact-lbl">Store Followers</div></div>
+  </div>
 
-    // simple quotation CTA: open WA chat with prefilled text
-    function quoteWhatsApp(service){
-      const text = encodeURIComponent(`Hi Seahub, I want a quotation for ${service}. Name: [your name], Brand: [brand], Brief:`);
-      window.open('https://wa.me/6281288895020?text='+text,'_blank');
-    }
-  </script>
-  <script>
-    // shared modal handlers
-    function openQuoteModal(service){
-      const modal=document.getElementById('quote-modal');
-      document.getElementById('quote-service').value = service;
-      modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
-    }
-    function closeQuoteModal(){const modal=document.getElementById('quote-modal'); modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');}
-    function submitQuote(e){
-      e.preventDefault(); const f=new FormData(e.target||document.getElementById('quote-form'));
-      const name=f.get('name')||''; const email=f.get('email')||''; const brand=f.get('brand')||''; const service=f.get('service')||''; const msg=f.get('message')||'';
-      const text = encodeURIComponent(`Quotation request:\nService: ${service}\nName: ${name}\nEmail: ${email}\nBrand: ${brand}\nMessage: ${msg}`);
-      // open WhatsApp chat
-      window.open('https://wa.me/6281288895020?text='+text,'_blank');
-      closeQuoteModal();
-    }
-  </script>
+  <!-- Platforms -->
+  <div class="section-title">Platforms We Operate On</div>
+  <p class="section-sub">Multi-platform coverage — one integrated strategy</p>
+  <div class="platform-strip">
+    <div class="platform-pill">
+      <div class="platform-pill-icon">🎵</div>
+      <div><div class="platform-pill-name">TikTok Shop</div><div class="platform-pill-desc">Live commerce, shoppable video & affiliate</div></div>
+    </div>
+    <div class="platform-pill">
+      <div class="platform-pill-icon">🛍️</div>
+      <div><div class="platform-pill-name">Shopee</div><div class="platform-pill-desc">Store operations, campaigns & ads</div></div>
+    </div>
+    <div class="platform-pill">
+      <div class="platform-pill-icon">▶️</div>
+      <div><div class="platform-pill-name">YouTube</div><div class="platform-pill-desc">Content, reviews & performance ads</div></div>
+    </div>
+  </div>
+
+  <!-- Why -->
+  <div class="section-title">Why Seahub TSP</div>
+  <p class="section-sub">Four things that make us different</p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🏪</div>
+      <div class="why-title">Full-Store Management</div>
+      <div class="why-desc">We don't just consult — we operate your store day-to-day, handling listings, promotions, live sessions, and customer experience.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📡</div>
+      <div class="why-title">Live Commerce Expertise</div>
+      <div class="why-desc">Professional studio, trained hosts, and scripts built to convert. Daily live sessions with real-time optimization.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎯</div>
+      <div class="why-title">Performance-First Ads</div>
+      <div class="why-desc">Paid campaigns managed for ROAS, not just reach. We test creatives, optimize bids, and report transparently.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🌏</div>
+      <div class="why-title">SEA Market Knowledge</div>
+      <div class="why-desc">Deep understanding of Indonesian, Malaysian, and broader SEA consumer behavior, platform nuances, and seasonal trends.</div>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <div id="services">
+    <div class="section-title">Our Services</div>
+    <p class="section-sub">Three integrated capabilities — click to explore each in detail</p>
+    <div class="services-grid">
+
+      <a class="svc-card" href="/tsp/services/shop-setup/">
+        <div class="svc-num">01</div>
+        <div class="svc-title">Shop Setup & Operations</div>
+        <div class="svc-desc">End-to-end store setup, product listing, co-managed daily operations and a growth playbook tailored to your brand.</div>
+        <div class="svc-tags">
+          <span class="svc-tag">Onboarding</span>
+          <span class="svc-tag">Co-managed</span>
+          <span class="svc-tag">Growth Playbook</span>
+        </div>
+        <div class="svc-arrow">→</div>
+      </a>
+
+      <a class="svc-card" href="/tsp/services/live-commerce/">
+        <div class="svc-num">02</div>
+        <div class="svc-title">Live Commerce</div>
+        <div class="svc-desc">Professional studio, dedicated show team, scripted sessions and real-time optimization — every live is built to sell.</div>
+        <div class="svc-tags">
+          <span class="svc-tag">Studio</span>
+          <span class="svc-tag">Show Team</span>
+          <span class="svc-tag">Live Optimization</span>
+        </div>
+        <div class="svc-arrow">→</div>
+      </a>
+
+      <a class="svc-card" href="/tsp/services/ads-performance/">
+        <div class="svc-num">03</div>
+        <div class="svc-title">Ads & Performance</div>
+        <div class="svc-desc">Multi-platform paid campaigns with creative production, CRO and transparent KPI reporting across TikTok, Shopee and YouTube.</div>
+        <div class="svc-tags">
+          <span class="svc-tag">Paid Ads</span>
+          <span class="svc-tag">Creative & CRO</span>
+          <span class="svc-tag">Analytics</span>
+        </div>
+        <div class="svc-arrow">→</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Workflow -->
+  <div class="workflow-wrap">
+    <div class="section-title">How It Works</div>
+    <p class="section-sub" style="margin-bottom:36px">From brand brief to scaled results — in 5 steps</p>
+    <div class="workflow-steps">
+      <div class="wf-step">
+        <div class="wf-circle">🚀</div>
+        <div class="wf-label">Onboard</div>
+        <div class="wf-sub">Store setup & brand alignment</div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-circle">🏪</div>
+        <div class="wf-label">Operate</div>
+        <div class="wf-sub">Daily store management</div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-circle">📡</div>
+        <div class="wf-label">Go Live</div>
+        <div class="wf-sub">Studio sessions & content</div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-circle">🎯</div>
+        <div class="wf-label">Amplify</div>
+        <div class="wf-sub">Paid ads & distribution</div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-circle">📈</div>
+        <div class="wf-label">Scale</div>
+        <div class="wf-sub">Optimize & grow GMV</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-banner">
+    <h2>Ready to grow your store with Seahub?</h2>
+    <p>Tell us your platform and category — we'll put together the right setup for you.</p>
+    <button class="btn-white" onclick="openQuoteModal('TSP')">Get a Quotation →</button>
+  </div>
+
+  <!-- Quote Modal -->
+  <div id="quote-modal" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.55);align-items:center;justify-content:center">
+    <div style="background:#fff;border-radius:20px;padding:40px;max-width:480px;width:90%;position:relative">
+      <button onclick="closeQuoteModal()" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:22px;cursor:pointer;color:#6b7280">✕</button>
+      <h3 style="font-size:20px;font-weight:800;margin-bottom:24px;color:#0f1724">Request a Quotation</h3>
+      <form id="quote-form" onsubmit="submitQuote(event)" style="display:flex;flex-direction:column;gap:14px">
+        <label style="font-size:13px;font-weight:600;color:#374151">Name<br><input name="name" required style="width:100%;margin-top:4px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:inherit"></label>
+        <label style="font-size:13px;font-weight:600;color:#374151">Email<br><input name="email" type="email" style="width:100%;margin-top:4px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:inherit"></label>
+        <label style="font-size:13px;font-weight:600;color:#374151">Brand / Company<br><input name="brand" style="width:100%;margin-top:4px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:inherit"></label>
+        <label style="font-size:13px;font-weight:600;color:#374151">Service<br><input name="service" id="quote-service" style="width:100%;margin-top:4px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:inherit"></label>
+        <label style="font-size:13px;font-weight:600;color:#374151">Message<br><textarea name="message" rows="3" style="width:100%;margin-top:4px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:inherit;resize:vertical"></textarea></label>
+        <button type="submit" style="background:linear-gradient(135deg,#f58529,#dd2a7b);color:#fff;padding:13px;border:none;border-radius:10px;font-weight:700;font-size:15px;cursor:pointer">Send via WhatsApp →</button>
+      </form>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer"><p>© 2025 Seahub Media. All rights reserved.</p></footer>
+<script src="/scripts.js" defer></script>
+<script>
+  function openQuoteModal(s){var m=document.getElementById('quote-modal');document.getElementById('quote-service').value=s||'TSP';m.style.display='flex';}
+  function closeQuoteModal(){document.getElementById('quote-modal').style.display='none';}
+  function submitQuote(e){e.preventDefault();var f=new FormData(e.target);var t=encodeURIComponent('Quotation request:\nService: '+f.get('service')+'\nName: '+f.get('name')+'\nEmail: '+f.get('email')+'\nBrand: '+f.get('brand')+'\nMessage: '+f.get('message'));window.open('https://wa.me/6281288895020?text='+t,'_blank');closeQuoteModal();}
+  document.getElementById('quote-modal').addEventListener('click',function(e){if(e.target===this)closeQuoteModal();});
+</script>
 </body>
 </html>
