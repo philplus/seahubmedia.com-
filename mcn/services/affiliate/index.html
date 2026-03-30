@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Affiliate Partner Service — Seahub MCN</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:#f9fafb;color:#0f1724}
+    .site-header{padding:0;border-bottom:1px solid rgba(0,0,0,0.08);background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);position:sticky;top:0;z-index:100}
+    .header-inner{padding:12px 28px;display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;gap:16px}
+    .brand-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .brand-logo img{height:36px;width:auto;border-radius:6px;object-fit:contain}
+    .brand-logo-text .name{font-size:18px;font-weight:800;color:#0f1724}
+    .brand-logo-text .name span{color:#dd2a7b}
+    .brand-logo-text .tagline{font-size:10px;color:#6b7280;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;margin-top:2px;display:block}
+    .nav a{color:#4b5563;font-size:13px;font-weight:600;text-decoration:none;margin-left:20px}
+    .nav a:hover,.nav a.active{color:#dd2a7b}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+    .page-body{padding:48px 0 80px}
+    .breadcrumb{font-size:13px;color:#9ca3af;margin-bottom:32px}
+    .breadcrumb a{color:#6b7280;text-decoration:none}.breadcrumb a:hover{color:#dd2a7b}
+    .breadcrumb span{margin:0 8px}
+    .svc-hero{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:48px}
+    .svc-hero-num{font-size:11px;font-weight:700;color:#dd2a7b;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+    .svc-hero h1{font-size:38px;font-weight:900;line-height:1.1;margin-bottom:16px}
+    .svc-hero h1 span{background:linear-gradient(90deg,#f58529,#dd2a7b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .svc-hero-desc{font-size:15px;color:#6b7280;line-height:1.75;margin-bottom:24px}
+    .svc-hero-visual{background:#0b1120;border-radius:20px;padding:40px 36px}
+    .svc-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .svc-stat{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px;text-align:center}
+    .svc-stat-val{font-size:26px;font-weight:900}
+    .svc-stat-lbl{font-size:11px;color:#8899aa;margin-top:4px}
+    .sec-title{font-size:22px;font-weight:900;color:#0f1724;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid #f0f0f0}
+    .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:40px}
+    .feat-item{background:#fff;border:1px solid #f0f0f0;border-radius:14px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start}
+    .feat-icon{font-size:22px;flex-shrink:0;margin-top:2px}
+    .feat-title{font-size:14px;font-weight:800;color:#0f1724;margin-bottom:4px}
+    .feat-desc{font-size:13px;color:#6b7280;line-height:1.55}
+    .model-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:40px}
+    .model-card{background:#fff;border:1px solid #f0f0f0;border-radius:16px;padding:24px 20px}
+    .model-icon{font-size:24px;margin-bottom:12px}
+    .model-title{font-size:15px;font-weight:800;color:#0f1724;margin-bottom:8px}
+    .model-desc{font-size:13px;color:#6b7280;line-height:1.55}
+    .model-tag{display:inline-block;margin-top:10px;font-size:11px;background:linear-gradient(135deg,rgba(245,133,41,0.1),rgba(221,42,123,0.1));color:#dd2a7b;border-radius:20px;padding:3px 12px;font-weight:700}
+    .highlight-box{background:linear-gradient(135deg,rgba(245,133,41,0.06),rgba(221,42,123,0.06));border:1px solid rgba(221,42,123,0.15);border-radius:16px;padding:28px 32px;margin-bottom:40px}
+    .highlight-box h3{font-size:18px;font-weight:800;color:#0f1724;margin-bottom:12px}
+    .highlight-box p{font-size:14px;color:#6b7280;line-height:1.7}
+    .svc-nav{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid #f0f0f0}
+    .svc-nav a{display:flex;align-items:center;gap:8px;text-decoration:none;font-size:13px;font-weight:700;color:#6b7280;padding:10px 16px;border-radius:10px;border:1px solid #e5e7eb;transition:all .2s}
+    .svc-nav a:hover{color:#dd2a7b;border-color:#dd2a7b}
+    .btn-primary{background:linear-gradient(135deg,#f58529,#dd2a7b);color:#fff;padding:13px 26px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none;display:inline-block}
+    .site-footer{text-align:center;padding:32px;font-size:13px;color:#9ca3af;border-top:1px solid #f0f0f0;margin-top:48px}
+    @media(max-width:768px){.svc-hero,.feat-grid,.model-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand-logo" href="/"><img src="/assets/logo.jpg" alt="Seahub Media logo">
+      <div class="brand-logo-text"><span class="name">Sea<span>Hub</span> Media</span><span class="tagline">TikTok Shop Partner &amp; MCN</span></div>
+    </a>
+    <nav class="nav"><a href="/">Home</a><a href="/tsp/">TSP</a><a href="/mcn/" class="active">MCN</a><a href="/#talent">Talent Recruitment</a><a href="/#about">About Us</a></nav>
+  </div>
+</header>
+<main class="wrap page-body">
+  <div class="breadcrumb"><a href="/">Home</a><span>›</span><a href="/mcn/">MCN</a><span>›</span> Affiliate Partner Service</div>
+
+  <div class="svc-hero">
+    <div>
+      <div class="svc-hero-num">Service 04</div>
+      <h1>Affiliate Partner<br><span>Service</span></h1>
+      <p class="svc-hero-desc">Strategic commission design and bundle optimization that makes creators want to promote your product — and converts their audience into buyers. We build the structure that drives affiliate revenue at scale.</p>
+      <button class="btn-primary" onclick="openQuoteModal('MCN — Affiliate Partner Service')" style="border:none;cursor:pointer;">Design Your Affiliate Strategy →</button>
+    </div>
+    <div class="svc-hero-visual">
+      <div class="svc-stat-grid">
+        <div class="svc-stat"><div class="svc-stat-val" style="color:#f58529">3K+</div><div class="svc-stat-lbl">Affiliate Creators</div></div>
+        <div class="svc-stat"><div class="svc-stat-val" style="color:#dd2a7b">Multi</div><div class="svc-stat-lbl">Platform Coverage</div></div>
+        <div class="svc-stat"><div class="svc-stat-val" style="color:#962fbf">Bundle</div><div class="svc-stat-lbl">Optimization</div></div>
+        <div class="svc-stat"><div class="svc-stat-val" style="color:#405DE6">CPS</div><div class="svc-stat-lbl">Commission Model</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Commission models -->
+  <div class="sec-title">Commission Models We Design</div>
+  <div class="model-grid">
+    <div class="model-card">
+      <div class="model-icon">💸</div>
+      <div class="model-title">Cost-Per-Sale (CPS)</div>
+      <div class="model-desc">Creators earn a percentage of every sale they drive. We calculate the right rate to attract strong creators while protecting your margin.</div>
+      <div class="model-tag">Most Common</div>
+    </div>
+    <div class="model-card">
+      <div class="model-icon">🎁</div>
+      <div class="model-title">Bundle Incentives</div>
+      <div class="model-desc">Higher commissions on bundled SKUs to drive up AOV. We design the bundle mechanics and communicate them clearly to creators.</div>
+      <div class="model-tag">GMV Booster</div>
+    </div>
+    <div class="model-card">
+      <div class="model-icon">🏆</div>
+      <div class="model-title">Tiered Commission</div>
+      <div class="model-desc">Escalating rates for hitting GMV milestones — incentivizing creators to push harder. We model the tiers to maximize ROI for both sides.</div>
+      <div class="model-tag">Performance-Led</div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="sec-title">What We Handle</div>
+  <div class="feat-grid">
+    <div class="feat-item">
+      <div class="feat-icon">📐</div>
+      <div><div class="feat-title">Commission Strategy Design</div><div class="feat-desc">We model commission structures that are attractive enough to recruit strong affiliates, while staying profitable for your brand.</div></div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">📦</div>
+      <div><div class="feat-title">Pricing & Bundle Optimization</div><div class="feat-desc">Bundle configurations, pricing anchors, and promotional mechanics that drive higher order values and affiliate motivation.</div></div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">👥</div>
+      <div><div class="feat-title">Affiliate Recruitment</div><div class="feat-desc">We onboard and activate creators into your affiliate program from our 3,000+ creator network — pre-vetted and category-matched.</div></div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">📊</div>
+      <div><div class="feat-title">Performance Tracking</div><div class="feat-desc">Track sales, clicks, and commission payouts by creator. We provide transparent reporting and flag top and underperforming affiliates.</div></div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <h3>💡 Why commission structure matters</h3>
+    <p>The difference between a creator who posts once and forgets, and one who actively pushes your product every day — is often just the commission structure. A well-designed affiliate program turns creators into motivated salespeople. We've done this across Beauty, FMCG, and Lifestyle at scale, and we know exactly what rates and mechanics move the needle.</p>
+  </div>
+
+  <div class="svc-nav">
+    <a href="/mcn/services/campaign-management/">← Campaign Management</a>
+    <a href="/mcn/services/cross-platform/">Cross-Platform Strategy →</a>
+  </div>
+</main>
+<footer class="site-footer"><p>© 2025 Seahub Media. All rights reserved.</p></footer>
+
+  <!-- Quote Modal -->
+  <div id="quote-modal" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.55);align-items:center;justify-content:center">
+    <div style="background:#fff;border-radius:20px;padding:40px;max-width:480px;width:90%;position:relative">
+      <button onclick="closeQuoteModal()" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:22px;cursor:pointer;color:#6b7280">✕</button>
+      <h3 style="font-size:20px;font-weight:800;margin-bottom:24px;color:#0f1724">Request a Quotation</h3>
+      <form id="quote-form" onsubmit="submitQuote(event)" style="display:flex;flex-direction:column;gap:14px">
+        <label style="font-size:13px;font-weight:600;color:#374151">Name<br><input name="name" required style="width:100%;margin-top:4px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:inherit"></label>
+        <label style="font-size:13px;font-weight:600;color:#374151">Email<br><input name="email" type="email" style="width:100%;margin-top:4px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:inherit"></label>
+        <label style="font-size:13px;font-weight:600;color:#374151">Brand / Company<br><input name="brand" style="width:100%;margin-top:4px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:inherit"></label>
+        <label style="font-size:13px;font-weight:600;color:#374151">Service<br><input name="service" id="quote-service" value="MCN — Affiliate Partner Service" style="width:100%;margin-top:4px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:inherit"></label>
+        <label style="font-size:13px;font-weight:600;color:#374151">Message<br><textarea name="message" rows="3" style="width:100%;margin-top:4px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:inherit;resize:vertical"></textarea></label>
+        <button type="submit" style="background:linear-gradient(135deg,#f58529,#dd2a7b);color:#fff;padding:13px;border:none;border-radius:10px;font-weight:700;font-size:15px;cursor:pointer;margin-top:4px">Send via WhatsApp →</button>
+      </form>
+    </div>
+  </div>
+<script src="/scripts.js" defer></script>
+<script>
+  function openQuoteModal(s){var m=document.getElementById('quote-modal');document.getElementById('quote-service').value=s||'MCN — Affiliate Partner Service';m.style.display='flex';}
+  function closeQuoteModal(){document.getElementById('quote-modal').style.display='none';}
+  function submitQuote(e){e.preventDefault();var f=new FormData(e.target);var t=encodeURIComponent('Quotation request:\nService: '+f.get('service')+'\nName: '+f.get('name')+'\nEmail: '+f.get('email')+'\nBrand: '+f.get('brand')+'\nMessage: '+f.get('message'));window.open('https://wa.me/6281288895020?text='+t,'_blank');closeQuoteModal();}
+  document.getElementById('quote-modal').addEventListener('click',function(e){if(e.target===this)closeQuoteModal();});
+</script>
+</body>
+</html>

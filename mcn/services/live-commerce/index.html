@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Live Commerce Execution — Seahub MCN</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:#f9fafb;color:#0f1724}
+    .site-header{padding:0;border-bottom:1px solid rgba(0,0,0,0.08);background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);position:sticky;top:0;z-index:100}
+    .header-inner{padding:12px 28px;display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;gap:16px}
+    .brand-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .brand-logo img{height:36px;width:auto;border-radius:6px;object-fit:contain}
+    .brand-logo-text .name{font-size:18px;font-weight:800;color:#0f1724}
+    .brand-logo-text .name span{color:#dd2a7b}
+    .brand-logo-text .tagline{font-size:10px;color:#6b7280;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;margin-top:2px;display:block}
+    .nav a{color:#4b5563;font-size:13px;font-weight:600;text-decoration:none;margin-left:20px}
+    .nav a:hover,.nav a.active{color:#dd2a7b}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+    .page-body{padding:48px 0 80px}
+    .breadcrumb{font-size:13px;color:#9ca3af;margin-bottom:32px}
+    .breadcrumb a{color:#6b7280;text-decoration:none}.breadcrumb a:hover{color:#dd2a7b}
+    .breadcrumb span{margin:0 8px}
+    .svc-hero{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:48px}
+    .svc-hero-num{font-size:11px;font-weight:700;color:#dd2a7b;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+    .svc-hero h1{font-size:38px;font-weight:900;line-height:1.1;margin-bottom:16px}
+    .svc-hero h1 span{background:linear-gradient(90deg,#f58529,#dd2a7b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .svc-hero-desc{font-size:15px;color:#6b7280;line-height:1.75;margin-bottom:24px}
+    .svc-hero-visual{background:#0b1120;border-radius:20px;padding:40px 36px}
+    .svc-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .svc-stat{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px;text-align:center}
+    .svc-stat-val{font-size:26px;font-weight:900}
+    .svc-stat-lbl{font-size:11px;color:#8899aa;margin-top:4px}
+    .sec-title{font-size:22px;font-weight:900;color:#0f1724;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid #f0f0f0}
+    .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:40px}
+    .feat-item{background:#fff;border:1px solid #f0f0f0;border-radius:14px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start}
+    .feat-icon{font-size:22px;flex-shrink:0;margin-top:2px}
+    .feat-title{font-size:14px;font-weight:800;color:#0f1724;margin-bottom:4px}
+    .feat-desc{font-size:13px;color:#6b7280;line-height:1.55}
+    .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:40px}
+    .ps-card{background:#fff;border:1px solid #f0f0f0;border-radius:16px;padding:22px 18px;position:relative}
+    .ps-num{font-size:11px;font-weight:700;color:#dd2a7b;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+    .ps-title{font-size:14px;font-weight:800;color:#0f1724;margin-bottom:6px}
+    .ps-desc{font-size:12px;color:#6b7280;line-height:1.5}
+    .highlight-box{background:linear-gradient(135deg,rgba(245,133,41,0.06),rgba(221,42,123,0.06));border:1px solid rgba(221,42,123,0.15);border-radius:16px;padding:28px 32px;margin-bottom:40px}
+    .highlight-box h3{font-size:18px;font-weight:800;color:#0f1724;margin-bottom:12px}
+    .highlight-box p{font-size:14px;color:#6b7280;line-height:1.7}
+    .svc-nav{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid #f0f0f0}
+    .svc-nav a{display:flex;align-items:center;gap:8px;text-decoration:none;font-size:13px;font-weight:700;color:#6b7280;padding:10px 16px;border-radius:10px;border:1px solid #e5e7eb;transition:all .2s}
+    .svc-nav a:hover{color:#dd2a7b;border-color:#dd2a7b}
+    .btn-primary{background:linear-gradient(135deg,#f58529,#dd2a7b);color:#fff;padding:13px 26px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none;display:inline-block}
+    .site-footer{text-align:center;padding:32px;font-size:13px;color:#9ca3af;border-top:1px solid #f0f0f0;margin-top:48px}
+    @media(max-width:768px){.svc-hero,.feat-grid{grid-template-columns:1fr}.process-steps{grid-template-columns:repeat(2,1fr)}}
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand-logo" href="/"><img src="/assets/logo.jpg" alt="Seahub Media logo">
+      <div class="brand-logo-text"><span class="name">Sea<span>Hub</span> Media</span><span class="tagline">TikTok Shop Partner &amp; MCN</span></div>
+    </a>
+    <nav class="nav"><a href="/">Home</a><a href="/tsp/">TSP</a><a href="/mcn/" class="active">MCN</a><a href="/#talent">Talent Recruitment</a><a href="/#about">About Us</a></nav>
+  </div>
+</header>
+<main class="wrap page-body">
+  <div class="breadcrumb"><a href="/">Home</a><span>›</span><a href="/mcn/">MCN</a><span>›</span> Live Commerce Execution</div>
+
+  <div class="svc-hero">
+    <div>
+      <div class="svc-hero-num">Service 02</div>
+      <h1>Live Commerce<br><span>Execution</span></h1>
+      <p class="svc-hero-desc">Daily livestream arrangement backed by professional script guidance and conversion-focused selling strategies. We don't just go live — we go live to sell.</p>
+      <button class="btn-primary" onclick="openQuoteModal('MCN — Live Commerce Execution')" style="border:none;cursor:pointer;">Book a Live Session →</button>
+    </div>
+    <div class="svc-hero-visual">
+      <div class="svc-stat-grid">
+        <div class="svc-stat"><div class="svc-stat-val" style="color:#f58529">Daily</div><div class="svc-stat-lbl">Live Arrangements</div></div>
+        <div class="svc-stat"><div class="svc-stat-val" style="color:#dd2a7b">17.1K</div><div class="svc-stat-lbl">Peak Live Viewers</div></div>
+        <div class="svc-stat"><div class="svc-stat-val" style="color:#962fbf">656K+</div><div class="svc-stat-lbl">Store Followers</div></div>
+        <div class="svc-stat"><div class="svc-stat-val" style="color:#405DE6">212K</div><div class="svc-stat-lbl">Products Sold</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Live process -->
+  <div class="sec-title">Our Live Commerce Process</div>
+  <div class="process-steps">
+    <div class="ps-card">
+      <div class="ps-num">Step 01</div>
+      <div class="ps-title">Product Deep-Dive</div>
+      <div class="ps-desc">We study your product's key selling points, USPs, and target buyer profile before scripting anything.</div>
+    </div>
+    <div class="ps-card">
+      <div class="ps-num">Step 02</div>
+      <div class="ps-title">Script & Strategy</div>
+      <div class="ps-desc">High-converting live scripts written with hook, demo flow, urgency triggers, and CTA placement.</div>
+    </div>
+    <div class="ps-card">
+      <div class="ps-num">Step 03</div>
+      <div class="ps-title">Creator Briefing</div>
+      <div class="ps-desc">Creators are fully briefed and rehearsed — no improvised pitches, every session is prepared.</div>
+    </div>
+    <div class="ps-card">
+      <div class="ps-num">Step 04</div>
+      <div class="ps-title">Live & Monitor</div>
+      <div class="ps-desc">Real-time monitoring during the broadcast. Our team watches metrics and adjusts in-session when needed.</div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="sec-title">What We Handle</div>
+  <div class="feat-grid">
+    <div class="feat-item">
+      <div class="feat-icon">📅</div>
+      <div><div class="feat-title">Daily Live Scheduling</div><div class="feat-desc">Consistent live coverage with multiple sessions per day, coordinated across your creator roster and peak traffic windows.</div></div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">📝</div>
+      <div><div class="feat-title">Live Script Writing</div><div class="feat-desc">Structured scripts covering product intro, demo, objection handling, pricing, and closing — built for TikTok Live behavior.</div></div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">💬</div>
+      <div><div class="feat-title">Selling Strategy</div><div class="feat-desc">Flash sale timing, bundle pitches, gifting mechanics, and viewer retention tactics — all calibrated per product category.</div></div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">📊</div>
+      <div><div class="feat-title">Post-Live Reporting</div><div class="feat-desc">GMV, viewer count, conversion rate, and engagement data after every session, with actionable improvement notes.</div></div>
+    </div>
+  </div>
+
+  <!-- Highlight -->
+  <div class="highlight-box">
+    <h3>🎯 Our selling philosophy</h3>
+    <p>Great live commerce isn't about talking louder — it's about guiding the viewer through a buying decision with confidence. Every script we write is designed around the viewer's psychology: spark curiosity, demonstrate value, create urgency, and make the purchase feel easy. That's how we consistently drive conversion, not just views.</p>
+  </div>
+
+  <div class="svc-nav">
+    <a href="/mcn/services/creator-network/">← Creator Network Access</a>
+    <a href="/mcn/services/campaign-management/">Campaign Management →</a>
+  </div>
+</main>
+<footer class="site-footer"><p>© 2025 Seahub Media. All rights reserved.</p></footer>
+
+  <!-- Quote Modal -->
+  <div id="quote-modal" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.55);align-items:center;justify-content:center">
+    <div style="background:#fff;border-radius:20px;padding:40px;max-width:480px;width:90%;position:relative">
+      <button onclick="closeQuoteModal()" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:22px;cursor:pointer;color:#6b7280">✕</button>
+      <h3 style="font-size:20px;font-weight:800;margin-bottom:24px;color:#0f1724">Request a Quotation</h3>
+      <form id="quote-form" onsubmit="submitQuote(event)" style="display:flex;flex-direction:column;gap:14px">
+        <label style="font-size:13px;font-weight:600;color:#374151">Name<br><input name="name" required style="width:100%;margin-top:4px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:inherit"></label>
+        <label style="font-size:13px;font-weight:600;color:#374151">Email<br><input name="email" type="email" style="width:100%;margin-top:4px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:inherit"></label>
+        <label style="font-size:13px;font-weight:600;color:#374151">Brand / Company<br><input name="brand" style="width:100%;margin-top:4px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:inherit"></label>
+        <label style="font-size:13px;font-weight:600;color:#374151">Service<br><input name="service" id="quote-service" value="MCN — Live Commerce Execution" style="width:100%;margin-top:4px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:inherit"></label>
+        <label style="font-size:13px;font-weight:600;color:#374151">Message<br><textarea name="message" rows="3" style="width:100%;margin-top:4px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:inherit;resize:vertical"></textarea></label>
+        <button type="submit" style="background:linear-gradient(135deg,#f58529,#dd2a7b);color:#fff;padding:13px;border:none;border-radius:10px;font-weight:700;font-size:15px;cursor:pointer;margin-top:4px">Send via WhatsApp →</button>
+      </form>
+    </div>
+  </div>
+<script src="/scripts.js" defer></script>
+<script>
+  function openQuoteModal(s){var m=document.getElementById('quote-modal');document.getElementById('quote-service').value=s||'MCN — Live Commerce Execution';m.style.display='flex';}
+  function closeQuoteModal(){document.getElementById('quote-modal').style.display='none';}
+  function submitQuote(e){e.preventDefault();var f=new FormData(e.target);var t=encodeURIComponent('Quotation request:\nService: '+f.get('service')+'\nName: '+f.get('name')+'\nEmail: '+f.get('email')+'\nBrand: '+f.get('brand')+'\nMessage: '+f.get('message'));window.open('https://wa.me/6281288895020?text='+t,'_blank');closeQuoteModal();}
+  document.getElementById('quote-modal').addEventListener('click',function(e){if(e.target===this)closeQuoteModal();});
+</script>
+</body>
+</html>

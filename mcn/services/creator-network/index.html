@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Creator Network Access — Seahub MCN</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Inter',sans-serif;background:#f9fafb;color:#0f1724}
+    .site-header{padding:0;border-bottom:1px solid rgba(0,0,0,0.08);background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);position:sticky;top:0;z-index:100}
+    .header-inner{padding:12px 28px;display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;gap:16px}
+    .brand-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .brand-logo img{height:36px;width:auto;border-radius:6px;object-fit:contain}
+    .brand-logo-text .name{font-size:18px;font-weight:800;color:#0f1724}
+    .brand-logo-text .name span{color:#dd2a7b}
+    .brand-logo-text .tagline{font-size:10px;color:#6b7280;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;margin-top:2px}
+    .nav a{color:#4b5563;font-size:13px;font-weight:600;text-decoration:none;margin-left:20px}
+    .nav a:hover,.nav a.active{color:#dd2a7b}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+    .page-body{padding:48px 0 80px}
+
+    /* Breadcrumb */
+    .breadcrumb{font-size:13px;color:#9ca3af;margin-bottom:32px}
+    .breadcrumb a{color:#6b7280;text-decoration:none}
+    .breadcrumb a:hover{color:#dd2a7b}
+    .breadcrumb span{margin:0 8px}
+
+    /* Service hero */
+    .svc-hero{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:48px}
+    .svc-hero-num{font-size:11px;font-weight:700;color:#dd2a7b;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+    .svc-hero h1{font-size:38px;font-weight:900;line-height:1.1;margin-bottom:16px}
+    .svc-hero h1 span{background:linear-gradient(90deg,#f58529,#dd2a7b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .svc-hero-desc{font-size:15px;color:#6b7280;line-height:1.75;margin-bottom:24px}
+    .svc-hero-visual{background:#0b1120;border-radius:20px;padding:40px 36px}
+    .svc-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .svc-stat{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px;text-align:center}
+    .svc-stat-val{font-size:26px;font-weight:900}
+    .svc-stat-lbl{font-size:11px;color:#8899aa;margin-top:4px}
+
+    /* Section */
+    .sec-title{font-size:22px;font-weight:900;color:#0f1724;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid #f0f0f0}
+
+    /* Tier table */
+    .tier-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:40px}
+    .tier-card{background:#fff;border:1px solid #f0f0f0;border-radius:16px;padding:22px 18px;text-align:center}
+    .tier-badge{display:inline-block;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:12px;letter-spacing:1px;text-transform:uppercase}
+    .tier-badge.nano{background:#fef3c7;color:#d97706}
+    .tier-badge.micro{background:#dbeafe;color:#1d4ed8}
+    .tier-badge.mid{background:#f3e8ff;color:#7c3aed}
+    .tier-badge.macro{background:#fce7f3;color:#be185d}
+    .tier-range{font-size:18px;font-weight:900;color:#0f1724;margin-bottom:6px}
+    .tier-desc{font-size:12px;color:#6b7280;line-height:1.5}
+
+    /* Feature list */
+    .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:40px}
+    .feat-item{background:#fff;border:1px solid #f0f0f0;border-radius:14px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start}
+    .feat-icon{font-size:22px;flex-shrink:0;margin-top:2px}
+    .feat-title{font-size:14px;font-weight:800;color:#0f1724;margin-bottom:4px}
+    .feat-desc{font-size:13px;color:#6b7280;line-height:1.55}
+
+    /* Category tags */
+    .cat-wrap{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+    .cat-tag{background:#fff;border:1.5px solid #f0f0f0;border-radius:12px;padding:10px 18px;font-size:13px;font-weight:700;color:#0f1724;display:flex;align-items:center;gap:8px}
+
+    /* Nav buttons */
+    .svc-nav{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid #f0f0f0}
+    .svc-nav a{display:flex;align-items:center;gap:8px;text-decoration:none;font-size:13px;font-weight:700;color:#6b7280;padding:10px 16px;border-radius:10px;border:1px solid #e5e7eb;transition:all .2s}
+    .svc-nav a:hover{color:#dd2a7b;border-color:#dd2a7b}
+    .svc-nav-back{color:#6b7280;text-decoration:none;font-size:13px;font-weight:600}
+    .svc-nav-back:hover{color:#dd2a7b}
+
+    .btn-primary{background:linear-gradient(135deg,#f58529,#dd2a7b);color:#fff;padding:13px 26px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none;display:inline-block}
+    .site-footer{text-align:center;padding:32px;font-size:13px;color:#9ca3af;border-top:1px solid #f0f0f0;margin-top:48px}
+
+    @media(max-width:768px){.svc-hero,.feat-grid{grid-template-columns:1fr}.tier-grid{grid-template-columns:repeat(2,1fr)}}
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand-logo" href="/">
+      <img src="/assets/logo.jpg" alt="Seahub Media logo">
+      <div class="brand-logo-text">
+        <span class="name">Sea<span>Hub</span> Media</span>
+        <span class="tagline" style="display:block">TikTok Shop Partner &amp; MCN</span>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="/">Home</a><a href="/tsp/">TSP</a><a href="/mcn/" class="active">MCN</a>
+      <a href="/#talent">Talent Recruitment</a><a href="/#about">About Us</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap page-body">
+  <div class="breadcrumb">
+    <a href="/">Home</a><span>›</span><a href="/mcn/">MCN</a><span>›</span> Creator Network Access
+  </div>
+
+  <!-- Hero -->
+  <div class="svc-hero">
+    <div>
+      <div class="svc-hero-num">Service 01</div>
+      <h1>Creator<br><span>Network Access</span></h1>
+      <p class="svc-hero-desc">Gain immediate access to our curated pool of 3,000+ creators — each vetted for content quality, live-selling capability, and category fit. From nano to macro, we find the perfect match for your brand.</p>
+      <button class="btn-primary" onclick="openQuoteModal('MCN — Creator Network Access')" style="border:none;cursor:pointer;">Start Matching →</button>
+    </div>
+    <div class="svc-hero-visual">
+      <div class="svc-stat-grid">
+        <div class="svc-stat"><div class="svc-stat-val" style="color:#f58529">3,000+</div><div class="svc-stat-lbl">Active Creators</div></div>
+        <div class="svc-stat"><div class="svc-stat-val" style="color:#dd2a7b">10M+</div><div class="svc-stat-lbl">Monthly Reach</div></div>
+        <div class="svc-stat"><div class="svc-stat-val" style="color:#962fbf">10K</div><div class="svc-stat-lbl">Min. Followers</div></div>
+        <div class="svc-stat"><div class="svc-stat-val" style="color:#405DE6">1M+</div><div class="svc-stat-lbl">Top Tier Reach</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Creator tiers -->
+  <div class="sec-title">Creator Tiers</div>
+  <div class="tier-grid">
+    <div class="tier-card">
+      <div class="tier-badge nano">Nano</div>
+      <div class="tier-range">10K – 50K</div>
+      <div class="tier-desc">High engagement, niche audiences. Best for targeted category campaigns with strong trust signals.</div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-badge micro">Micro</div>
+      <div class="tier-range">50K – 200K</div>
+      <div class="tier-desc">Growing community with proven conversion rates. Ideal for product launches and affiliate drives.</div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-badge mid">Mid-tier</div>
+      <div class="tier-range">200K – 500K</div>
+      <div class="tier-desc">Balanced reach and engagement. Strong for live commerce and brand awareness simultaneously.</div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-badge macro">Macro</div>
+      <div class="tier-range">500K – 1M+</div>
+      <div class="tier-desc">Mass reach for major campaign moments. Paired with micro creators for full-funnel coverage.</div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="sec-title">What's Included</div>
+  <div class="feat-grid">
+    <div class="feat-item">
+      <div class="feat-icon">🔍</div>
+      <div><div class="feat-title">Smart Creator Matching</div><div class="feat-desc">We analyze your product, target audience, and campaign goals to surface the highest-fit creators — not just the most popular ones.</div></div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">✅</div>
+      <div><div class="feat-title">Vetted for Live Selling</div><div class="feat-desc">Every creator in our network is assessed for live-selling capability, content quality, and authentic audience engagement.</div></div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">📂</div>
+      <div><div class="feat-title">Category Expertise</div><div class="feat-desc">Deep specialization in Beauty, FMCG, and Lifestyle with category-specific creators who understand product nuance.</div></div>
+    </div>
+    <div class="feat-item">
+      <div class="feat-icon">📋</div>
+      <div><div class="feat-title">Creator Briefing & Onboarding</div><div class="feat-desc">We handle the briefing, product education, and onboarding — so creators are fully prepared before going live.</div></div>
+    </div>
+  </div>
+
+  <!-- Categories -->
+  <div class="sec-title">Top Categories</div>
+  <div class="cat-wrap">
+    <div class="cat-tag">💄 Beauty & Skincare</div>
+    <div class="cat-tag">🛒 FMCG</div>
+    <div class="cat-tag">👗 Fashion & Lifestyle</div>
+    <div class="cat-tag">🏠 Home & Living</div>
+    <div class="cat-tag">📱 Electronics</div>
+    <div class="cat-tag">🍜 Food & Beverage</div>
+  </div>
+
+  <!-- Nav -->
+  <div class="svc-nav">
+    <a href="/mcn/">← Back to MCN</a>
+    <a href="/mcn/services/live-commerce/">Live Commerce Execution →</a>
+  </div>
+</main>
+<footer class="site-footer"><p>© 2025 Seahub Media. All rights reserved.</p></footer>
+
+  <!-- Quote Modal -->
+  <div id="quote-modal" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.55);align-items:center;justify-content:center">
+    <div style="background:#fff;border-radius:20px;padding:40px;max-width:480px;width:90%;position:relative">
+      <button onclick="closeQuoteModal()" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:22px;cursor:pointer;color:#6b7280">✕</button>
+      <h3 style="font-size:20px;font-weight:800;margin-bottom:24px;color:#0f1724">Request a Quotation</h3>
+      <form id="quote-form" onsubmit="submitQuote(event)" style="display:flex;flex-direction:column;gap:14px">
+        <label style="font-size:13px;font-weight:600;color:#374151">Name<br><input name="name" required style="width:100%;margin-top:4px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:inherit"></label>
+        <label style="font-size:13px;font-weight:600;color:#374151">Email<br><input name="email" type="email" style="width:100%;margin-top:4px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:inherit"></label>
+        <label style="font-size:13px;font-weight:600;color:#374151">Brand / Company<br><input name="brand" style="width:100%;margin-top:4px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:inherit"></label>
+        <label style="font-size:13px;font-weight:600;color:#374151">Service<br><input name="service" id="quote-service" value="MCN — Creator Network Access" style="width:100%;margin-top:4px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:inherit"></label>
+        <label style="font-size:13px;font-weight:600;color:#374151">Message<br><textarea name="message" rows="3" style="width:100%;margin-top:4px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:inherit;resize:vertical"></textarea></label>
+        <button type="submit" style="background:linear-gradient(135deg,#f58529,#dd2a7b);color:#fff;padding:13px;border:none;border-radius:10px;font-weight:700;font-size:15px;cursor:pointer;margin-top:4px">Send via WhatsApp →</button>
+      </form>
+    </div>
+  </div>
+<script src="/scripts.js" defer></script>
+<script>
+  function openQuoteModal(s){var m=document.getElementById('quote-modal');document.getElementById('quote-service').value=s||'MCN — Creator Network Access';m.style.display='flex';}
+  function closeQuoteModal(){document.getElementById('quote-modal').style.display='none';}
+  function submitQuote(e){e.preventDefault();var f=new FormData(e.target);var t=encodeURIComponent('Quotation request:\nService: '+f.get('service')+'\nName: '+f.get('name')+'\nEmail: '+f.get('email')+'\nBrand: '+f.get('brand')+'\nMessage: '+f.get('message'));window.open('https://wa.me/6281288895020?text='+t,'_blank');closeQuoteModal();}
+  document.getElementById('quote-modal').addEventListener('click',function(e){if(e.target===this)closeQuoteModal();});
+</script>
+</body>
+</html>

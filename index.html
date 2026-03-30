@@ -229,15 +229,16 @@
           <figure class="service-media">
             <img src="/assets/site/service_creators.jpg" alt="Creators & Affiliates service" loading="lazy">
           </figure>
-          <h3>Creators & Affiliates</h3>
-          <ul>
-            <li><strong>Project Collaboration</strong> — 项目制合作，为品牌制定线上一站式的达人营销和推广计划。</li>
-            <li><strong>Creator Sourcing & Matchmaking</strong> — 精准匹配 KOL/creator 与品牌调性，并负责沟通与排期。</li>
-            <li><strong>Affiliate & Performance Tracking</strong> — 搭建 affiliate 激励与结算机制，提供实时转化追踪与结算支持。</li>
-            <li><strong>Creative Support</strong> — 为达人提供直播脚本、话术模板与素材指导，提升带货效率。</li>
-            <li><strong>Post‑campaign Analysis</strong> — 效果评估、KPI 复盘与长期成长建议。</li>
-          </ul>
-          <p><a class="cta" href="#contact">Discuss a Creator Project</a></p>
+          <h3>Creators & Affiliates <span style="font-size:11px;font-weight:600;background:linear-gradient(135deg,#f58529,#dd2a7b);color:#fff;border-radius:20px;padding:2px 10px;vertical-align:middle;margin-left:6px">MCN</span></h3>
+          <p style="font-size:13px;color:#6b7280;line-height:1.6;margin:8px 0 14px">3,000+ curated creators, end-to-end campaign management, and affiliate strategies — all built to drive GMV.</p>
+          <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:16px">
+            <a href="/mcn/services/creator-network/" style="font-size:12px;color:#dd2a7b;text-decoration:none;font-weight:600">→ Creator Network Access</a>
+            <a href="/mcn/services/live-commerce/" style="font-size:12px;color:#dd2a7b;text-decoration:none;font-weight:600">→ Live Commerce Execution</a>
+            <a href="/mcn/services/campaign-management/" style="font-size:12px;color:#dd2a7b;text-decoration:none;font-weight:600">→ Campaign Management</a>
+            <a href="/mcn/services/affiliate/" style="font-size:12px;color:#dd2a7b;text-decoration:none;font-weight:600">→ Affiliate Partner Service</a>
+            <a href="/mcn/services/cross-platform/" style="font-size:12px;color:#dd2a7b;text-decoration:none;font-weight:600">→ Cross-Platform Strategy</a>
+          </div>
+          <p><a class="cta" href="/mcn/">View MCN Overview →</a></p>
         </article>
         <article>
           <figure class="service-media">
@@ -266,55 +267,61 @@
       </div>
     </section>
 
-    <!-- MCN Services (differentiated from TSP) -->
+    <!-- MCN Services -->
     <section id="mcn-services" class="section-panel">
       <h2>MCN Services</h2>
-      <div class="grid">
-        <article>
-          <figure class="service-media">
-            <img src="/assets/site/mcn_creators.jpg" alt="Creator Management" loading="lazy">
-          </figure>
-          <h3>Creator Management</h3>
-          <ul>
-            <li><strong>Talent Signing & Development</strong> — 达人签约、培训与长期成长规划。</li>
-            <li><strong>Content Strategy</strong> — 短视频内容策划、脚本与拍摄支持。</li>
-            <li><strong>Channel Growth</strong> — 粉丝增长策略与算法优化。</li>
-          </ul>
-        </article>
-        <article>
-          <figure class="service-media">
-            <img src="/assets/site/mcn_monetization.jpg" alt="Monetization" loading="lazy">
-          </figure>
-          <h3>Monetization & Brand Deals</h3>
-          <ul>
-            <li><strong>Brand Collaboration Matching</strong> — 为达人精准对接品牌合作机会。</li>
-            <li><strong>Deal Negotiation & Management</strong> — 合同谈判、排期管理与结算支持。</li>
-            <li><strong>Affiliate & Commission Programs</strong> — 搭建达人专属 affiliate 激励体系。</li>
-          </ul>
-        </article>
-        <article>
-          <figure class="service-media">
-            <img src="/assets/site/mcn_production.jpg" alt="Content Production" loading="lazy">
-          </figure>
-          <h3>Content Production</h3>
-          <ul>
-            <li><strong>Studio Access</strong> — 专业直播间与拍摄场地开放给签约达人使用。</li>
-            <li><strong>Video Editing & Post</strong> — 剪辑、调色与特效后期制作团队支持。</li>
-            <li><strong>Creative Direction</strong> — 品牌调性指导与视觉风格统一。</li>
-          </ul>
-        </article>
-        <article>
-          <figure class="service-media">
-            <img src="/assets/site/mcn_analytics.jpg" alt="Analytics & Growth" loading="lazy">
-          </figure>
-          <h3>Analytics & Growth</h3>
-          <ul>
-            <li><strong>Performance Dashboards</strong> — 实时数据追踪与 KPI 仪表盘。</li>
-            <li><strong>Audience Insights</strong> — 粉丝画像分析与内容优化建议。</li>
-            <li><strong>Monthly Reviews</strong> — 月度数据复盘与下阶段增长计划。</li>
-          </ul>
-        </article>
+      <p class="muted" style="margin-bottom:20px">Performance-driven creator commerce — from matching to scaling.</p>
+
+      <style>
+        .mcn-svc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+        .mcn-svc-card{background:#fff;border:1px solid #f0f0f0;border-radius:16px;padding:22px 18px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;transition:box-shadow .2s,transform .2s;position:relative;overflow:hidden}
+        .mcn-svc-card:hover{box-shadow:0 6px 24px rgba(221,42,123,0.10);transform:translateY(-2px)}
+        .mcn-svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#f58529,#dd2a7b);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+        .mcn-svc-card:hover::after{transform:scaleX(1)}
+        .mcn-svc-icon{font-size:22px}
+        .mcn-svc-title{font-size:13px;font-weight:800;color:#0f1724;line-height:1.3}
+        .mcn-svc-desc{font-size:12px;color:#6b7280;line-height:1.5;flex:1}
+        .mcn-svc-link{font-size:12px;font-weight:700;color:#dd2a7b;margin-top:4px}
+        @media(max-width:780px){.mcn-svc-grid{grid-template-columns:repeat(2,1fr)}}
+        @media(max-width:480px){.mcn-svc-grid{grid-template-columns:1fr}}
+      </style>
+
+      <div class="mcn-svc-grid">
+        <a class="mcn-svc-card" href="/mcn/services/creator-network/">
+          <div class="mcn-svc-icon">👥</div>
+          <div class="mcn-svc-title">Creator Network Access</div>
+          <div class="mcn-svc-desc">3,000+ curated creators from nano to macro, matched to your brand and category.</div>
+          <div class="mcn-svc-link">Learn more →</div>
+        </a>
+        <a class="mcn-svc-card" href="/mcn/services/live-commerce/">
+          <div class="mcn-svc-icon">📡</div>
+          <div class="mcn-svc-title">Live Commerce Execution</div>
+          <div class="mcn-svc-desc">Daily livestreams with professional scripts and selling strategies built to convert.</div>
+          <div class="mcn-svc-link">Learn more →</div>
+        </a>
+        <a class="mcn-svc-card" href="/mcn/services/campaign-management/">
+          <div class="mcn-svc-icon">⚙️</div>
+          <div class="mcn-svc-title">Campaign Management</div>
+          <div class="mcn-svc-desc">End-to-end handling — creator coordination, scheduling, execution, and reporting.</div>
+          <div class="mcn-svc-link">Learn more →</div>
+        </a>
+        <a class="mcn-svc-card" href="/mcn/services/affiliate/">
+          <div class="mcn-svc-icon">💰</div>
+          <div class="mcn-svc-title">Affiliate Partner Service</div>
+          <div class="mcn-svc-desc">Commission strategy and bundle optimization to maximize affiliate-driven revenue.</div>
+          <div class="mcn-svc-link">Learn more →</div>
+        </a>
+        <a class="mcn-svc-card" href="/mcn/services/cross-platform/">
+          <div class="mcn-svc-icon">🔗</div>
+          <div class="mcn-svc-title">Cross-Platform Strategy</div>
+          <div class="mcn-svc-desc">TikTok + Shopee + YouTube integration for maximum reach and compounded GMV.</div>
+          <div class="mcn-svc-link">Learn more →</div>
+        </a>
       </div>
+
+      <p style="margin-top:18px;text-align:center">
+        <a href="/mcn/" class="cta">View full MCN overview →</a>
+      </p>
     </section>
 
     <!-- Our Showcase -->
