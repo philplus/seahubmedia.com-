@@ -511,31 +511,131 @@
       <p class="muted" style="margin-bottom:24px">Professional multi-theme studios — brand-ready, fully equipped for live commerce across TikTok, Shopee and YouTube.</p>
 
       <style>
-        #studio-flow-wrap{width:100%;height:520px;position:relative;background:#06090f;border-radius:20px;overflow:hidden}
-        #studio-flow-scene{width:100%;height:100%;perspective:1100px;display:flex;align-items:center;justify-content:center}
-        #studio-flow-track{position:relative;width:100%;height:100%;transform-style:preserve-3d}
-        .sf-card{position:absolute;width:320px;height:220px;top:50%;left:50%;transform-origin:center center;border-radius:14px;overflow:hidden;cursor:pointer;backface-visibility:hidden}
-        .sf-card img{width:100%;height:100%;object-fit:cover;display:block}
-        .sf-card .sf-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 50%,rgba(0,0,0,0.5) 100%);pointer-events:none;transition:opacity .3s}
-        .sf-card:hover .sf-overlay{opacity:0.3}
-        .sf-card .sf-zoom{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:30px;opacity:0;transition:opacity .25s;pointer-events:none;text-shadow:0 2px 12px rgba(0,0,0,0.6)}
-        .sf-card:hover .sf-zoom{opacity:1}
-        #studio-glow-lines{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-        .glow-line{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(221,42,123,0.3),rgba(64,93,230,0.22),transparent);animation:glow-sweep 7s linear infinite;opacity:0}
-        @keyframes glow-sweep{0%{top:-2px;opacity:0}5%{opacity:1}90%{opacity:0.5}100%{top:105%;opacity:0}}
-        .studio-flow-badge{position:absolute;top:18px;right:18px;background:rgba(255,255,255,0.07);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:7px 14px;color:rgba(255,255,255,0.5);font-size:11px;font-weight:600;letter-spacing:0.8px;pointer-events:none}
-        .studio-flow-hint{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.25);font-size:11px;font-weight:600;letter-spacing:2px;pointer-events:none;white-space:nowrap}
-        #studio-lightbox{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.94);backdrop-filter:blur(20px);align-items:center;justify-content:center;flex-direction:column}
+        #studio-matrix{
+          width:100%;height:580px;position:relative;
+          background:#04060d;border-radius:20px;overflow:hidden;
+        }
+        /* scanline overlay */
+        #studio-matrix::before{
+          content:'';position:absolute;inset:0;z-index:3;pointer-events:none;
+          background:repeating-linear-gradient(
+            to bottom,
+            transparent 0px, transparent 3px,
+            rgba(0,0,0,0.18) 3px, rgba(0,0,0,0.18) 4px
+          );
+        }
+        /* vignette */
+        #studio-matrix::after{
+          content:'';position:absolute;inset:0;z-index:4;pointer-events:none;
+          background:radial-gradient(ellipse at center,
+            transparent 30%,
+            rgba(4,6,13,0.55) 70%,
+            rgba(4,6,13,0.88) 100%
+          );
+        }
+        .sm-rows-wrap{
+          position:absolute;inset:0;
+          display:flex;flex-direction:column;
+          justify-content:center;
+          gap:6px;
+          padding:6px 0;
+          z-index:2;
+        }
+        .sm-row{
+          display:flex;gap:6px;align-items:center;
+          /* no overflow:hidden here — clipping done by parent */
+          will-change:transform;
+        }
+        .sm-tile{
+          flex-shrink:0;
+          width:180px;height:112px;
+          border-radius:8px;overflow:hidden;
+          position:relative;
+          cursor:pointer;
+          border:1px solid rgba(255,255,255,0.06);
+          transition:border-color .25s, transform .25s;
+        }
+        .sm-tile:hover{
+          border-color:rgba(221,42,123,0.7);
+          transform:scale(1.07);
+          z-index:10;
+        }
+        .sm-tile img{
+          width:100%;height:100%;object-fit:cover;display:block;
+          filter:saturate(0.7) brightness(0.75);
+          transition:filter .3s;
+        }
+        .sm-tile:hover img{
+          filter:saturate(1.1) brightness(1);
+        }
+        /* glitch colour tint on tiles */
+        .sm-tile::after{
+          content:'';position:absolute;inset:0;pointer-events:none;
+          background:linear-gradient(135deg,rgba(64,93,230,0.12),rgba(221,42,123,0.08));
+          mix-blend-mode:screen;
+        }
+        /* data-stream text overlay per tile */
+        .sm-tile .sm-data{
+          position:absolute;bottom:4px;left:6px;
+          font-size:9px;font-family:monospace;
+          color:rgba(0,255,180,0.55);
+          letter-spacing:0.5px;
+          pointer-events:none;
+          white-space:nowrap;
+          text-shadow:0 0 6px rgba(0,255,180,0.8);
+        }
+        /* scan beam */
+        @keyframes scan-beam{
+          0%{top:-6px;opacity:0}
+          5%{opacity:1}
+          92%{opacity:0.7}
+          100%{top:101%;opacity:0}
+        }
+        .scan-beam{
+          position:absolute;left:0;right:0;height:2px;z-index:5;
+          pointer-events:none;
+          background:linear-gradient(90deg,
+            transparent 0%,
+            rgba(64,93,230,0.4) 20%,
+            rgba(221,42,123,0.7) 50%,
+            rgba(64,93,230,0.4) 80%,
+            transparent 100%
+          );
+          box-shadow:0 0 12px 3px rgba(221,42,123,0.35);
+          animation:scan-beam 4s linear infinite;
+        }
+        .scan-beam:nth-child(2){animation-delay:1.3s}
+        .scan-beam:nth-child(3){animation-delay:2.6s}
+
+        /* corner HUD */
+        .sm-hud{
+          position:absolute;z-index:6;pointer-events:none;
+          color:rgba(0,255,180,0.5);font-family:monospace;font-size:10px;
+          letter-spacing:1px;line-height:1.6;
+        }
+        .sm-hud.tl{top:16px;left:20px}
+        .sm-hud.tr{top:16px;right:20px;text-align:right}
+        .sm-hud.bl{bottom:16px;left:20px}
+
+        /* corner bracket decorations */
+        .sm-corner{position:absolute;z-index:6;width:18px;height:18px;pointer-events:none}
+        .sm-corner.tl{top:12px;left:12px;border-top:2px solid rgba(221,42,123,0.6);border-left:2px solid rgba(221,42,123,0.6)}
+        .sm-corner.tr{top:12px;right:12px;border-top:2px solid rgba(221,42,123,0.6);border-right:2px solid rgba(221,42,123,0.6)}
+        .sm-corner.bl{bottom:12px;left:12px;border-bottom:2px solid rgba(64,93,230,0.6);border-left:2px solid rgba(64,93,230,0.6)}
+        .sm-corner.br{bottom:12px;right:12px;border-bottom:2px solid rgba(64,93,230,0.6);border-right:2px solid rgba(64,93,230,0.6)}
+
+        /* lightbox */
+        #studio-lightbox{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.95);backdrop-filter:blur(22px);align-items:center;justify-content:center;flex-direction:column}
         #studio-lightbox.open{display:flex}
-        #studio-lightbox img{max-width:92vw;max-height:86vh;object-fit:contain;border-radius:12px;transform:scale(0.9);opacity:0;transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .25s}
+        #studio-lightbox img{max-width:92vw;max-height:86vh;object-fit:contain;border-radius:12px;transform:scale(0.88);opacity:0;transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .25s}
         #studio-lightbox.open img{transform:scale(1);opacity:1}
         #slb-close{position:fixed;top:20px;right:26px;color:#fff;font-size:30px;cursor:pointer;background:none;border:none;opacity:0.6;z-index:10000}
         #slb-close:hover{opacity:1}
-        #slb-prev,#slb-next{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;font-size:24px;width:50px;height:50px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10000;transition:background .2s}
-        #slb-prev:hover,#slb-next:hover{background:rgba(255,255,255,0.22)}
-        #slb-prev{left:18px}
-        #slb-next{right:18px}
-        #slb-counter{color:rgba(255,255,255,0.38);font-size:12px;margin-top:14px;letter-spacing:1px;font-weight:600}
+        #slb-prev,#slb-next{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:#fff;font-size:24px;width:50px;height:50px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10000;transition:background .2s}
+        #slb-prev:hover,#slb-next:hover{background:rgba(255,255,255,0.2)}
+        #slb-prev{left:18px}#slb-next{right:18px}
+        #slb-counter{color:rgba(255,255,255,0.35);font-size:12px;margin-top:14px;letter-spacing:1px;font-weight:600}
+
         .studio-visit-bar{display:flex;align-items:center;justify-content:center;gap:12px;padding:18px;background:#f8f9fa;border-radius:0 0 20px 20px;font-size:13px;color:#6b7280}
       </style>
 
@@ -548,17 +648,22 @@
         <div id="slb-counter"></div>
       </div>
 
-      <div id="studio-flow-wrap">
-        <div id="studio-flow-scene">
-          <div id="studio-flow-track"></div>
-        </div>
-        <div id="studio-glow-lines">
-          <div class="glow-line" style="animation-delay:0s"></div>
-          <div class="glow-line" style="animation-delay:2.3s"></div>
-          <div class="glow-line" style="animation-delay:4.6s"></div>
-        </div>
-        <div class="studio-flow-badge">CLICK TO ENLARGE · DRAG TO BROWSE</div>
-        <div class="studio-flow-hint">← drag or scroll →</div>
+      <div id="studio-matrix">
+        <!-- scan beams -->
+        <div class="scan-beam"></div>
+        <div class="scan-beam"></div>
+        <div class="scan-beam"></div>
+        <!-- HUD overlays -->
+        <div class="sm-hud tl">SEAHUB STUDIO FEED<br>REC ● LIVE</div>
+        <div class="sm-hud tr" id="sm-hud-time">LOADING...</div>
+        <div class="sm-hud bl">22 SCENES · SEA</div>
+        <!-- corner brackets -->
+        <div class="sm-corner tl"></div>
+        <div class="sm-corner tr"></div>
+        <div class="sm-corner bl"></div>
+        <div class="sm-corner br"></div>
+        <!-- rows injected by JS -->
+        <div class="sm-rows-wrap" id="sm-rows"></div>
       </div>
 
       <div class="studio-visit-bar">
@@ -592,80 +697,90 @@
           '/assets/showcase/popmart/product_twinkle.jpg',
           '/assets/showcase/popmart/live_closeup.jpg',
         ];
-
         const N = PHOTOS.length;
-        const track = document.getElementById('studio-flow-track');
-        const wrap  = document.getElementById('studio-flow-wrap');
-        const STEP  = 360 / N;
-        const RADIUS = Math.max(480, Math.round(330 / (2 * Math.tan(Math.PI / N))));
 
-        let angle = 0, targetAngle = 0, didDrag = false;
+        /* ── HUD clock ── */
+        function updateHUD(){
+          var d = new Date();
+          var t = d.toISOString().replace('T',' ').substring(0,19) + ' UTC';
+          document.getElementById('sm-hud-time').textContent = t;
+        }
+        updateHUD(); setInterval(updateHUD, 1000);
 
-        /* build cards */
-        const cards = PHOTOS.map((url, i) => {
-          const d = document.createElement('div');
-          d.className = 'sf-card';
-          d.innerHTML = '<img src="' + url + '" loading="lazy" alt=""><div class="sf-overlay"></div><div class="sf-zoom">⊕</div>';
-          d.addEventListener('click', () => { if(!didDrag) slbOpen(i); });
-          track.appendChild(d);
-          return d;
-        });
+        /* data strings shown on tiles */
+        var DATA_TAGS = ['LIVE','REC','4K','STREAM','GMV+','SELL','SHOP','ON-AIR','HOT'];
 
-        function positionCards(){
-          cards.forEach((card, i) => {
-            const a   = ((i * STEP + angle) % 360 + 360) % 360;
-            const rad = a * Math.PI / 180;
-            const x   = Math.sin(rad) * RADIUS;
-            const z   = Math.cos(rad) * RADIUS - RADIUS;
-            const depth = (z + RADIUS * 2) / (RADIUS * 2);
-            const opacity = Math.max(0.12, 0.15 + depth * 0.85);
-            const scale   = 0.55 + depth * 0.52;
-            card.style.transform = 'translate(-50%,-50%) translateX(' + x + 'px) translateZ(' + z + 'px) scale(' + scale + ')';
-            card.style.opacity   = opacity;
-            card.style.zIndex    = Math.round(depth * 100);
-            card.style.filter    = depth > 0.65 ? 'none' : 'blur(' + ((1 - depth) * 2.8).toFixed(1) + 'px)';
+        /* ── build rows ── */
+        var wrap = document.getElementById('sm-rows');
+        /* 5 rows, each row gets a shuffled extended copy of PHOTOS */
+        var NUM_ROWS = 5;
+        /* row speeds (px/s): alternating left/right */
+        var SPEEDS = [38, -28, 44, -32, 36];
+
+        var rows = [];      /* { el, offset, speed, totalW } */
+
+        for(var r = 0; r < NUM_ROWS; r++){
+          var rowEl = document.createElement('div');
+          rowEl.className = 'sm-row';
+
+          /* shuffle photos differently per row */
+          var pool = PHOTOS.slice();
+          for(var s = pool.length - 1; s > 0; s--){
+            var j = Math.floor(Math.random()*(s+1));
+            var tmp = pool[s]; pool[s] = pool[j]; pool[j] = tmp;
+          }
+          /* triple the pool so seamless loop has enough width */
+          var extended = pool.concat(pool).concat(pool);
+
+          extended.forEach(function(url, idx){
+            var tile = document.createElement('div');
+            tile.className = 'sm-tile';
+            var photoIdx = PHOTOS.indexOf(url);
+            tile.setAttribute('data-idx', photoIdx >= 0 ? photoIdx : 0);
+            tile.innerHTML = '<img src="' + url + '" loading="lazy" alt="">'
+              + '<div class="sm-data">' + DATA_TAGS[idx % DATA_TAGS.length] + ' #' + String(idx).padStart(3,'0') + '</div>';
+            tile.addEventListener('click', function(){
+              slbOpen(parseInt(this.getAttribute('data-idx')));
+            });
+            rowEl.appendChild(tile);
           });
+
+          wrap.appendChild(rowEl);
+
+          /* initial offset: odd rows start offset so they don't align */
+          var initOffset = (r % 2 === 0) ? 0 : -(180 + 6) * Math.floor(pool.length / 2);
+          rows.push({ el: rowEl, offset: initOffset, speed: SPEEDS[r] });
         }
 
-        /* animation loop */
-        (function loop(){
-          angle += (targetAngle - angle) * 0.055;
-          positionCards();
-          requestAnimationFrame(loop);
-        })();
+        /* ── measure total width of one full set ── */
+        /* tile width 180 + gap 6 = 186; one pool length tiles */
+        var TILE_W = 186;
+        var ONE_SET_W = TILE_W * PHOTOS.length;
 
-        /* auto rotate */
-        let autoTimer;
-        function startAuto(){ clearInterval(autoTimer); autoTimer = setInterval(() => { targetAngle -= STEP * 0.38; }, 2400); }
-        startAuto();
+        /* ── animation loop ── */
+        var last = null;
+        function tick(ts){
+          if(last === null) last = ts;
+          var dt = Math.min((ts - last) / 1000, 0.05); /* cap at 50ms */
+          last = ts;
 
-        /* drag / touch */
-        let startX = 0, dragging = false;
-        wrap.addEventListener('mousedown', e => { dragging = true; didDrag = false; startX = e.clientX; clearInterval(autoTimer); });
-        wrap.addEventListener('touchstart', e => { dragging = true; didDrag = false; startX = e.touches[0].clientX; clearInterval(autoTimer); }, {passive:true});
-        window.addEventListener('mousemove', e => {
-          if(!dragging) return;
-          const dx = e.clientX - startX;
-          if(Math.abs(dx) > 5) didDrag = true;
-          targetAngle -= dx * 0.22; startX = e.clientX;
-        });
-        window.addEventListener('touchmove', e => {
-          if(!dragging) return;
-          const dx = e.touches[0].clientX - startX;
-          if(Math.abs(dx) > 5) didDrag = true;
-          targetAngle -= dx * 0.22; startX = e.touches[0].clientX;
-        }, {passive:true});
-        window.addEventListener('mouseup',  () => { dragging = false; startAuto(); });
-        window.addEventListener('touchend', () => { dragging = false; startAuto(); });
-        wrap.addEventListener('wheel', e => {
-          e.preventDefault();
-          targetAngle -= e.deltaY * 0.16;
-          clearInterval(autoTimer);
-          setTimeout(startAuto, 1600);
-        }, {passive:false});
+          rows.forEach(function(row){
+            row.offset += row.speed * dt;
+            /* seamless loop: wrap when scrolled one full set */
+            if(row.speed > 0 && row.offset > ONE_SET_W){
+              row.offset -= ONE_SET_W;
+            } else if(row.speed < 0 && row.offset < -ONE_SET_W){
+              row.offset += ONE_SET_W;
+            }
+            row.el.style.transform = 'translateX(' + row.offset + 'px)';
+          });
 
-        /* lightbox */
-        let slbIdx = 0;
+          requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+
+        /* ── lightbox ── */
+        var slbIdx = 0;
         window.slbOpen = function(i){
           slbIdx = i;
           var lb = document.getElementById('studio-lightbox');
@@ -677,7 +792,7 @@
           lb.onclick = function(e){ if(e.target===lb) slbClose(); };
         };
         window.slbClose = function(){ document.getElementById('studio-lightbox').classList.remove('open'); };
-        window.slbNav   = function(dir){
+        window.slbNav = function(dir){
           event.stopPropagation();
           slbIdx = (slbIdx + dir + N) % N;
           var img = document.getElementById('slb-img');
