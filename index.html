@@ -562,7 +562,7 @@
         }
         .sm-tile img{
           width:100%;height:100%;object-fit:cover;display:block;
-          filter:saturate(0.7) brightness(0.75);
+          filter:saturate(0.95) brightness(0.92);
           transition:filter .3s;
         }
         .sm-tile:hover img{
@@ -814,34 +814,174 @@
       </script>
     </section>
     <!-- Talent / Hosts -->
-    <section id="talent" class="section-panel">
-      <div class="creator-showcase">
-        <div class="cs-left">
-          <h2>3000+ Creators</h2>
-          <p class="lead">We have 3000+ Creators, focus on FMCG &amp; Lifestyle across Southeast Asia.</p>
-          <p><a class="cta" href="#contact">Work with creators</a></p>
-        </div>
-        <div class="cs-right">
-          <div class="creator-grid">
-            <div class="creator"><img src="/assets/hosts/host_01.jpg" alt="Yenni Ng" loading="lazy"><div class="creator-meta"><strong>Yenni Ng</strong></div></div>
-            <div class="creator"><img src="/assets/hosts/host_02.jpg" alt="Anard" loading="lazy"><div class="creator-meta"><strong>Anard</strong></div></div>
-            <div class="creator"><img src="/assets/hosts/host_03.jpg" alt="Racun Nuuna" loading="lazy"><div class="creator-meta"><strong>Racun Nuuna</strong></div></div>
-            <div class="creator"><img src="/assets/hosts/host_04.png" alt="Cece Ketarketir" loading="lazy"><div class="creator-meta"><strong>Cece Ketarketir</strong></div></div>
-            <div class="creator"><img src="/assets/hosts/host_05.jpg" alt="Anitta Maryam" loading="lazy"><div class="creator-meta"><strong>Anitta Maryam</strong></div></div>
-            <div class="creator"><img src="/assets/hosts/host_06.png" alt="Racun Diana" loading="lazy"><div class="creator-meta"><strong>Racun Diana</strong></div></div>
-            <div class="creator"><img src="/assets/hosts/host_07.jpg" alt="Prima Pym" loading="lazy"><div class="creator-meta"><strong>Prima Pym</strong></div></div>
-            <div class="creator"><img src="/assets/hosts/host_08.jpg" alt="Neny Ari" loading="lazy"><div class="creator-meta"><strong>Neny Ari</strong></div></div>
-            <div class="creator"><img src="/assets/hosts/host_09.jpg" alt="Brigette Doang" loading="lazy"><div class="creator-meta"><strong>Brigette Doang</strong></div></div>
-            <div class="creator"><img src="/assets/hosts/host_10.jpg" alt="Bellfiita" loading="lazy"><div class="creator-meta"><strong>Bellfiita</strong></div></div>
-            <div class="creator"><img src="/assets/hosts/host_11.jpg" alt="Dinara Rizqiyyaraf" loading="lazy"><div class="creator-meta"><strong>Dinara Rizqiyyaraf</strong></div></div>
-            <div class="creator"><img src="/assets/hosts/host_12.jpg" alt="Nida Henida" loading="lazy"><div class="creator-meta"><strong>Nida Henida</strong></div></div>
-            <div class="creator"><img src="/assets/hosts/host_13.jpg" alt="Desy Elisabeth" loading="lazy"><div class="creator-meta"><strong>Desy Elisabeth</strong></div></div>
-            <div class="creator"><img src="/assets/hosts/host_14.jpg" alt="Lola Felicia" loading="lazy"><div class="creator-meta"><strong>Lola Felicia</strong></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section id="talent" class="section-panel" style="padding-bottom:0">
 
+      <style>
+        /* talent matrix — reuses sm-tile but with portrait ratio */
+        #talent-matrix{
+          width:100%;height:500px;position:relative;
+          background:#04060d;border-radius:20px;overflow:hidden;
+        }
+        #talent-matrix::before{
+          content:'';position:absolute;inset:0;z-index:3;pointer-events:none;
+          background:repeating-linear-gradient(to bottom,transparent 0px,transparent 3px,rgba(0,0,0,0.15) 3px,rgba(0,0,0,0.15) 4px);
+        }
+        #talent-matrix::after{
+          content:'';position:absolute;inset:0;z-index:4;pointer-events:none;
+          background:radial-gradient(ellipse at center,transparent 28%,rgba(4,6,13,0.5) 68%,rgba(4,6,13,0.85) 100%);
+        }
+        .tm-rows-wrap{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:6px 0;z-index:2}
+        .tm-row{display:flex;gap:6px;align-items:center;will-change:transform}
+        .tm-tile{
+          flex-shrink:0;width:130px;height:160px;
+          border-radius:10px;overflow:hidden;position:relative;cursor:pointer;
+          border:1px solid rgba(255,255,255,0.06);
+          transition:border-color .25s,transform .25s;
+        }
+        .tm-tile:hover{border-color:rgba(221,42,123,0.75);transform:scale(1.08);z-index:10}
+        .tm-tile img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(0.85) brightness(0.88);transition:filter .3s}
+        .tm-tile:hover img{filter:saturate(1.1) brightness(1.05)}
+        .tm-tile::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(135deg,rgba(64,93,230,0.1),rgba(221,42,123,0.07));mix-blend-mode:screen}
+        .tm-tile .tm-name{
+          position:absolute;bottom:0;left:0;right:0;
+          background:linear-gradient(transparent,rgba(0,0,0,0.78));
+          padding:18px 8px 7px;
+          font-size:10px;font-weight:700;color:#fff;
+          text-align:center;letter-spacing:0.3px;
+          opacity:0;transition:opacity .25s;
+        }
+        .tm-tile:hover .tm-name{opacity:1}
+        .tm-tile .tm-data{position:absolute;top:6px;left:7px;font-size:8px;font-family:monospace;color:rgba(0,255,180,0.55);letter-spacing:0.4px;pointer-events:none;text-shadow:0 0 5px rgba(0,255,180,0.8)}
+
+        /* scan beams shared style already defined above; define new ones for talent */
+        .tm-scan{position:absolute;left:0;right:0;height:2px;z-index:5;pointer-events:none;
+          background:linear-gradient(90deg,transparent 0%,rgba(245,133,41,0.4) 20%,rgba(221,42,123,0.65) 50%,rgba(245,133,41,0.4) 80%,transparent 100%);
+          box-shadow:0 0 10px 2px rgba(245,133,41,0.3);
+          animation:scan-beam 5s linear infinite}
+        .tm-scan:nth-child(2){animation-delay:1.7s}
+        .tm-scan:nth-child(3){animation-delay:3.3s}
+
+        .tm-hud{position:absolute;z-index:6;pointer-events:none;color:rgba(0,255,180,0.5);font-family:monospace;font-size:10px;letter-spacing:1px;line-height:1.6}
+        .tm-hud.tl{top:16px;left:20px}
+        .tm-hud.tr{top:16px;right:20px;text-align:right}
+        .tm-hud.bl{bottom:16px;left:20px}
+        .tm-corner{position:absolute;z-index:6;width:18px;height:18px;pointer-events:none}
+        .tm-corner.tl{top:12px;left:12px;border-top:2px solid rgba(245,133,41,0.6);border-left:2px solid rgba(245,133,41,0.6)}
+        .tm-corner.tr{top:12px;right:12px;border-top:2px solid rgba(245,133,41,0.6);border-right:2px solid rgba(245,133,41,0.6)}
+        .tm-corner.bl{bottom:12px;left:12px;border-bottom:2px solid rgba(221,42,123,0.6);border-left:2px solid rgba(221,42,123,0.6)}
+        .tm-corner.br{bottom:12px;right:12px;border-bottom:2px solid rgba(221,42,123,0.6);border-right:2px solid rgba(221,42,123,0.6)}
+
+        .talent-cta-bar{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;background:#f8f9fa;border-radius:0 0 20px 20px;gap:16px;flex-wrap:wrap}
+        .talent-cta-bar .tc-left h3{font-size:16px;font-weight:800;color:#0f1724;margin:0 0 4px}
+        .talent-cta-bar .tc-left p{font-size:13px;color:#6b7280;margin:0}
+      </style>
+
+      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:8px">
+        <h2 style="margin:0">3,000+ Creators</h2>
+        <p class="muted" style="margin:0">FMCG &amp; Lifestyle · Southeast Asia</p>
+      </div>
+
+      <div id="talent-matrix">
+        <div class="tm-scan"></div>
+        <div class="tm-scan"></div>
+        <div class="tm-scan"></div>
+        <div class="tm-hud tl">SEAHUB CREATOR NETWORK<br>3000+ ACTIVE</div>
+        <div class="tm-hud tr">FMCG · LIFESTYLE · SEA</div>
+        <div class="tm-hud bl" id="tm-hud-time">--</div>
+        <div class="tm-corner tl"></div>
+        <div class="tm-corner tr"></div>
+        <div class="tm-corner bl"></div>
+        <div class="tm-corner br"></div>
+        <div class="tm-rows-wrap" id="tm-rows"></div>
+      </div>
+
+      <div class="talent-cta-bar">
+        <div class="tc-left">
+          <h3>Work with our creators</h3>
+          <p>Match your brand with the right creator — from nano to macro, across all categories.</p>
+        </div>
+        <a class="cta" href="#contact">Get in Touch →</a>
+      </div>
+
+      <script>
+      (function(){
+        var CREATORS = [
+          {img:'/assets/hosts/host_01.jpg', name:'Yenni Ng'},
+          {img:'/assets/hosts/host_02.jpg', name:'Anard'},
+          {img:'/assets/hosts/host_03.jpg', name:'Racun Nuuna'},
+          {img:'/assets/hosts/host_04.png', name:'Cece Ketarketir'},
+          {img:'/assets/hosts/host_05.jpg', name:'Anitta Maryam'},
+          {img:'/assets/hosts/host_06.png', name:'Racun Diana'},
+          {img:'/assets/hosts/host_07.jpg', name:'Prima Pym'},
+          {img:'/assets/hosts/host_08.jpg', name:'Neny Ari'},
+          {img:'/assets/hosts/host_09.jpg', name:'Brigette Doang'},
+          {img:'/assets/hosts/host_10.jpg', name:'Bellfiita'},
+          {img:'/assets/hosts/host_11.jpg', name:'Dinara Rizqiyyaraf'},
+          {img:'/assets/hosts/host_12.jpg', name:'Nida Henida'},
+          {img:'/assets/hosts/host_13.jpg', name:'Desy Elisabeth'},
+          {img:'/assets/hosts/host_14.jpg', name:'Lola Felicia'},
+        ];
+        var N = CREATORS.length;
+        var TAGS = ['KOL','MCN','LIVE','FMCG','TOP','SEA','GMV+','CREATOR'];
+        var SPEEDS = [32, -24, 40, -30, 28];
+        var TILE_W = 136; /* 130 + 6 gap */
+        var ONE_SET_W = TILE_W * N;
+
+        /* HUD time */
+        function updateTM(){
+          var d = new Date();
+          document.getElementById('tm-hud-time').textContent =
+            d.toISOString().replace('T',' ').substring(0,19) + ' UTC';
+        }
+        updateTM(); setInterval(updateTM, 1000);
+
+        var wrap = document.getElementById('tm-rows');
+        var rows = [];
+        var NUM_ROWS = 5;
+
+        for(var r = 0; r < NUM_ROWS; r++){
+          var rowEl = document.createElement('div');
+          rowEl.className = 'tm-row';
+
+          /* shuffle */
+          var pool = CREATORS.slice();
+          for(var s = pool.length-1; s > 0; s--){
+            var j = Math.floor(Math.random()*(s+1));
+            var tmp = pool[s]; pool[s]=pool[j]; pool[j]=tmp;
+          }
+          var extended = pool.concat(pool).concat(pool);
+
+          extended.forEach(function(c, idx){
+            var tile = document.createElement('div');
+            tile.className = 'tm-tile';
+            tile.innerHTML = '<img src="'+c.img+'" loading="lazy" alt="'+c.name+'">'
+              + '<div class="tm-data">'+TAGS[idx%TAGS.length]+' #'+String(idx).padStart(3,'0')+'</div>'
+              + '<div class="tm-name">'+c.name+'</div>';
+            rowEl.appendChild(tile);
+          });
+
+          wrap.appendChild(rowEl);
+          var initOffset = (r % 2 === 0) ? 0 : -(TILE_W * Math.floor(N/2));
+          rows.push({el: rowEl, offset: initOffset, speed: SPEEDS[r]});
+        }
+
+        var last = null;
+        function tick(ts){
+          if(last===null) last=ts;
+          var dt = Math.min((ts-last)/1000, 0.05);
+          last = ts;
+          rows.forEach(function(row){
+            row.offset += row.speed * dt;
+            if(row.speed > 0 && row.offset > ONE_SET_W) row.offset -= ONE_SET_W;
+            else if(row.speed < 0 && row.offset < -ONE_SET_W) row.offset += ONE_SET_W;
+            row.el.style.transform = 'translateX('+row.offset+'px)';
+          });
+          requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      })();
+      </script>
+    </section>
     <!-- Seahub Media -->
     <section id="seahub-media" class="section-panel">
       <h2>Seahub Media</h2>
