@@ -379,132 +379,104 @@
       <h2>Our Showcase</h2>
 
       <style>
-        .showcase-tabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
-        .showcase-tab{padding:9px 22px;border-radius:24px;border:1.5px solid #e5e7eb;background:#fff;font-size:13px;font-weight:700;color:#6b7280;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:8px}
-        .showcase-tab img{height:20px;width:auto;object-fit:contain}
-        .showcase-tab.active{background:linear-gradient(135deg,#f58529,#dd2a7b);color:#fff;border-color:transparent}
-        .showcase-panel{display:none}
-        .showcase-panel.active{display:block}
+        /* ── Tab buttons ── */
+        .sc-tabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+        .sc-tab{padding:8px 20px;border-radius:24px;border:1.5px solid #e5e7eb;background:#fff;font-size:13px;font-weight:700;color:#6b7280;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:7px}
+        .sc-tab img{height:18px;width:auto;object-fit:contain}
+        .sc-tab.active{background:linear-gradient(135deg,#f58529,#dd2a7b);color:#fff;border-color:transparent}
+        .sc-panel{display:none}
+        .sc-panel.active{display:block}
 
-        /* Mosaic grid */
-        .showcase-mosaic{display:grid;gap:12px;grid-template-columns:repeat(3,1fr);grid-template-rows:auto}
-        .showcase-mosaic .sm-item{border-radius:14px;overflow:hidden;position:relative;background:#f3f4f6}
-        .showcase-mosaic .sm-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
-        .showcase-mosaic .sm-item:hover img{transform:scale(1.04)}
-        .showcase-mosaic .sm-item .sm-badge{position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,0.6);backdrop-filter:blur(6px);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px}
-        /* Featured card takes 2 cols */
-        .sm-featured{grid-column:span 2;min-height:90px}
-        .sm-tall{grid-row:span 2}
-        .sm-normal{min-height:65px}
+        /* ── Masonry columns ── */
+        .sc-masonry{
+          columns:3;column-gap:10px;
+        }
+        .sc-item{
+          break-inside:avoid;
+          margin-bottom:10px;
+          border-radius:12px;overflow:hidden;
+          position:relative;cursor:pointer;
+          display:block;
+          background:#f3f4f6;
+        }
+        .sc-item img{
+          width:100%;display:block;
+          transition:transform .35s;
+        }
+        .sc-item:hover img{transform:scale(1.04)}
+        .sc-item .sc-badge{
+          position:absolute;bottom:8px;left:8px;
+          background:rgba(0,0,0,0.55);backdrop-filter:blur(6px);
+          color:#fff;font-size:10px;font-weight:700;
+          padding:3px 9px;border-radius:20px;
+          pointer-events:none;
+        }
 
-        /* Stats row */
-        .showcase-stats{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap}
-        .showcase-stat{flex:1;min-width:120px;background:#fff;border:1px solid #f0f0f0;border-radius:14px;padding:16px 20px;text-align:center}
-        .showcase-stat .sv{font-size:22px;font-weight:900;background:linear-gradient(135deg,#f58529,#dd2a7b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-        .showcase-stat .sl{font-size:11px;color:#6b7280;margin-top:4px;font-weight:600}
+        /* ── Stats row ── */
+        .sc-stats{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+        .sc-stat{flex:1;min-width:100px;background:#fff;border:1px solid #f0f0f0;border-radius:12px;padding:14px 16px;text-align:center}
+        .sc-stat .sv{font-size:20px;font-weight:900;background:linear-gradient(135deg,#f58529,#dd2a7b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .sc-stat .sl{font-size:10px;color:#6b7280;margin-top:3px;font-weight:600}
+
+        @media(max-width:640px){.sc-masonry{columns:2}}
       </style>
 
-      <!-- Tabs -->
-      <div class="showcase-tabs">
-        <button class="showcase-tab active" onclick="switchShowcase('adidas')">
+      <div class="sc-tabs">
+        <button class="sc-tab active" onclick="switchSC('adidas',this)">
           <img src="/assets/brands/final/adidas2.png" alt="Adidas"> Adidas
         </button>
-        <button class="showcase-tab" onclick="switchShowcase('popmart')">
+        <button class="sc-tab" onclick="switchSC('popmart',this)">
           <img src="/assets/brands/final/popmart.png" alt="POP MART"> POP MART
         </button>
       </div>
 
-      <!-- Adidas Panel -->
-      <div id="showcase-adidas" class="showcase-panel active">
-        <div class="showcase-mosaic">
-          <!-- Row 1 -->
-          <div class="sm-item sm-featured" style="min-height:180px">
-            <img src="/assets/showcase/adidas/studio_main.jpg" alt="Adidas Live Studio — main setup" loading="lazy">
-            <span class="sm-badge">📍 Live Studio Setup</span>
-          </div>
-          <div class="sm-item sm-tall">
-            <img src="/assets/showcase/adidas/live_17k.jpg" alt="Adidas live 17.1K viewers" loading="lazy">
-            <span class="sm-badge">🔥 17.1K Viewers</span>
-          </div>
-          <!-- Row 2 -->
-          <div class="sm-item sm-normal">
-            <img src="/assets/showcase/adidas/event_stage.jpg" alt="TikTok Shop × Adidas event stage" loading="lazy">
-            <span class="sm-badge">🎪 TikTok Shop Event</span>
-          </div>
-          <div class="sm-item sm-normal">
-            <img src="/assets/showcase/adidas/live_female_6k.jpg" alt="Female host 6.5K viewers" loading="lazy">
-            <span class="sm-badge">👥 6.5K Viewers</span>
-          </div>
-          <div class="sm-item sm-normal">
-            <img src="/assets/showcase/adidas/studio_prep.jpg" alt="Studio team preparing" loading="lazy">
-            <span class="sm-badge">🎬 Behind the Scenes</span>
-          </div>
-          <!-- Row 3 -->
-          <div class="sm-item sm-normal">
-            <img src="/assets/showcase/adidas/live_lunar.jpg" alt="Lunar New Year campaign" loading="lazy">
-            <span class="sm-badge">🎊 Lunar New Year Campaign</span>
-          </div>
-          <div class="sm-item sm-normal">
-            <img src="/assets/showcase/adidas/kol_ratu.jpg" alt="KOL Ratu Aulia 59K" loading="lazy">
-            <span class="sm-badge">⭐ KOL · 59K Followers</span>
-          </div>
-          <div class="sm-item sm-normal">
-            <img src="/assets/showcase/adidas/live_33.jpg" alt="3.3 Game On campaign" loading="lazy">
-            <span class="sm-badge">🛍️ 3.3 Game On</span>
-          </div>
+      <!-- Adidas -->
+      <div id="sc-adidas" class="sc-panel active">
+        <div class="sc-masonry">
+          <div class="sc-item"><img src="/assets/showcase/adidas/live_17k.jpg" alt=""><span class="sc-badge">🔥 17.1K Viewers</span></div>
+          <div class="sc-item"><img src="/assets/showcase/adidas/studio_main.jpg" alt=""><span class="sc-badge">📍 Live Studio</span></div>
+          <div class="sc-item"><img src="/assets/showcase/adidas/live_female_6k.jpg" alt=""><span class="sc-badge">👥 6.5K Viewers</span></div>
+          <div class="sc-item"><img src="/assets/showcase/adidas/event_stage.jpg" alt=""><span class="sc-badge">🎪 TikTok Shop Event</span></div>
+          <div class="sc-item"><img src="/assets/showcase/adidas/live_lunar.jpg" alt=""><span class="sc-badge">🎊 Lunar New Year</span></div>
+          <div class="sc-item"><img src="/assets/showcase/adidas/studio_prep.jpg" alt=""><span class="sc-badge">🎬 Behind the Scenes</span></div>
+          <div class="sc-item"><img src="/assets/showcase/adidas/kol_ratu.jpg" alt=""><span class="sc-badge">⭐ KOL · 59K Followers</span></div>
+          <div class="sc-item"><img src="/assets/showcase/adidas/live_33.jpg" alt=""><span class="sc-badge">🛍️ 3.3 Game On</span></div>
+          <div class="sc-item"><img src="/assets/showcase/adidas/live_female_6k_2.jpg" alt=""><span class="sc-badge">📡 Fashion Playground</span></div>
         </div>
-        <div class="showcase-stats">
-          <div class="showcase-stat"><div class="sv">17.1K</div><div class="sl">Peak Live Viewers</div></div>
-          <div class="showcase-stat"><div class="sv">656K+</div><div class="sl">Store Followers</div></div>
-          <div class="showcase-stat"><div class="sv">212K</div><div class="sl">Total Sold</div></div>
-          <div class="showcase-stat"><div class="sv">2y+</div><div class="sl">Partnership</div></div>
+        <div class="sc-stats">
+          <div class="sc-stat"><div class="sv">17.1K</div><div class="sl">Peak Live Viewers</div></div>
+          <div class="sc-stat"><div class="sv">656K+</div><div class="sl">Store Followers</div></div>
+          <div class="sc-stat"><div class="sv">212K</div><div class="sl">Total Sold</div></div>
+          <div class="sc-stat"><div class="sv">2y+</div><div class="sl">Partnership</div></div>
         </div>
       </div>
 
-      <!-- POP MART Panel -->
-      <div id="showcase-popmart" class="showcase-panel">
-        <div class="showcase-mosaic">
-          <!-- Row 1 -->
-          <div class="sm-item sm-featured" style="min-height:180px">
-            <img src="/assets/showcase/popmart/live_main.jpg" alt="POP MART TikTok Live" loading="lazy">
-            <span class="sm-badge">🔴 LIVE · 133.8K Followers</span>
-          </div>
-          <div class="sm-item sm-tall">
-            <img src="/assets/showcase/popmart/product_twinkle.jpg" alt="Twinkle Twinkle collection" loading="lazy">
-            <span class="sm-badge">✨ Twinkle Twinkle Series</span>
-          </div>
-          <!-- Row 2 -->
-          <div class="sm-item sm-normal">
-            <img src="/assets/showcase/popmart/live_crybaby.jpg" alt="CryBaby Coconut live" loading="lazy">
-            <span class="sm-badge">🎭 CryBaby Coconut</span>
-          </div>
-          <div class="sm-item sm-normal">
-            <img src="/assets/showcase/popmart/live_buying.jpg" alt="112 users buying during live" loading="lazy">
-            <span class="sm-badge">🛒 112 Users Buying Live</span>
-          </div>
-          <div class="sm-item sm-normal">
-            <img src="/assets/showcase/popmart/live_closeup.jpg" alt="Host showing blind box" loading="lazy">
-            <span class="sm-badge">📦 Blind Box Drop</span>
-          </div>
+      <!-- POP MART -->
+      <div id="sc-popmart" class="sc-panel">
+        <div class="sc-masonry">
+          <div class="sc-item"><img src="/assets/showcase/popmart/live_main.jpg" alt=""><span class="sc-badge">🔴 133.8K Followers</span></div>
+          <div class="sc-item"><img src="/assets/showcase/popmart/live_crybaby.jpg" alt=""><span class="sc-badge">🎭 CryBaby Coconut</span></div>
+          <div class="sc-item"><img src="/assets/showcase/popmart/product_twinkle.jpg" alt=""><span class="sc-badge">✨ Twinkle Twinkle</span></div>
+          <div class="sc-item"><img src="/assets/showcase/popmart/live_buying.jpg" alt=""><span class="sc-badge">🛒 112 Buyers Live</span></div>
+          <div class="sc-item"><img src="/assets/showcase/popmart/live_closeup.jpg" alt=""><span class="sc-badge">📦 Blind Box Drop</span></div>
         </div>
-        <div class="showcase-stats">
-          <div class="showcase-stat"><div class="sv">133.8K</div><div class="sl">Store Followers</div></div>
-          <div class="showcase-stat"><div class="sv">612</div><div class="sl">Peak Live Viewers</div></div>
-          <div class="showcase-stat"><div class="sv">112</div><div class="sl">Concurrent Buyers</div></div>
-          <div class="showcase-stat"><div class="sv">1y+</div><div class="sl">Partnership</div></div>
+        <div class="sc-stats">
+          <div class="sc-stat"><div class="sv">133.8K</div><div class="sl">Store Followers</div></div>
+          <div class="sc-stat"><div class="sv">612</div><div class="sl">Peak Live Viewers</div></div>
+          <div class="sc-stat"><div class="sv">112</div><div class="sl">Concurrent Buyers</div></div>
+          <div class="sc-stat"><div class="sv">1y+</div><div class="sl">Partnership</div></div>
         </div>
       </div>
 
       <script>
-        function switchShowcase(brand){
-          document.querySelectorAll('.showcase-tab').forEach(t=>t.classList.remove('active'));
-          document.querySelectorAll('.showcase-panel').forEach(p=>p.classList.remove('active'));
-          event.currentTarget.classList.add('active');
-          document.getElementById('showcase-'+brand).classList.add('active');
+        function switchSC(brand, btn){
+          document.querySelectorAll('.sc-tab').forEach(t=>t.classList.remove('active'));
+          document.querySelectorAll('.sc-panel').forEach(p=>p.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById('sc-'+brand).classList.add('active');
         }
       </script>
     </section>
-
     <!-- Live Studio -->
     <section id="studio" class="section-panel" style="padding-bottom:0">
       <h2>Live Studio & Scenes</h2>
