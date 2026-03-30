@@ -3,342 +3,1136 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Careers — Seahub Media</title>
-  <meta name="description" content="Join Seahub Media — We're hiring Live Hosts, Operations and Talent Managers across Indonesia and SEA.">
+  <title>Seahub Media — Live Commerce & MCN Partner · TikTok · Shopee · YouTube</title>
+  <meta name="description" content="Seahub Media — Multi-platform live commerce and MCN. End-to-end creator, affiliate & growth solutions across TikTok, Shopee and YouTube in Southeast Asia.">
+  <meta property="og:title" content="Seahub Media — Live Commerce & MCN · TikTok · Shopee · YouTube">
+  <meta property="og:description" content="One-stop live commerce services: livestream operations, creator management, affiliate & growth across TikTok, Shopee and YouTube in SEA.">
+  <meta property="og:image" content="/assets/banner.svg">
+  <meta property="og:type" content="website">
   <link rel="stylesheet" href="/styles.css">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Inter',sans-serif;background:#f9fafb;color:#0f1724}
     .site-header{padding:0;border-bottom:1px solid rgba(0,0,0,0.08);background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);position:sticky;top:0;z-index:100}
-    .header-inner{padding:12px 28px;display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;gap:16px}
+    .header-inner{padding:12px 28px!important;display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;gap:16px}
     .brand-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .brand-logo img{height:36px;width:auto;border-radius:6px;object-fit:contain}
-    .brand-logo-text .name{font-size:18px;font-weight:800;color:#0f1724}
+    .brand-logo img{height:36px;width:auto;border-radius:6px;object-fit:contain;flex-shrink:0}
+    .brand-logo-text{display:flex;flex-direction:column;line-height:1.1}
+    .brand-logo-text .name{font-size:18px;font-weight:800;color:#0f1724;letter-spacing:-0.3px}
     .brand-logo-text .name span{color:#dd2a7b}
-    .brand-logo-text .tagline{font-size:10px;color:#6b7280;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;margin-top:2px;display:block}
+    .brand-logo-text .tagline{font-size:10px;color:#6b7280;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;margin-top:2px}
     .nav a{color:#4b5563;font-size:13px;font-weight:600;text-decoration:none;margin-left:20px}
-    .nav a:hover,.nav a.active{color:#dd2a7b}
-    .wrap{max-width:1100px;margin:0 auto;padding:0 28px}
-    .page-body{padding:48px 0 80px}
+    .nav a:hover{color:#dd2a7b}
+    @media(max-width:880px){.brand-logo-text .tagline{display:none}.nav a{margin-left:12px;font-size:12px}}
 
-    /* Hero */
-    .careers-hero{background:#0b1120;border-radius:20px;padding:56px 52px;margin-bottom:40px;position:relative;overflow:hidden}
-    .careers-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(221,42,123,0.12) 0%,transparent 70%);pointer-events:none}
-    .careers-hero::after{content:'';position:absolute;bottom:-40px;left:-40px;width:240px;height:240px;background:radial-gradient(circle,rgba(64,93,230,0.1) 0%,transparent 70%);pointer-events:none}
-    .ch-eyebrow{font-size:11px;font-weight:700;color:#dd2a7b;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
-    .careers-hero h1{font-size:44px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:16px}
-    .careers-hero h1 span{background:linear-gradient(90deg,#f58529,#dd2a7b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .careers-hero p{font-size:15px;color:#8899aa;line-height:1.7;max-width:580px;margin-bottom:32px}
-    .ch-roles{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px}
-    .ch-role-pill{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:7px 18px;font-size:13px;font-weight:700;color:#fff;display:flex;align-items:center;gap:7px}
-    .ch-cta{display:flex;gap:12px;flex-wrap:wrap}
-    .btn-primary{background:linear-gradient(135deg,#f58529,#dd2a7b);color:#fff;padding:13px 26px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none;display:inline-block;border:none;cursor:pointer}
-    .btn-outline-w{border:1.5px solid rgba(255,255,255,0.25);color:#fff;padding:13px 26px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none;display:inline-block}
-    .btn-outline-w:hover{border-color:rgba(255,255,255,0.5)}
-
-    /* Section title */
-    .sec-head{margin-bottom:24px}
-    .sec-head h2{font-size:24px;font-weight:900;color:#0f1724;display:inline-block;padding:8px 20px;border-radius:8px;background:linear-gradient(135deg,rgba(245,133,41,0.12),rgba(221,42,123,0.10));border-left:4px solid #dd2a7b;margin-bottom:6px}
-    .sec-head p{font-size:14px;color:#6b7280;padding-left:4px}
-
-    /* Role cards */
-    .roles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px}
-    .role-card{background:#fff;border:1px solid #f0f0f0;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
-    .role-card:hover{box-shadow:0 8px 32px rgba(221,42,123,0.10);transform:translateY(-2px)}
-    .role-card-top{padding:28px 24px 20px;flex:1}
-    .role-icon{font-size:32px;margin-bottom:14px}
-    .role-dept{font-size:10px;font-weight:700;color:#dd2a7b;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
-    .role-title{font-size:20px;font-weight:900;color:#0f1724;margin-bottom:12px;line-height:1.2}
-    .role-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
-    .role-tag{font-size:11px;background:#f5f5f5;color:#555;border-radius:20px;padding:3px 10px;font-weight:600}
-    .role-desc{font-size:13px;color:#6b7280;line-height:1.65;margin-bottom:16px}
-    .role-reqs{list-style:none;display:flex;flex-direction:column;gap:6px}
-    .role-reqs li{font-size:13px;color:#374151;display:flex;align-items:flex-start;gap:8px}
-    .role-reqs li::before{content:'✓';color:#dd2a7b;font-weight:700;flex-shrink:0;margin-top:1px}
-    .role-card-bottom{padding:20px 24px;border-top:1px solid #f5f5f5;display:flex;gap:10px;flex-wrap:wrap;background:#fafafa}
-    .btn-apply-wa{background:linear-gradient(135deg,#f58529,#dd2a7b);color:#fff;padding:10px 20px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
-    .btn-apply-email{border:1.5px solid #e5e7eb;color:#374151;padding:10px 20px;border-radius:8px;font-weight:600;font-size:13px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;background:#fff}
-    .btn-apply-email:hover{border-color:#dd2a7b;color:#dd2a7b}
-
-    /* Process */
-    .process-wrap{background:#fff;border:1px solid #f0f0f0;border-radius:20px;padding:40px;margin-bottom:48px}
-    .process-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-top:32px}
-    .process-steps::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,#f58529,#dd2a7b);z-index:0}
-    .ps{display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1;padding:0 8px}
-    .ps-circle{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#f58529,#dd2a7b);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:12px;box-shadow:0 4px 16px rgba(221,42,123,0.25)}
-    .ps-num{font-size:10px;font-weight:700;color:#dd2a7b;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
-    .ps-title{font-size:13px;font-weight:800;color:#0f1724;margin-bottom:4px}
-    .ps-desc{font-size:11px;color:#6b7280;line-height:1.5}
-
-    /* Contact HR */
-    .hr-contact{background:#0b1120;border-radius:20px;padding:44px 48px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:40px}
-    .hr-contact-left h2{font-size:26px;font-weight:900;color:#fff;margin-bottom:10px}
-    .hr-contact-left h2 span{background:linear-gradient(90deg,#f58529,#dd2a7b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .hr-contact-left p{font-size:14px;color:#8899aa;line-height:1.65;margin-bottom:0}
-    .hr-contact-right{display:flex;flex-direction:column;gap:14px}
-    .hr-channel{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:16px;text-decoration:none;transition:border-color .2s,background .2s}
-    .hr-channel:hover{border-color:rgba(221,42,123,0.5);background:rgba(221,42,123,0.06)}
-    .hr-channel-icon{font-size:26px;flex-shrink:0}
-    .hr-channel-label{font-size:11px;font-weight:700;color:#8899aa;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
-    .hr-channel-val{font-size:15px;font-weight:700;color:#fff}
-    .hr-channel-hint{font-size:11px;color:#8899aa;margin-top:2px}
-
-    /* Culture */
-    .culture-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:48px}
-    .culture-card{background:#fff;border:1px solid #f0f0f0;border-radius:16px;padding:22px 18px}
-    .culture-icon{font-size:26px;margin-bottom:10px}
-    .culture-title{font-size:14px;font-weight:800;color:#0f1724;margin-bottom:6px}
-    .culture-desc{font-size:12px;color:#6b7280;line-height:1.55}
-
-    .site-footer{text-align:center;padding:32px;font-size:13px;color:#9ca3af;border-top:1px solid #f0f0f0;margin-top:48px}
-
-    @media(max-width:900px){.roles-grid,.process-steps{grid-template-columns:1fr}.process-steps::before{display:none}.hr-contact,.culture-grid{grid-template-columns:1fr 1fr}}
-    @media(max-width:560px){.hr-contact,.culture-grid{grid-template-columns:1fr}.careers-hero{padding:36px 24px}.careers-hero h1{font-size:30px}}
+    /* Section title highlight */
+    .section-panel h2, #services h2, #cases h2, #studio h2, #talent h2 {
+      font-size: 28px;
+      font-weight: 900;
+      color: #0f1724;
+      position: relative;
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(245,133,41,0.12), rgba(221,42,123,0.10));
+      border-left: 4px solid #dd2a7b;
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
-
-<header class="site-header">
-  <div class="header-inner">
-    <a class="brand-logo" href="/">
-      <img src="/assets/logo.jpg" alt="Seahub Media logo">
-      <div class="brand-logo-text">
-        <span class="name">Sea<span>Hub</span> Media</span>
-        <span class="tagline">e-Commerce Partner &amp; MCN</span>
-      </div>
-    </a>
-    <nav class="nav">
-      <a href="/">Home</a>
-      <a href="/tsp/">TSP</a>
-      <a href="/mcn/">MCN</a>
-      <a href="/careers/" class="active">Careers</a>
-      <a href="/#about">About Us</a>
-    </nav>
-  </div>
-</header>
-
-<main class="wrap page-body">
-
-  <!-- Hero -->
-  <div class="careers-hero">
-    <div class="ch-eyebrow">We're Hiring · Jakarta, Indonesia · SEA</div>
-    <h1>Build the future of<br><span>live commerce with us</span></h1>
-    <p>Seahub Media is one of Southeast Asia's fastest-growing live commerce companies. We work with top brands like Adidas and POP MART, manage 3,000+ creators, and drive hundreds of millions in GMV. Join a team that's shaping how brands sell online.</p>
-    <div class="ch-roles">
-      <div class="ch-role-pill"><span>🎤</span> Live Host</div>
-      <div class="ch-role-pill"><span>⚙️</span> Operations</div>
-      <div class="ch-role-pill"><span>🌟</span> Talent Manager</div>
-    </div>
-    <div class="ch-cta">
-      <a href="#open-roles" class="btn-primary">See Open Roles →</a>
-      <a href="https://wa.me/6285860439931?text=Hi%2C%20I%27m%20interested%20in%20joining%20Seahub%20Media" target="_blank" rel="noopener" class="btn-outline-w">WhatsApp HR →</a>
-    </div>
-  </div>
-
-  <!-- Culture -->
-  <div class="sec-head">
-    <h2>Why Seahub</h2>
-    <p>What it's like to work here</p>
-  </div>
-  <div class="culture-grid">
-    <div class="culture-card">
-      <div class="culture-icon">🚀</div>
-      <div class="culture-title">Fast-Moving Environment</div>
-      <div class="culture-desc">We move at the speed of live commerce. You'll learn more in 6 months here than most places in 2 years.</div>
-    </div>
-    <div class="culture-card">
-      <div class="culture-icon">🌏</div>
-      <div class="culture-title">Regional Exposure</div>
-      <div class="culture-desc">Work across Indonesia, Malaysia and broader SEA markets. Real exposure to multi-market e-commerce operations.</div>
-    </div>
-    <div class="culture-card">
-      <div class="culture-icon">🏆</div>
-      <div class="culture-title">Work with Top Brands</div>
-      <div class="culture-desc">Manage accounts for brands like Adidas, POP MART, and more. Your work has direct GMV impact from day one.</div>
-    </div>
-    <div class="culture-card">
-      <div class="culture-icon">📈</div>
-      <div class="culture-title">Performance-Driven Growth</div>
-      <div class="culture-desc">We reward results. Strong performers grow fast — promotions, responsibility, and compensation tied to real impact.</div>
-    </div>
-  </div>
-
-  <!-- Open Roles -->
-  <div id="open-roles" class="sec-head">
-    <h2>Open Roles</h2>
-    <p>3 positions currently open — apply directly via WhatsApp or Email</p>
-  </div>
-  <div class="roles-grid">
-
-    <!-- Live Host -->
-    <div class="role-card">
-      <div class="role-card-top">
-        <div class="role-icon">🎤</div>
-        <div class="role-dept">Live Commerce</div>
-        <div class="role-title">Live Host (Host Livestream)</div>
-        <div class="role-tags">
-          <span class="role-tag">Full-time</span>
-          <span class="role-tag">Jakarta</span>
-          <span class="role-tag">Entry – Mid</span>
-        </div>
-        <p class="role-desc">You'll be the face of our brand partners' live sessions — presenting products, engaging audiences, and driving real-time sales across TikTok Shop and Shopee Live.</p>
-        <ul class="role-reqs">
-          <li>Confident on camera, natural communicator</li>
-          <li>Interest in fashion, beauty, FMCG or lifestyle</li>
-          <li>Available for flexible live session schedules</li>
-          <li>TikTok / Shopee live experience is a plus</li>
-          <li>Fluent in Indonesian; English is a bonus</li>
-        </ul>
-      </div>
-      <div class="role-card-bottom">
-        <a class="btn-apply-wa" href="https://wa.me/6285860439931?text=Hi%2C%20I%27d%20like%20to%20apply%20for%20the%20Live%20Host%20position%20at%20Seahub%20Media.%20My%20name%20is%20[Name]%20and%20I%27m%20interested%20because..." target="_blank" rel="noopener">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Apply via WhatsApp
-        </a>
-        <a class="btn-apply-email" href="mailto:seahubmediahr@gmail.com?subject=Application%20—%20Live%20Host&body=Hi%20Seahub%20HR%2C%0A%0AI%27d%20like%20to%20apply%20for%20the%20Live%20Host%20position.%0A%0AName%3A%0AExperience%3A%0AWhy%20I%27m%20a%20fit%3A">
-          ✉ Email
-        </a>
-      </div>
-    </div>
-
-    <!-- Operations -->
-    <div class="role-card">
-      <div class="role-card-top">
-        <div class="role-icon">⚙️</div>
-        <div class="role-dept">Operations</div>
-        <div class="role-title">Live Commerce Operations</div>
-        <div class="role-tags">
-          <span class="role-tag">Full-time</span>
-          <span class="role-tag">Jakarta</span>
-          <span class="role-tag">Mid-level</span>
-        </div>
-        <p class="role-desc">You'll manage the day-to-day operations of live sessions and brand store accounts — coordinating schedules, monitoring performance, and optimizing results in real time.</p>
-        <ul class="role-reqs">
-          <li>Experience in TikTok Shop / Shopee store ops</li>
-          <li>Comfortable with data and performance metrics</li>
-          <li>Strong coordination and multitasking skills</li>
-          <li>Ability to handle multiple brand accounts</li>
-          <li>Familiar with live commerce workflows</li>
-        </ul>
-      </div>
-      <div class="role-card-bottom">
-        <a class="btn-apply-wa" href="https://wa.me/6285860439931?text=Hi%2C%20I%27d%20like%20to%20apply%20for%20the%20Operations%20position%20at%20Seahub%20Media.%20My%20name%20is%20[Name]%20and%20I%27m%20interested%20because..." target="_blank" rel="noopener">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Apply via WhatsApp
-        </a>
-        <a class="btn-apply-email" href="mailto:seahubmediahr@gmail.com?subject=Application%20—%20Operations&body=Hi%20Seahub%20HR%2C%0A%0AI%27d%20like%20to%20apply%20for%20the%20Operations%20position.%0A%0AName%3A%0AExperience%3A%0AWhy%20I%27m%20a%20fit%3A">
-          ✉ Email
-        </a>
-      </div>
-    </div>
-
-    <!-- Talent Manager -->
-    <div class="role-card">
-      <div class="role-card-top">
-        <div class="role-icon">🌟</div>
-        <div class="role-dept">Talent Management</div>
-        <div class="role-title">Talent Manager (Creator Manager)</div>
-        <div class="role-tags">
-          <span class="role-tag">Full-time</span>
-          <span class="role-tag">Jakarta</span>
-          <span class="role-tag">Mid-level</span>
-        </div>
-        <p class="role-desc">You'll manage relationships with our creator roster — scouting new talent, handling briefings, coordinating campaigns, and helping creators grow their performance and income.</p>
-        <ul class="role-reqs">
-          <li>Experience managing KOLs or content creators</li>
-          <li>Strong network in the creator / influencer space</li>
-          <li>Excellent communication and negotiation skills</li>
-          <li>Familiar with TikTok / Shopee affiliate ecosystem</li>
-          <li>Data-driven approach to creator performance</li>
-        </ul>
-      </div>
-      <div class="role-card-bottom">
-        <a class="btn-apply-wa" href="https://wa.me/6285860439931?text=Hi%2C%20I%27d%20like%20to%20apply%20for%20the%20Talent%20Manager%20position%20at%20Seahub%20Media.%20My%20name%20is%20[Name]%20and%20I%27m%20interested%20because..." target="_blank" rel="noopener">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Apply via WhatsApp
-        </a>
-        <a class="btn-apply-email" href="mailto:seahubmediahr@gmail.com?subject=Application%20—%20Talent%20Manager&body=Hi%20Seahub%20HR%2C%0A%0AI%27d%20like%20to%20apply%20for%20the%20Talent%20Manager%20position.%0A%0AName%3A%0AExperience%3A%0AWhy%20I%27m%20a%20fit%3A">
-          ✉ Email
-        </a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Application Process -->
-  <div class="sec-head">
-    <h2>How to Apply</h2>
-    <p>Simple 5-step process — from application to your first day</p>
-  </div>
-  <div class="process-wrap">
-    <div class="process-steps">
-      <div class="ps">
-        <div class="ps-circle">📩</div>
-        <div class="ps-num">Step 01</div>
-        <div class="ps-title">Apply</div>
-        <div class="ps-desc">Send your CV via WhatsApp or Email to our HR team</div>
-      </div>
-      <div class="ps">
-        <div class="ps-circle">📞</div>
-        <div class="ps-num">Step 02</div>
-        <div class="ps-title">Screening Call</div>
-        <div class="ps-desc">Quick 15-min call with HR to discuss your background and the role</div>
-      </div>
-      <div class="ps">
-        <div class="ps-circle">🎯</div>
-        <div class="ps-num">Step 03</div>
-        <div class="ps-title">Interview</div>
-        <div class="ps-desc">In-person or video interview with the team lead for your department</div>
-      </div>
-      <div class="ps">
-        <div class="ps-circle">✅</div>
-        <div class="ps-num">Step 04</div>
-        <div class="ps-title">Offer</div>
-        <div class="ps-desc">We'll send an offer within 3 working days of the final interview</div>
-      </div>
-      <div class="ps">
-        <div class="ps-circle">🚀</div>
-        <div class="ps-num">Step 05</div>
-        <div class="ps-title">Onboard</div>
-        <div class="ps-desc">Join the team — orientation, tools access, and first project kickoff</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Contact HR -->
-  <div class="sec-head">
-    <h2>Contact HR</h2>
-    <p>Reach out directly — we usually respond within 1 business day</p>
-  </div>
-  <div class="hr-contact">
-    <div class="hr-contact-left">
-      <h2>Talk to our <span>HR Team</span></h2>
-      <p>Have questions about a role or the application process? Reach us on WhatsApp for the fastest response, or send a detailed email with your CV attached. We read every message.</p>
-    </div>
-    <div class="hr-contact-right">
-      <a class="hr-channel" href="https://wa.me/6285860439931?text=Hi%20Seahub%20HR%2C%20I%27m%20interested%20in%20applying%20for%20a%20position." target="_blank" rel="noopener">
-        <div class="hr-channel-icon">💬</div>
-        <div>
-          <div class="hr-channel-label">WhatsApp — Fastest Response</div>
-          <div class="hr-channel-val">+62 858 6043 9931</div>
-          <div class="hr-channel-hint">Tap to open WhatsApp chat</div>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand-logo" href="#home">
+        <img src="/assets/logo.jpg" alt="Seahub Media logo">
+        <div class="brand-logo-text">
+          <span class="name">Sea<span>Hub</span> Media</span>
+          <span class="tagline" style="display:flex;align-items:center;gap:5px;text-transform:none;letter-spacing:0">
+            <span style="letter-spacing:0.3px;text-transform:uppercase;font-size:10px">e-Commerce Partner &amp; MCN</span>
+            <span style="display:flex;align-items:center;gap:3px;margin-left:4px">
+              <!-- TikTok -->
+              <svg width="14" height="14" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" title="TikTok"><path d="M27.2 7.7a7.8 7.8 0 0 1-7.8-7.7h-5.1v21.4a3.7 3.7 0 1 1-3.7-3.7c.35 0 .69.05 1 .14V12.6a8.8 8.8 0 1 0 7.8 8.8V12.2a12.8 12.8 0 0 0 7.8 2.6V9.7a7.8 7.8 0 0 1-.01-.01L27.2 7.7z" fill="#010101"/></svg>
+              <!-- Shopee -->
+              <svg width="14" height="14" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" title="Shopee"><circle cx="16" cy="16" r="16" fill="#EE4D2D"/><path d="M16 5.5a5 5 0 0 0-5 5H9l1.2 13h11.6L23 10.5h-2a5 5 0 0 0-5-5zm0 2a3 3 0 0 1 3 3h-6a3 3 0 0 1 3-3zm-2.5 8a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm5 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z" fill="#fff"/></svg>
+              <!-- YouTube -->
+              <svg width="14" height="14" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" title="YouTube"><rect width="32" height="32" rx="7" fill="#FF0000"/><path d="M24.8 11.6s-.2-1.4-.8-2a2.7 2.7 0 0 0-1.9-.8C19.6 8.6 16 8.6 16 8.6s-3.6 0-6.1.2c-.7.1-1.4.4-1.9.8-.6.6-.8 2-.8 2S7 13.2 7 14.8v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.5.6 1.3.8 2 .9 1.5.1 6 .2 6 .2s3.6 0 6.1-.2c.7-.1 1.4-.4 1.9-.8.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5c0-1.6-.2-3.2-.2-3.3zm-10.7 6.5v-5.5l5.2 2.8-5.2 2.7z" fill="#fff"/></svg>
+            </span>
+          </span>
         </div>
       </a>
-      <a class="hr-channel" href="mailto:seahubmediahr@gmail.com?subject=Career%20Enquiry&body=Hi%20Seahub%20HR%2C%0A%0AI%27m%20interested%20in%20applying%20for%20a%20position.%20Please%20find%20my%20details%20below%3A%0A%0AName%3A%0APosition%20of%20interest%3A%0ALinkedIn%20%2F%20Portfolio%3A%0A%0ABrief%20intro%3A">
-        <div class="hr-channel-icon">✉️</div>
-        <div>
-          <div class="hr-channel-label">Email — Attach your CV</div>
-          <div class="hr-channel-val">seahubmediahr@gmail.com</div>
-          <div class="hr-channel-hint">Tap to compose email</div>
-        </div>
-      </a>
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="/tsp/">TSP</a>
+        <a href="/mcn/">MCN</a>
+        <a href="/careers/">Careers</a>
+        <a href="#talent">Talent Recruitment</a>
+        <a href="#about">About Us</a>
+      </nav>
     </div>
-  </div>
+  </header>
 
-</main>
+  <main class="wrap" id="home">
 
-<footer class="site-footer"><p>© 2025 Seahub Media. All rights reserved.</p></footer>
+    <!-- Hero -->
+    <div class="hero-banner" style="background:#0b1120;border-radius:16px;padding:52px 44px;display:flex;align-items:center;gap:48px;margin-bottom:0">
+      <div style="flex:1;min-width:0">
+        <div style="font-size:11px;font-weight:600;color:#dd2a7b;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px">Live Commerce Partner & MCN · TikTok · Shopee · YouTube · SEA</div>
+        <h1 style="font-size:46px;font-weight:900;color:#fff;line-height:1.1;margin:0 0 16px">We make brands<br><span style="background:linear-gradient(90deg,#f58529,#dd2a7b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">win on e-commerce</span></h1>
+        <p style="font-size:15px;color:#8899aa;margin:0 0 28px;line-height:1.7">End-to-end live commerce, creator & affiliate solutions<br>across TikTok, Shopee and YouTube — from onboarding to scale.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="#contact" style="background:linear-gradient(135deg,#f58529,#dd2a7b);color:#fff;padding:13px 26px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none">For Brands →</a>
+          <a href="#talent" style="border:1.5px solid rgba(255,255,255,0.2);color:#fff;padding:13px 26px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none">For Creators →</a>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;flex-shrink:0">
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:22px;text-align:center">
+          <div style="font-size:30px;font-weight:900;color:#f58529">$400M+</div>
+          <div style="font-size:11px;color:#8899aa;margin-top:4px">Total GMV</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:22px;text-align:center">
+          <div style="font-size:30px;font-weight:900;color:#dd2a7b">3000+</div>
+          <div style="font-size:11px;color:#8899aa;margin-top:4px">Creators</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:22px;text-align:center">
+          <div style="font-size:30px;font-weight:900;color:#962fbf">50+</div>
+          <div style="font-size:11px;color:#8899aa;margin-top:4px">Brand Partners</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:22px;text-align:center">
+          <div style="font-size:30px;font-weight:900;color:#405DE6">5+</div>
+          <div style="font-size:11px;color:#8899aa;margin-top:4px">Countries</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Announcements -->
+    <section id="announcements" class="section-panel" style="margin-top:20px">
+      <h2>Latest News</h2>
+
+      <!-- LCIP Featured Card -->
+      <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:0;background:#0b0c0e;border-radius:16px;overflow:hidden;margin-bottom:16px;border:1px solid rgba(201,160,69,0.25)">
+        <!-- Poster -->
+        <div style="position:relative;min-height:280px;overflow:hidden">
+          <img src="/assets/lcip_poster.jpg" alt="Live Commerce International Program" loading="lazy"
+            style="width:100%;height:100%;object-fit:cover;display:block;opacity:0.92">
+        </div>
+        <!-- Content -->
+        <div style="padding:28px 32px;display:flex;flex-direction:column;gap:12px;justify-content:center">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-size:10px;font-weight:700;background:linear-gradient(135deg,#c9a045,#f0d080);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-transform:uppercase;letter-spacing:1.5px">🔥 New Program</span>
+            <span style="font-size:10px;color:rgba(255,255,255,0.3);font-weight:600">April 2026</span>
+          </div>
+          <h3 style="font-size:20px;font-weight:900;color:#fff;line-height:1.25;margin:0">Live Commerce International Program</h3>
+          <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.65;margin:0">SeaHub Media × TikTok × MTYN — Bringing Indonesian creators to China for an immersive live commerce training program in the heart of China's e-commerce ecosystem.</p>
+          <!-- Key stats -->
+          <div style="display:flex;gap:16px;flex-wrap:wrap;margin:4px 0">
+            <div style="text-align:center">
+              <div style="font-size:17px;font-weight:900;color:#c9a045">15M+</div>
+              <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:2px">Impressions</div>
+            </div>
+            <div style="text-align:center">
+              <div style="font-size:17px;font-weight:900;color:#c9a045">20×</div>
+              <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:2px">Live Sessions</div>
+            </div>
+            <div style="text-align:center">
+              <div style="font-size:17px;font-weight:900;color:#c9a045">20+</div>
+              <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:2px">Top Creators</div>
+            </div>
+            <div style="text-align:center">
+              <div style="font-size:17px;font-weight:900;color:#c9a045">28K+</div>
+              <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:2px">Views/Video</div>
+            </div>
+          </div>
+          <p style="font-size:12px;color:rgba(255,255,255,0.35);margin:0">📍 Shanghai, Hangzhou &nbsp;·&nbsp; 13–30 April 2026 &nbsp;·&nbsp; Limited Brand Slots</p>
+          <!-- CTAs -->
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px">
+            <a href="https://wa.me/6281574581433?text=Hi%20Vanesha%2C%20I%27m%20interested%20in%20the%20Live%20Commerce%20International%20Program%20(Creator%20Registration)" target="_blank" rel="noopener"
+              style="background:linear-gradient(135deg,#c9a045,#f0d080);color:#0b0c0e;padding:10px 20px;border-radius:8px;font-weight:800;font-size:13px;text-decoration:none;display:inline-block">
+              Register as Creator →
+            </a>
+            <a href="https://wa.me/6281574581433?text=Hi%20Vanesha%2C%20I%27m%20a%20brand%20interested%20in%20the%20Live%20Commerce%20International%20Program" target="_blank" rel="noopener"
+              style="border:1.5px solid rgba(201,160,69,0.5);color:#c9a045;padding:10px 20px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;display:inline-block">
+              Brand Enquiry →
+            </a>
+          </div>
+          <p style="font-size:11px;color:rgba(255,255,255,0.25);margin:0">Contact Vanesha: <a href="tel:+6281574581433" style="color:rgba(255,255,255,0.4);text-decoration:none">+62 815 7458 1433</a></p>
+        </div>
+      </div>
+
+      <!-- Existing 3 cards -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+        <div style="background:#fff8f0;border:1px solid #f5dfc0;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px">
+          <span style="font-size:10px;font-weight:700;color:#f58529;text-transform:uppercase;letter-spacing:1px">🏆 Award</span>
+          <p style="font-size:14px;font-weight:700;color:#1a1a1a;margin:0">TikTok Official Partner 2025</p>
+          <p style="font-size:13px;color:#666;margin:0;line-height:1.5">Seahub Media officially recognized as a TikTok Shop Partner across Southeast Asia.</p>
+          <span style="font-size:11px;color:#999;margin-top:auto">March 2025</span>
+        </div>
+        <div style="background:#f0f8ff;border:1px solid #c0d8f5;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px">
+          <span style="font-size:10px;font-weight:700;color:#405DE6;text-transform:uppercase;letter-spacing:1px">📢 Milestone</span>
+          <p style="font-size:14px;font-weight:700;color:#1a1a1a;margin:0">$400M+ GMV Achieved</p>
+          <p style="font-size:13px;color:#666;margin:0;line-height:1.5">Cumulative GMV across all managed brands and creators surpasses $400 million.</p>
+          <span style="font-size:11px;color:#999;margin-top:auto">Q1 2026</span>
+        </div>
+        <div style="background:#fdf0f8;border:1px solid #f0c0dc;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px">
+          <span style="font-size:10px;font-weight:700;color:#dd2a7b;text-transform:uppercase;letter-spacing:1px">🤝 Partnership</span>
+          <p style="font-size:14px;font-weight:700;color:#1a1a1a;margin:0">New Brand Partners Onboarded</p>
+          <p style="font-size:13px;color:#666;margin:0;line-height:1.5">Welcomed 5 new major brands in Q1 2026 including FMCG and lifestyle categories.</p>
+          <span style="font-size:11px;color:#999;margin-top:auto">January 2026</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TSP Dashboard -->
+    <section id="tsp-dashboard" class="section-panel">
+      <h2>Dashboard — TSP Business</h2>
+      <div class="tsp-dashboard">
+        <div class="gmv-card">
+          <div class="gmv-label">Total GMV to date</div>
+          <div id="gmv-value" class="gmv-value">$120,000,000</div>
+          <div class="gmv-meta">Live simulated counter — updates every 15 minutes</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TSP Partners -->
+    <section id="partners" class="section-panel panel--highlight">
+      <h2>TSP Current Partners</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;margin-top:8px">
+
+        <div style="background:#fff;border:0.5px solid rgba(0,0,0,0.08);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px">
+          <div style="height:48px;display:flex;align-items:center">
+            <img src="/assets/brands/final/adidas2.png" style="height:36px;width:auto;object-fit:contain">
+          </div>
+          <div><div style="font-size:15px;font-weight:700;color:#0f1724">Adidas</div><div style="font-size:12px;color:#6b7280;margin-top:2px">Fashion</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:auto">
+            <span style="font-size:11px;background:#fff0f5;color:#dd2a7b;border-radius:20px;padding:3px 10px;font-weight:600">Full-store</span>
+            <span style="font-size:11px;background:#f0f4ff;color:#405DE6;border-radius:20px;padding:3px 10px;font-weight:600">TikTok · Shopee</span>
+            <span style="font-size:11px;background:#f5f5f5;color:#666;border-radius:20px;padding:3px 10px;font-weight:600">2y+</span>
+          </div>
+        </div>
+
+        <div style="background:#fff;border:0.5px solid rgba(0,0,0,0.08);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px">
+          <div style="height:48px;display:flex;align-items:center">
+            <img src="/assets/brands/final/popmart.png" style="height:36px;width:auto;object-fit:contain">
+          </div>
+          <div><div style="font-size:15px;font-weight:700;color:#0f1724">POP MART</div><div style="font-size:12px;color:#6b7280;margin-top:2px">Collectibles</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:auto">
+            <span style="font-size:11px;background:#fff0f5;color:#dd2a7b;border-radius:20px;padding:3px 10px;font-weight:600">Full-store</span>
+            <span style="font-size:11px;background:#f0f4ff;color:#405DE6;border-radius:20px;padding:3px 10px;font-weight:600">TikTok · Shopee</span>
+            <span style="font-size:11px;background:#f5f5f5;color:#666;border-radius:20px;padding:3px 10px;font-weight:600">1y+</span>
+          </div>
+        </div>
+
+        <div style="background:#fff;border:0.5px solid rgba(0,0,0,0.08);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px">
+          <div style="height:48px;display:flex;align-items:center">
+            <img src="/assets/brands/final/vivo2.png" style="height:36px;width:auto;object-fit:contain">
+          </div>
+          <div><div style="font-size:15px;font-weight:700;color:#0f1724">vivo</div><div style="font-size:12px;color:#6b7280;margin-top:2px">Electronics</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:auto">
+            <span style="font-size:11px;background:#f0fff8;color:#1D9E75;border-radius:20px;padding:3px 10px;font-weight:600">Co-managed</span>
+            <span style="font-size:11px;background:#f0f4ff;color:#405DE6;border-radius:20px;padding:3px 10px;font-weight:600">TikTok · Shopee</span>
+            <span style="font-size:11px;background:#f5f5f5;color:#666;border-radius:20px;padding:3px 10px;font-weight:600">1y+</span>
+          </div>
+        </div>
+
+        <div style="background:#fff;border:0.5px solid rgba(0,0,0,0.08);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px">
+          <div style="height:48px;display:flex;align-items:center">
+            <img src="/assets/brands/final/iqoo.png" style="height:36px;width:auto;object-fit:contain">
+          </div>
+          <div><div style="font-size:15px;font-weight:700;color:#0f1724">iQOO</div><div style="font-size:12px;color:#6b7280;margin-top:2px">Electronics</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:auto">
+            <span style="font-size:11px;background:#f0fff8;color:#1D9E75;border-radius:20px;padding:3px 10px;font-weight:600">Co-managed</span>
+            <span style="font-size:11px;background:#f0f4ff;color:#405DE6;border-radius:20px;padding:3px 10px;font-weight:600">TikTok</span>
+            <span style="font-size:11px;background:#f5f5f5;color:#666;border-radius:20px;padding:3px 10px;font-weight:600">1y+</span>
+          </div>
+        </div>
+
+        <div style="background:#fff;border:0.5px solid rgba(0,0,0,0.08);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px">
+          <div style="height:48px;display:flex;align-items:center">
+            <img src="/assets/brands/final/motorola.png" style="height:36px;width:auto;object-fit:contain">
+          </div>
+          <div><div style="font-size:15px;font-weight:700;color:#0f1724">Motorola</div><div style="font-size:12px;color:#6b7280;margin-top:2px">Electronics</div></div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:auto">
+            <span style="font-size:11px;background:#f0fff8;color:#1D9E75;border-radius:20px;padding:3px 10px;font-weight:600">Co-managed</span>
+            <span style="font-size:11px;background:#f0f4ff;color:#405DE6;border-radius:20px;padding:3px 10px;font-weight:600">TikTok · Shopee</span>
+            <span style="font-size:11px;background:#f5f5f5;color:#666;border-radius:20px;padding:3px 10px;font-weight:600">1y+</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TSP Services -->
+    <section id="services" class="section-panel">
+      <h2>TSP Service</h2>
+      <p class="muted" style="margin-bottom:20px">Full-service e-commerce store management — from setup to scale.</p>
+
+      <style>
+        .tsp-svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+        .tsp-svc-card{background:#fff;border:1px solid #f0f0f0;border-radius:16px;padding:22px 18px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;transition:box-shadow .2s,transform .2s;position:relative;overflow:hidden}
+        .tsp-svc-card:hover{box-shadow:0 6px 24px rgba(221,42,123,0.10);transform:translateY(-2px)}
+        .tsp-svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#f58529,#dd2a7b);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+        .tsp-svc-card:hover::after{transform:scaleX(1)}
+        .tsp-svc-icon{font-size:22px}
+        .tsp-svc-title{font-size:13px;font-weight:800;color:#0f1724;line-height:1.3}
+        .tsp-svc-desc{font-size:12px;color:#6b7280;line-height:1.5;flex:1}
+        .tsp-svc-link{font-size:12px;font-weight:700;color:#dd2a7b;margin-top:4px}
+        @media(max-width:640px){.tsp-svc-grid{grid-template-columns:1fr}}
+      </style>
+
+      <div class="tsp-svc-grid">
+        <a class="tsp-svc-card" href="/tsp/services/shop-setup/">
+          <div class="tsp-svc-icon">🏪</div>
+          <div class="tsp-svc-title">Shop Setup & Operations</div>
+          <div class="tsp-svc-desc">Account setup, product listing, co-managed daily operations and growth playbook across TikTok & Shopee.</div>
+          <div class="tsp-svc-link">Learn more →</div>
+        </a>
+        <a class="tsp-svc-card" href="/tsp/services/live-commerce/">
+          <div class="tsp-svc-icon">📡</div>
+          <div class="tsp-svc-title">Live Commerce</div>
+          <div class="tsp-svc-desc">Full production studio, dedicated show team, and real-time optimization — built to convert viewers into buyers.</div>
+          <div class="tsp-svc-link">Learn more →</div>
+        </a>
+        <a class="tsp-svc-card" href="/tsp/services/ads-performance/">
+          <div class="tsp-svc-icon">📊</div>
+          <div class="tsp-svc-title">Ads & Performance</div>
+          <div class="tsp-svc-desc">Multi-platform paid campaigns, creative production and CRO across TikTok, Shopee and YouTube.</div>
+          <div class="tsp-svc-link">Learn more →</div>
+        </a>
+      </div>
+
+      <p style="margin-top:18px;text-align:center">
+        <a href="/tsp/" class="cta">View full TSP overview →</a>
+      </p>
+    </section>
+
+    <!-- MCN Dashboard -->
+    <section id="mcn" class="section-panel">
+      <h2>Dashboard — MCN Business</h2>
+      <div class="tsp-dashboard">
+        <div class="gmv-card">
+          <div class="gmv-label">Total GMV to date</div>
+          <div id="gmv-mcn" class="gmv-value">$318,630,000</div>
+          <div class="gmv-meta">Live simulated counter — updates every 15 minutes</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MCN Services -->
+    <section id="mcn-services" class="section-panel">
+      <h2>MCN Services</h2>
+      <p class="muted" style="margin-bottom:20px">Performance-driven creator commerce — from matching to scaling.</p>
+
+      <style>
+        .mcn-svc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+        .mcn-svc-card{background:#fff;border:1px solid #f0f0f0;border-radius:16px;padding:22px 18px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;transition:box-shadow .2s,transform .2s;position:relative;overflow:hidden}
+        .mcn-svc-card:hover{box-shadow:0 6px 24px rgba(221,42,123,0.10);transform:translateY(-2px)}
+        .mcn-svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#f58529,#dd2a7b);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+        .mcn-svc-card:hover::after{transform:scaleX(1)}
+        .mcn-svc-icon{font-size:22px}
+        .mcn-svc-title{font-size:13px;font-weight:800;color:#0f1724;line-height:1.3}
+        .mcn-svc-desc{font-size:12px;color:#6b7280;line-height:1.5;flex:1}
+        .mcn-svc-link{font-size:12px;font-weight:700;color:#dd2a7b;margin-top:4px}
+        @media(max-width:780px){.mcn-svc-grid{grid-template-columns:repeat(2,1fr)}}
+        @media(max-width:480px){.mcn-svc-grid{grid-template-columns:1fr}}
+      </style>
+
+      <div class="mcn-svc-grid">
+        <a class="mcn-svc-card" href="/mcn/services/creator-network/">
+          <div class="mcn-svc-icon">👥</div>
+          <div class="mcn-svc-title">Creator Network Access</div>
+          <div class="mcn-svc-desc">3,000+ curated creators from nano to macro, matched to your brand and category.</div>
+          <div class="mcn-svc-link">Learn more →</div>
+        </a>
+        <a class="mcn-svc-card" href="/mcn/services/live-commerce/">
+          <div class="mcn-svc-icon">📡</div>
+          <div class="mcn-svc-title">Live Commerce Execution</div>
+          <div class="mcn-svc-desc">Daily livestreams with professional scripts and selling strategies built to convert.</div>
+          <div class="mcn-svc-link">Learn more →</div>
+        </a>
+        <a class="mcn-svc-card" href="/mcn/services/campaign-management/">
+          <div class="mcn-svc-icon">⚙️</div>
+          <div class="mcn-svc-title">Campaign Management</div>
+          <div class="mcn-svc-desc">End-to-end handling — creator coordination, scheduling, execution, and reporting.</div>
+          <div class="mcn-svc-link">Learn more →</div>
+        </a>
+        <a class="mcn-svc-card" href="/mcn/services/affiliate/">
+          <div class="mcn-svc-icon">💰</div>
+          <div class="mcn-svc-title">Affiliate Partner Service</div>
+          <div class="mcn-svc-desc">Commission strategy and bundle optimization to maximize affiliate-driven revenue.</div>
+          <div class="mcn-svc-link">Learn more →</div>
+        </a>
+        <a class="mcn-svc-card" href="/mcn/services/cross-platform/">
+          <div class="mcn-svc-icon">🔗</div>
+          <div class="mcn-svc-title">Cross-Platform Strategy</div>
+          <div class="mcn-svc-desc">TikTok + Shopee + YouTube integration for maximum reach and compounded GMV.</div>
+          <div class="mcn-svc-link">Learn more →</div>
+        </a>
+      </div>
+
+      <p style="margin-top:18px;text-align:center">
+        <a href="/mcn/" class="cta">View full MCN overview →</a>
+      </p>
+    </section>
+
+    <!-- Our Showcase -->
+    <section id="cases" class="section-panel">
+      <h2>Our Showcase</h2>
+
+      <style>
+        .showcase-tabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+        .showcase-tab{padding:9px 22px;border-radius:24px;border:1.5px solid #e5e7eb;background:#fff;font-size:13px;font-weight:700;color:#6b7280;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:8px}
+        .showcase-tab img{height:20px;width:auto;object-fit:contain}
+        .showcase-tab.active{background:linear-gradient(135deg,#f58529,#dd2a7b);color:#fff;border-color:transparent}
+        .showcase-panel{display:none}
+        .showcase-panel.active{display:block}
+
+        /* Mosaic grid */
+        .showcase-mosaic{display:grid;gap:12px;grid-template-columns:repeat(3,1fr);grid-template-rows:auto}
+        .showcase-mosaic .sm-item{border-radius:14px;overflow:hidden;position:relative;background:#f3f4f6}
+        .showcase-mosaic .sm-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+        .showcase-mosaic .sm-item:hover img{transform:scale(1.04)}
+        .showcase-mosaic .sm-item .sm-badge{position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,0.6);backdrop-filter:blur(6px);color:#fff;font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px}
+        /* Featured card takes 2 cols */
+        .sm-featured{grid-column:span 2;min-height:130px}
+        .sm-tall{grid-row:span 2}
+        .sm-normal{min-height:90px}
+
+        /* Stats row */
+        .showcase-stats{display:flex;gap:16px;margin-top:16px;flex-wrap:wrap}
+        .showcase-stat{flex:1;min-width:120px;background:#fff;border:1px solid #f0f0f0;border-radius:14px;padding:16px 20px;text-align:center}
+        .showcase-stat .sv{font-size:22px;font-weight:900;background:linear-gradient(135deg,#f58529,#dd2a7b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .showcase-stat .sl{font-size:11px;color:#6b7280;margin-top:4px;font-weight:600}
+      </style>
+
+      <!-- Tabs -->
+      <div class="showcase-tabs">
+        <button class="showcase-tab active" onclick="switchShowcase('adidas')">
+          <img src="/assets/brands/final/adidas2.png" alt="Adidas"> Adidas
+        </button>
+        <button class="showcase-tab" onclick="switchShowcase('popmart')">
+          <img src="/assets/brands/final/popmart.png" alt="POP MART"> POP MART
+        </button>
+      </div>
+
+      <!-- Adidas Panel -->
+      <div id="showcase-adidas" class="showcase-panel active">
+        <div class="showcase-mosaic">
+          <!-- Row 1 -->
+          <div class="sm-item sm-featured" style="min-height:180px">
+            <img src="/assets/showcase/adidas/studio_main.jpg" alt="Adidas Live Studio — main setup" loading="lazy">
+            <span class="sm-badge">📍 Live Studio Setup</span>
+          </div>
+          <div class="sm-item sm-tall">
+            <img src="/assets/showcase/adidas/live_17k.jpg" alt="Adidas live 17.1K viewers" loading="lazy">
+            <span class="sm-badge">🔥 17.1K Viewers</span>
+          </div>
+          <!-- Row 2 -->
+          <div class="sm-item sm-normal">
+            <img src="/assets/showcase/adidas/event_stage.jpg" alt="TikTok Shop × Adidas event stage" loading="lazy">
+            <span class="sm-badge">🎪 TikTok Shop Event</span>
+          </div>
+          <div class="sm-item sm-normal">
+            <img src="/assets/showcase/adidas/live_female_6k.jpg" alt="Female host 6.5K viewers" loading="lazy">
+            <span class="sm-badge">👥 6.5K Viewers</span>
+          </div>
+          <div class="sm-item sm-normal">
+            <img src="/assets/showcase/adidas/studio_prep.jpg" alt="Studio team preparing" loading="lazy">
+            <span class="sm-badge">🎬 Behind the Scenes</span>
+          </div>
+          <!-- Row 3 -->
+          <div class="sm-item sm-normal">
+            <img src="/assets/showcase/adidas/live_lunar.jpg" alt="Lunar New Year campaign" loading="lazy">
+            <span class="sm-badge">🎊 Lunar New Year Campaign</span>
+          </div>
+          <div class="sm-item sm-normal">
+            <img src="/assets/showcase/adidas/kol_ratu.jpg" alt="KOL Ratu Aulia 59K" loading="lazy">
+            <span class="sm-badge">⭐ KOL · 59K Followers</span>
+          </div>
+          <div class="sm-item sm-normal">
+            <img src="/assets/showcase/adidas/live_33.jpg" alt="3.3 Game On campaign" loading="lazy">
+            <span class="sm-badge">🛍️ 3.3 Game On</span>
+          </div>
+        </div>
+        <div class="showcase-stats">
+          <div class="showcase-stat"><div class="sv">17.1K</div><div class="sl">Peak Live Viewers</div></div>
+          <div class="showcase-stat"><div class="sv">656K+</div><div class="sl">Store Followers</div></div>
+          <div class="showcase-stat"><div class="sv">212K</div><div class="sl">Total Sold</div></div>
+          <div class="showcase-stat"><div class="sv">2y+</div><div class="sl">Partnership</div></div>
+        </div>
+      </div>
+
+      <!-- POP MART Panel -->
+      <div id="showcase-popmart" class="showcase-panel">
+        <div class="showcase-mosaic">
+          <!-- Row 1 -->
+          <div class="sm-item sm-featured" style="min-height:180px">
+            <img src="/assets/showcase/popmart/live_main.jpg" alt="POP MART TikTok Live" loading="lazy">
+            <span class="sm-badge">🔴 LIVE · 133.8K Followers</span>
+          </div>
+          <div class="sm-item sm-tall">
+            <img src="/assets/showcase/popmart/product_twinkle.jpg" alt="Twinkle Twinkle collection" loading="lazy">
+            <span class="sm-badge">✨ Twinkle Twinkle Series</span>
+          </div>
+          <!-- Row 2 -->
+          <div class="sm-item sm-normal">
+            <img src="/assets/showcase/popmart/live_crybaby.jpg" alt="CryBaby Coconut live" loading="lazy">
+            <span class="sm-badge">🎭 CryBaby Coconut</span>
+          </div>
+          <div class="sm-item sm-normal">
+            <img src="/assets/showcase/popmart/live_buying.jpg" alt="112 users buying during live" loading="lazy">
+            <span class="sm-badge">🛒 112 Users Buying Live</span>
+          </div>
+          <div class="sm-item sm-normal">
+            <img src="/assets/showcase/popmart/live_closeup.jpg" alt="Host showing blind box" loading="lazy">
+            <span class="sm-badge">📦 Blind Box Drop</span>
+          </div>
+        </div>
+        <div class="showcase-stats">
+          <div class="showcase-stat"><div class="sv">133.8K</div><div class="sl">Store Followers</div></div>
+          <div class="showcase-stat"><div class="sv">612</div><div class="sl">Peak Live Viewers</div></div>
+          <div class="showcase-stat"><div class="sv">112</div><div class="sl">Concurrent Buyers</div></div>
+          <div class="showcase-stat"><div class="sv">1y+</div><div class="sl">Partnership</div></div>
+        </div>
+      </div>
+
+      <script>
+        function switchShowcase(brand){
+          document.querySelectorAll('.showcase-tab').forEach(t=>t.classList.remove('active'));
+          document.querySelectorAll('.showcase-panel').forEach(p=>p.classList.remove('active'));
+          event.currentTarget.classList.add('active');
+          document.getElementById('showcase-'+brand).classList.add('active');
+        }
+      </script>
+    </section>
+
+    <!-- Live Studio -->
+    <section id="studio" class="section-panel" style="padding-bottom:0">
+      <h2>Live Studio & Scenes</h2>
+      <p class="muted" style="margin-bottom:24px">Professional multi-theme studios — brand-ready, fully equipped for live commerce across TikTok, Shopee and YouTube.</p>
+
+      <style>
+        #studio-matrix{
+          width:100%;height:580px;position:relative;
+          background:#04060d;border-radius:20px;overflow:hidden;
+        }
+        /* scanline overlay */
+        #studio-matrix::before{
+          content:'';position:absolute;inset:0;z-index:3;pointer-events:none;
+          background:repeating-linear-gradient(
+            to bottom,
+            transparent 0px, transparent 3px,
+            rgba(0,0,0,0.18) 3px, rgba(0,0,0,0.18) 4px
+          );
+        }
+        /* vignette */
+        #studio-matrix::after{
+          content:'';position:absolute;inset:0;z-index:4;pointer-events:none;
+          background:radial-gradient(ellipse at center,
+            transparent 30%,
+            rgba(4,6,13,0.55) 70%,
+            rgba(4,6,13,0.88) 100%
+          );
+        }
+        .sm-rows-wrap{
+          position:absolute;inset:0;
+          display:flex;flex-direction:column;
+          justify-content:center;
+          gap:6px;
+          padding:6px 0;
+          z-index:2;
+        }
+        .sm-row{
+          display:flex;gap:6px;align-items:center;
+          /* no overflow:hidden here — clipping done by parent */
+          will-change:transform;
+        }
+        .sm-tile{
+          flex-shrink:0;
+          width:180px;height:112px;
+          border-radius:8px;overflow:hidden;
+          position:relative;
+          cursor:pointer;
+          border:1px solid rgba(255,255,255,0.06);
+          transition:border-color .25s, transform .25s;
+        }
+        .sm-tile:hover{
+          border-color:rgba(221,42,123,0.7);
+          transform:scale(1.07);
+          z-index:10;
+        }
+        .sm-tile img{
+          width:100%;height:100%;object-fit:cover;display:block;
+          filter:saturate(0.95) brightness(0.92);
+          transition:filter .3s;
+        }
+        .sm-tile:hover img{
+          filter:saturate(1.1) brightness(1);
+        }
+        /* glitch colour tint on tiles */
+        .sm-tile::after{
+          content:'';position:absolute;inset:0;pointer-events:none;
+          background:linear-gradient(135deg,rgba(64,93,230,0.12),rgba(221,42,123,0.08));
+          mix-blend-mode:screen;
+        }
+        /* data-stream text overlay per tile */
+        .sm-tile .sm-data{
+          position:absolute;bottom:4px;left:6px;
+          font-size:9px;font-family:monospace;
+          color:rgba(0,255,180,0.55);
+          letter-spacing:0.5px;
+          pointer-events:none;
+          white-space:nowrap;
+          text-shadow:0 0 6px rgba(0,255,180,0.8);
+        }
+        /* scan beam */
+        @keyframes scan-beam{
+          0%{top:-6px;opacity:0}
+          5%{opacity:1}
+          92%{opacity:0.7}
+          100%{top:101%;opacity:0}
+        }
+        .scan-beam{
+          position:absolute;left:0;right:0;height:2px;z-index:5;
+          pointer-events:none;
+          background:linear-gradient(90deg,
+            transparent 0%,
+            rgba(64,93,230,0.4) 20%,
+            rgba(221,42,123,0.7) 50%,
+            rgba(64,93,230,0.4) 80%,
+            transparent 100%
+          );
+          box-shadow:0 0 12px 3px rgba(221,42,123,0.35);
+          animation:scan-beam 4s linear infinite;
+        }
+        .scan-beam:nth-child(2){animation-delay:1.3s}
+        .scan-beam:nth-child(3){animation-delay:2.6s}
+
+        /* corner HUD */
+        .sm-hud{
+          position:absolute;z-index:6;pointer-events:none;
+          color:rgba(0,255,180,0.5);font-family:monospace;font-size:10px;
+          letter-spacing:1px;line-height:1.6;
+        }
+        .sm-hud.tl{top:16px;left:20px}
+        .sm-hud.tr{top:16px;right:20px;text-align:right}
+        .sm-hud.bl{bottom:16px;left:20px}
+
+        /* corner bracket decorations */
+        .sm-corner{position:absolute;z-index:6;width:18px;height:18px;pointer-events:none}
+        .sm-corner.tl{top:12px;left:12px;border-top:2px solid rgba(221,42,123,0.6);border-left:2px solid rgba(221,42,123,0.6)}
+        .sm-corner.tr{top:12px;right:12px;border-top:2px solid rgba(221,42,123,0.6);border-right:2px solid rgba(221,42,123,0.6)}
+        .sm-corner.bl{bottom:12px;left:12px;border-bottom:2px solid rgba(64,93,230,0.6);border-left:2px solid rgba(64,93,230,0.6)}
+        .sm-corner.br{bottom:12px;right:12px;border-bottom:2px solid rgba(64,93,230,0.6);border-right:2px solid rgba(64,93,230,0.6)}
+
+        /* lightbox */
+        #studio-lightbox{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.95);backdrop-filter:blur(22px);align-items:center;justify-content:center;flex-direction:column}
+        #studio-lightbox.open{display:flex}
+        #studio-lightbox img{max-width:92vw;max-height:86vh;object-fit:contain;border-radius:12px;transform:scale(0.88);opacity:0;transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .25s}
+        #studio-lightbox.open img{transform:scale(1);opacity:1}
+        #slb-close{position:fixed;top:20px;right:26px;color:#fff;font-size:30px;cursor:pointer;background:none;border:none;opacity:0.6;z-index:10000}
+        #slb-close:hover{opacity:1}
+        #slb-prev,#slb-next{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:#fff;font-size:24px;width:50px;height:50px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10000;transition:background .2s}
+        #slb-prev:hover,#slb-next:hover{background:rgba(255,255,255,0.2)}
+        #slb-prev{left:18px}#slb-next{right:18px}
+        #slb-counter{color:rgba(255,255,255,0.35);font-size:12px;margin-top:14px;letter-spacing:1px;font-weight:600}
+
+        .studio-visit-bar{display:flex;align-items:center;justify-content:center;gap:12px;padding:18px;background:#f8f9fa;border-radius:0 0 20px 20px;font-size:13px;color:#6b7280}
+      </style>
+
+      <!-- Lightbox -->
+      <div id="studio-lightbox">
+        <button id="slb-close" onclick="slbClose()">&#215;</button>
+        <button id="slb-prev" onclick="slbNav(-1)">&#8249;</button>
+        <img id="slb-img" src="" alt="">
+        <button id="slb-next" onclick="slbNav(1)">&#8250;</button>
+        <div id="slb-counter"></div>
+      </div>
+
+      <div id="studio-matrix">
+        <!-- scan beams -->
+        <div class="scan-beam"></div>
+        <div class="scan-beam"></div>
+        <div class="scan-beam"></div>
+        <!-- HUD overlays -->
+        <div class="sm-hud tl">SEAHUB STUDIO FEED<br>REC ● LIVE</div>
+        <div class="sm-hud tr" id="sm-hud-time">LOADING...</div>
+        <div class="sm-hud bl">22 SCENES · SEA</div>
+        <!-- corner brackets -->
+        <div class="sm-corner tl"></div>
+        <div class="sm-corner tr"></div>
+        <div class="sm-corner bl"></div>
+        <div class="sm-corner br"></div>
+        <!-- rows injected by JS -->
+        <div class="sm-rows-wrap" id="sm-rows"></div>
+      </div>
+
+      <div class="studio-visit-bar">
+        Want to tour our studio?
+        <a class="cta" href="#contact" style="margin:0">Book a visit →</a>
+      </div>
+
+      <script>
+      (function(){
+        const PHOTOS = [
+          '/assets/studio/seahub_pink_studio.jpg',
+          '/assets/showcase/adidas/studio_main.jpg',
+          '/assets/studio/greenscreen_studio.jpg',
+          '/assets/studio/hexagon_studio.jpg',
+          '/assets/studio/shoes_studio.jpg',
+          '/assets/studio/greenscreen_ops.jpg',
+          '/assets/studio/adidas_studio_team.jpg',
+          '/assets/studio/event_stage_wide.jpg',
+          '/assets/studio/event_models.jpg',
+          '/assets/showcase/adidas/live_17k.jpg',
+          '/assets/showcase/adidas/event_stage.jpg',
+          '/assets/showcase/adidas/live_female_6k.jpg',
+          '/assets/showcase/adidas/live_lunar.jpg',
+          '/assets/showcase/adidas/kol_ratu.jpg',
+          '/assets/showcase/adidas/live_33.jpg',
+          '/assets/showcase/adidas/studio_prep.jpg',
+          '/assets/showcase/adidas/live_female_6k_2.jpg',
+          '/assets/showcase/popmart/live_main.jpg',
+          '/assets/showcase/popmart/live_crybaby.jpg',
+          '/assets/showcase/popmart/live_buying.jpg',
+          '/assets/showcase/popmart/product_twinkle.jpg',
+          '/assets/showcase/popmart/live_closeup.jpg',
+        ];
+        const N = PHOTOS.length;
+
+        /* ── HUD clock ── */
+        function updateHUD(){
+          var d = new Date();
+          var t = d.toISOString().replace('T',' ').substring(0,19) + ' UTC';
+          document.getElementById('sm-hud-time').textContent = t;
+        }
+        updateHUD(); setInterval(updateHUD, 1000);
+
+        /* data strings shown on tiles */
+        var DATA_TAGS = ['LIVE','REC','4K','STREAM','GMV+','SELL','SHOP','ON-AIR','HOT'];
+
+        /* ── build rows ── */
+        var wrap = document.getElementById('sm-rows');
+        /* 5 rows, each row gets a shuffled extended copy of PHOTOS */
+        var NUM_ROWS = 5;
+        /* row speeds (px/s): alternating left/right */
+        var SPEEDS = [38, -28, 44, -32, 36];
+
+        var rows = [];      /* { el, offset, speed, totalW } */
+
+        for(var r = 0; r < NUM_ROWS; r++){
+          var rowEl = document.createElement('div');
+          rowEl.className = 'sm-row';
+
+          /* shuffle photos differently per row */
+          var pool = PHOTOS.slice();
+          for(var s = pool.length - 1; s > 0; s--){
+            var j = Math.floor(Math.random()*(s+1));
+            var tmp = pool[s]; pool[s] = pool[j]; pool[j] = tmp;
+          }
+          /* triple the pool so seamless loop has enough width */
+          var extended = pool.concat(pool).concat(pool);
+
+          extended.forEach(function(url, idx){
+            var tile = document.createElement('div');
+            tile.className = 'sm-tile';
+            var photoIdx = PHOTOS.indexOf(url);
+            tile.setAttribute('data-idx', photoIdx >= 0 ? photoIdx : 0);
+            tile.innerHTML = '<img src="' + url + '" loading="lazy" alt="">'
+              + '<div class="sm-data">' + DATA_TAGS[idx % DATA_TAGS.length] + ' #' + String(idx).padStart(3,'0') + '</div>';
+            tile.addEventListener('click', function(){
+              slbOpen(parseInt(this.getAttribute('data-idx')));
+            });
+            rowEl.appendChild(tile);
+          });
+
+          wrap.appendChild(rowEl);
+
+          /* initial offset: odd rows start offset so they don't align */
+          var initOffset = (r % 2 === 0) ? 0 : -(180 + 6) * Math.floor(pool.length / 2);
+          rows.push({ el: rowEl, offset: initOffset, speed: SPEEDS[r] });
+        }
+
+        /* ── measure total width of one full set ── */
+        /* tile width 180 + gap 6 = 186; one pool length tiles */
+        var TILE_W = 186;
+        var ONE_SET_W = TILE_W * PHOTOS.length;
+
+        /* ── animation loop ── */
+        var last = null;
+        function tick(ts){
+          if(last === null) last = ts;
+          var dt = Math.min((ts - last) / 1000, 0.05); /* cap at 50ms */
+          last = ts;
+
+          rows.forEach(function(row){
+            row.offset += row.speed * dt;
+            /* seamless loop: wrap when scrolled one full set */
+            if(row.speed > 0 && row.offset > ONE_SET_W){
+              row.offset -= ONE_SET_W;
+            } else if(row.speed < 0 && row.offset < -ONE_SET_W){
+              row.offset += ONE_SET_W;
+            }
+            row.el.style.transform = 'translateX(' + row.offset + 'px)';
+          });
+
+          requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+
+        /* ── lightbox ── */
+        var slbIdx = 0;
+        window.slbOpen = function(i){
+          slbIdx = i;
+          var lb = document.getElementById('studio-lightbox');
+          var img = document.getElementById('slb-img');
+          lb.classList.remove('open');
+          img.src = PHOTOS[i];
+          document.getElementById('slb-counter').textContent = (i+1) + ' / ' + N;
+          requestAnimationFrame(function(){ lb.classList.add('open'); });
+          lb.onclick = function(e){ if(e.target===lb) slbClose(); };
+        };
+        window.slbClose = function(){ document.getElementById('studio-lightbox').classList.remove('open'); };
+        window.slbNav = function(dir){
+          event.stopPropagation();
+          slbIdx = (slbIdx + dir + N) % N;
+          var img = document.getElementById('slb-img');
+          img.style.opacity = '0';
+          setTimeout(function(){
+            img.src = PHOTOS[slbIdx];
+            document.getElementById('slb-counter').textContent = (slbIdx+1) + ' / ' + N;
+            img.style.opacity = '';
+          }, 150);
+        };
+        document.addEventListener('keydown', function(e){
+          var lb = document.getElementById('studio-lightbox');
+          if(!lb.classList.contains('open')) return;
+          if(e.key==='Escape') slbClose();
+          if(e.key==='ArrowLeft') slbNav(-1);
+          if(e.key==='ArrowRight') slbNav(1);
+        });
+      })();
+      </script>
+    </section>
+    <!-- Talent / Hosts -->
+    <section id="talent" class="section-panel" style="padding-bottom:0">
+
+      <style>
+        /* talent matrix — reuses sm-tile but with portrait ratio */
+        #talent-matrix{
+          width:100%;height:500px;position:relative;
+          background:#04060d;border-radius:20px;overflow:hidden;
+        }
+        #talent-matrix::after{
+          content:'';position:absolute;inset:0;z-index:4;pointer-events:none;
+          background:linear-gradient(to right,rgba(4,6,13,0.6) 0%,transparent 10%,transparent 90%,rgba(4,6,13,0.6) 100%);
+        }
+        .tm-rows-wrap{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:6px 0;z-index:2}
+        .tm-row{display:flex;gap:6px;align-items:center;will-change:transform}
+        .tm-tile{
+          flex-shrink:0;width:130px;height:160px;
+          border-radius:10px;overflow:hidden;position:relative;cursor:pointer;
+          border:1px solid rgba(255,255,255,0.06);
+          transition:border-color .25s,transform .25s;
+        }
+        .tm-tile:hover{border-color:rgba(221,42,123,0.75);transform:scale(1.08);z-index:10}
+        .tm-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:filter .3s}
+        .tm-tile:hover img{filter:brightness(1.08)}
+
+        .tm-tile .tm-name{
+          position:absolute;bottom:0;left:0;right:0;
+          background:linear-gradient(transparent,rgba(0,0,0,0.78));
+          padding:18px 8px 7px;
+          font-size:10px;font-weight:700;color:#fff;
+          text-align:center;letter-spacing:0.3px;
+          opacity:0;transition:opacity .25s;
+        }
+        .tm-tile:hover .tm-name{opacity:1}
+        .tm-tile .tm-data{position:absolute;top:6px;left:7px;font-size:8px;font-family:monospace;color:rgba(0,255,180,0.55);letter-spacing:0.4px;pointer-events:none;text-shadow:0 0 5px rgba(0,255,180,0.8)}
+
+        /* scan beams shared style already defined above; define new ones for talent */
+        .tm-scan{position:absolute;left:0;right:0;height:2px;z-index:5;pointer-events:none;
+          background:linear-gradient(90deg,transparent 0%,rgba(245,133,41,0.4) 20%,rgba(221,42,123,0.65) 50%,rgba(245,133,41,0.4) 80%,transparent 100%);
+          box-shadow:0 0 10px 2px rgba(245,133,41,0.3);
+          animation:scan-beam 5s linear infinite}
+        .tm-scan:nth-child(2){animation-delay:1.7s}
+        .tm-scan:nth-child(3){animation-delay:3.3s}
+
+        .tm-hud{position:absolute;z-index:6;pointer-events:none;color:rgba(0,255,180,0.5);font-family:monospace;font-size:10px;letter-spacing:1px;line-height:1.6}
+        .tm-hud.tl{top:16px;left:20px}
+        .tm-hud.tr{top:16px;right:20px;text-align:right}
+        .tm-hud.bl{bottom:16px;left:20px}
+        .tm-corner{position:absolute;z-index:6;width:18px;height:18px;pointer-events:none}
+        .tm-corner.tl{top:12px;left:12px;border-top:2px solid rgba(245,133,41,0.6);border-left:2px solid rgba(245,133,41,0.6)}
+        .tm-corner.tr{top:12px;right:12px;border-top:2px solid rgba(245,133,41,0.6);border-right:2px solid rgba(245,133,41,0.6)}
+        .tm-corner.bl{bottom:12px;left:12px;border-bottom:2px solid rgba(221,42,123,0.6);border-left:2px solid rgba(221,42,123,0.6)}
+        .tm-corner.br{bottom:12px;right:12px;border-bottom:2px solid rgba(221,42,123,0.6);border-right:2px solid rgba(221,42,123,0.6)}
+
+        .talent-cta-bar{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;background:#f8f9fa;border-radius:0 0 20px 20px;gap:16px;flex-wrap:wrap}
+        .talent-cta-bar .tc-left h3{font-size:16px;font-weight:800;color:#0f1724;margin:0 0 4px}
+        .talent-cta-bar .tc-left p{font-size:13px;color:#6b7280;margin:0}
+      </style>
+
+      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:8px">
+        <h2 style="margin:0">3,000+ Creators</h2>
+        <p class="muted" style="margin:0">FMCG &amp; Lifestyle · Southeast Asia</p>
+      </div>
+
+      <div id="talent-matrix">
+<div class="tm-hud tl">SEAHUB CREATOR NETWORK<br>3000+ ACTIVE</div>
+        <div class="tm-hud tr">FMCG · LIFESTYLE · SEA</div>
+        <div class="tm-hud bl" id="tm-hud-time">--</div>
+        <div class="tm-corner tl"></div>
+        <div class="tm-corner tr"></div>
+        <div class="tm-corner bl"></div>
+        <div class="tm-corner br"></div>
+        <div class="tm-rows-wrap" id="tm-rows"></div>
+      </div>
+
+      <div class="talent-cta-bar">
+        <div class="tc-left">
+          <h3>Work with our creators</h3>
+          <p>Match your brand with the right creator — from nano to macro, across all categories.</p>
+        </div>
+        <a class="cta" href="#contact">Get in Touch →</a>
+      </div>
+
+      <script>
+      (function(){
+        var CREATORS = [
+          {img:'/assets/hosts/host_01.jpg', name:'Yenni Ng'},
+          {img:'/assets/hosts/host_02.jpg', name:'Anard'},
+          {img:'/assets/hosts/host_03.jpg', name:'Racun Nuuna'},
+          {img:'/assets/hosts/host_04.png', name:'Cece Ketarketir'},
+          {img:'/assets/hosts/host_05.jpg', name:'Anitta Maryam'},
+          {img:'/assets/hosts/host_06.png', name:'Racun Diana'},
+          {img:'/assets/hosts/host_07.jpg', name:'Prima Pym'},
+          {img:'/assets/hosts/host_08.jpg', name:'Neny Ari'},
+          {img:'/assets/hosts/host_09.jpg', name:'Brigette Doang'},
+          {img:'/assets/hosts/host_10.jpg', name:'Bellfiita'},
+          {img:'/assets/hosts/host_11.jpg', name:'Dinara Rizqiyyaraf'},
+          {img:'/assets/hosts/host_12.jpg', name:'Nida Henida'},
+          {img:'/assets/hosts/host_13.jpg', name:'Desy Elisabeth'},
+          {img:'/assets/hosts/host_14.jpg', name:'Lola Felicia'},
+        ];
+        var N = CREATORS.length;
+        var SPEEDS = [32, -24, 40, -30, 28];
+        var TILE_W = 136; /* 130 + 6 gap */
+        var ONE_SET_W = TILE_W * N;
+
+        var wrap = document.getElementById('tm-rows');
+        var rows = [];
+        var NUM_ROWS = 5;
+
+        for(var r = 0; r < NUM_ROWS; r++){
+          var rowEl = document.createElement('div');
+          rowEl.className = 'tm-row';
+
+          /* shuffle */
+          var pool = CREATORS.slice();
+          for(var s = pool.length-1; s > 0; s--){
+            var j = Math.floor(Math.random()*(s+1));
+            var tmp = pool[s]; pool[s]=pool[j]; pool[j]=tmp;
+          }
+          var extended = pool.concat(pool).concat(pool);
+
+          extended.forEach(function(c, idx){
+            var tile = document.createElement('div');
+            tile.className = 'tm-tile';
+            tile.innerHTML = '<img src="'+c.img+'" loading="lazy" alt="'+c.name+'">'
+              
+              + '<div class="tm-name">'+c.name+'</div>';
+            rowEl.appendChild(tile);
+          });
+
+          wrap.appendChild(rowEl);
+          var initOffset = (r % 2 === 0) ? 0 : -(TILE_W * Math.floor(N/2));
+          rows.push({el: rowEl, offset: initOffset, speed: SPEEDS[r]});
+        }
+
+        var last = null;
+        function tick(ts){
+          if(last===null) last=ts;
+          var dt = Math.min((ts-last)/1000, 0.05);
+          last = ts;
+          rows.forEach(function(row){
+            row.offset += row.speed * dt;
+            if(row.speed > 0 && row.offset > ONE_SET_W) row.offset -= ONE_SET_W;
+            else if(row.speed < 0 && row.offset < -ONE_SET_W) row.offset += ONE_SET_W;
+            row.el.style.transform = 'translateX('+row.offset+'px)';
+          });
+          requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      })();
+      </script>
+    </section>
+
+    <!-- Careers entry -->
+    <section id="careers-entry" class="section-panel">
+      <style>
+        .careers-entry-wrap{background:#0b1120;border-radius:20px;padding:44px 48px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap}
+        .ce-left h2{font-size:26px;font-weight:900;color:#fff;margin:0 0 10px}
+        .ce-left h2 span{background:linear-gradient(90deg,#f58529,#dd2a7b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .ce-left p{font-size:14px;color:#8899aa;line-height:1.65;margin:0 0 24px}
+        .ce-roles{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+        .ce-role{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:6px 16px;font-size:12px;font-weight:700;color:#fff;display:flex;align-items:center;gap:6px}
+        .ce-role span{font-size:15px}
+        .ce-cta{display:flex;gap:12px;flex-wrap:wrap}
+        .ce-right{display:grid;grid-template-columns:1fr 1fr;gap:12px;flex-shrink:0;min-width:260px}
+        .ce-stat{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:18px;text-align:center}
+        .ce-stat-val{font-size:24px;font-weight:900}
+        .ce-stat-lbl{font-size:11px;color:#8899aa;margin-top:4px}
+        @media(max-width:720px){.careers-entry-wrap{flex-direction:column;padding:32px 24px}.ce-right{width:100%}}
+      </style>
+      <div class="careers-entry-wrap">
+        <div class="ce-left">
+          <h2>Join <span>Seahub Media</span></h2>
+          <p>We're growing fast across Indonesia and SEA. If you're passionate about live commerce, creator economy, or e-commerce operations — we want to hear from you.</p>
+          <div class="ce-roles">
+            <div class="ce-role"><span>🎤</span> Live Host</div>
+            <div class="ce-role"><span>⚙️</span> Operations</div>
+            <div class="ce-role"><span>🌟</span> Talent Manager</div>
+          </div>
+          <div class="ce-cta">
+            <a href="/careers/" style="background:linear-gradient(135deg,#f58529,#dd2a7b);color:#fff;padding:12px 24px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none">View Open Roles →</a>
+            <a href="https://wa.me/6285860439931?text=Hi%2C%20I%27m%20interested%20in%20joining%20Seahub%20Media" target="_blank" rel="noopener" style="border:1.5px solid rgba(255,255,255,0.2);color:#fff;padding:12px 24px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none">WhatsApp HR →</a>
+          </div>
+        </div>
+        <div class="ce-right">
+          <div class="ce-stat"><div class="ce-stat-val" style="color:#f58529">IDN</div><div class="ce-stat-lbl">Primary Market</div></div>
+          <div class="ce-stat"><div class="ce-stat-val" style="color:#dd2a7b">SEA</div><div class="ce-stat-lbl">Expanding Into</div></div>
+          <div class="ce-stat"><div class="ce-stat-val" style="color:#962fbf">3</div><div class="ce-stat-lbl">Open Departments</div></div>
+          <div class="ce-stat"><div class="ce-stat-val" style="color:#405DE6">Fast</div><div class="ce-stat-lbl">Growing Team</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seahub Media -->
+    <section id="seahub-media" class="section-panel">
+      <h2>Seahub Media</h2>
+      <div>
+        <img src="/assets/site/seahub_family.jpg" alt="Seahub Media team photo" loading="lazy" style="width:100%;height:auto;max-height:600px;object-fit:cover;border-radius:12px;display:block">
+      </div>
+      <p class="muted" style="text-align:center;margin-top:12px">Annual Gathering 2026</p>
+    </section>
+
+<!-- Brand Partners - multi-row marquee -->
+    <section id="brand-partners" class="section-panel">
+      <h2>Brand Partners</h2>
+      <p class="muted">Brands we've worked with</p>
+      <style>
+        .brands-row { overflow: hidden; width: 100%; margin: 8px 0; }
+        .brands-row-track {
+          display: flex; gap: 16px; align-items: center;
+          width: max-content;
+          animation: scroll-brands 30s linear infinite;
+        }
+        .brands-row:hover .brands-row-track { animation-play-state: paused; }
+        .brand-item { flex: 0 0 auto; }
+        .brand-item img {
+          height: 48px; width: auto; max-width: 140px;
+          object-fit: contain; background: #fff;
+          padding: 8px 14px; border-radius: 10px;
+          box-shadow: 0 4px 12px rgba(12,24,48,0.07);
+          display: block;
+        }
+        @keyframes scroll-brands {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+    
+    /* Section title highlight */
+    .section-panel h2, #services h2, #cases h2, #studio h2, #talent h2 {
+      font-size: 28px;
+      font-weight: 900;
+      color: #0f1724;
+      position: relative;
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(245,133,41,0.12), rgba(221,42,123,0.10));
+      border-left: 4px solid #dd2a7b;
+      margin-bottom: 20px;
+    }
+  </style>
+      <div class="brands-multirow">
+        <div class="brands-row">
+          <div class="brands-row-track" style="animation-direction:normal;animation-duration:28s">
+            <div class="brand-item"><img src="/assets/brands/final/vivo2.png" alt="vivo" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/iqoo.png" alt="iQOO" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/motorola.png" alt="Motorola" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/popmart.png" alt="POP MART" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/adidas2.png" alt="Adidas" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/adidas_originals.png" alt="Adidas Originals" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/advan.png" alt="ADVAN" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/anker.png" alt="Anker" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/baseus.png" alt="Baseus" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/bravhome.png" alt="BravHome" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/fantech.png" alt="Fantech" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/vivo2.png" alt="vivo" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/iqoo.png" alt="iQOO" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/motorola.png" alt="Motorola" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/popmart.png" alt="POP MART" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/adidas2.png" alt="Adidas" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/adidas_originals.png" alt="Adidas Originals" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/advan.png" alt="ADVAN" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/anker.png" alt="Anker" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/baseus.png" alt="Baseus" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/bravhome.png" alt="BravHome" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/fantech.png" alt="Fantech" loading="lazy"></div>
+          </div>
+        </div>
+        <div class="brands-row">
+          <div class="brands-row-track" style="animation-direction:reverse;animation-duration:32s">
+            <div class="brand-item"><img src="/assets/brands/final/infinix.png" alt="Infinix" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/itel.png" alt="itel" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/miniso.svg" alt="MINISO" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/olike.png" alt="Olike" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/oraimo.png" alt="Oraimo" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/realme.png" alt="realme" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/toshiba.png" alt="Toshiba" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/vivan.png" alt="VIVAN" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/huawei.png" alt="Huawei" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/xiaomi.png" alt="Xiaomi" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/oppo.png" alt="OPPO" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/infinix.png" alt="Infinix" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/itel.png" alt="itel" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/miniso.svg" alt="MINISO" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/olike.png" alt="Olike" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/oraimo.png" alt="Oraimo" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/realme.png" alt="realme" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/toshiba.png" alt="Toshiba" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/vivan.png" alt="VIVAN" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/huawei.png" alt="Huawei" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/xiaomi.png" alt="Xiaomi" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/oppo.png" alt="OPPO" loading="lazy"></div>
+          </div>
+        </div>
+        <div class="brands-row">
+          <div class="brands-row-track" style="animation-direction:normal;animation-duration:26s">
+            <div class="brand-item"><img src="/assets/brands/final/ameterasun.png" alt="Amaterasun" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/bioaqua.png" alt="BIOAQUA" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/biore.png" alt="Bioré" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/coolvita.png" alt="Cool-Vita" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/elsheskin.png" alt="Elshe Skin" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/garnier.png" alt="Garnier" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/hanasui.png" alt="Hanasui" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/judydoll.png" alt="Judydoll" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/npure.png" alt="N-Pure" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/rohto.png" alt="Rohto" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/shinzui.png" alt="Shinzu'i" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/ameterasun.png" alt="Amaterasun" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/bioaqua.png" alt="BIOAQUA" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/biore.png" alt="Bioré" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/coolvita.png" alt="Cool-Vita" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/elsheskin.png" alt="Elshe Skin" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/garnier.png" alt="Garnier" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/hanasui.png" alt="Hanasui" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/judydoll.png" alt="Judydoll" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/npure.png" alt="N-Pure" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/rohto.png" alt="Rohto" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/shinzui.png" alt="Shinzu'i" loading="lazy"></div>
+          </div>
+        </div>
+        <div class="brands-row">
+          <div class="brands-row-track" style="animation-direction:reverse;animation-duration:34s">
+            <div class="brand-item"><img src="/assets/brands/final/wardah.png" alt="Wardah" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/advance_digital.png" alt="Advance Digital" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/ecentio.png" alt="ecentio" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/finito.png" alt="Finito" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/goto_living.png" alt="Goto Living" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/inthebox.png" alt="in.the.box" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/jisulife.png" alt="JisuLife" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/kintakun.png" alt="Kintakun" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/locknlock.png" alt="LocknLock" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/mito.png" alt="Mito Electronic" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/oxone.png" alt="Oxone" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/simplus.png" alt="Simplus" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/speeds.png" alt="Speeds" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/wardah.png" alt="Wardah" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/advance_digital.png" alt="Advance Digital" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/ecentio.png" alt="ecentio" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/finito.png" alt="Finito" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/goto_living.png" alt="Goto Living" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/inthebox.png" alt="in.the.box" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/jisulife.png" alt="JisuLife" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/kintakun.png" alt="Kintakun" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/locknlock.png" alt="LocknLock" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/mito.png" alt="Mito Electronic" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/oxone.png" alt="Oxone" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/simplus.png" alt="Simplus" loading="lazy"></div><div class="brand-item"><img src="/assets/brands/final/speeds.png" alt="Speeds" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hiring strip -->
+    <section class="section-panel" style="padding:0">
+      <div style="background:linear-gradient(135deg,#0b1120 0%,#111827 100%);border-radius:16px;padding:36px 40px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+          <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#f58529,#dd2a7b);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0">🚀</div>
+          <div>
+            <div style="font-size:11px;font-weight:700;color:#dd2a7b;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:5px">We're Hiring · Jakarta · SEA</div>
+            <div style="font-size:18px;font-weight:900;color:#fff;margin-bottom:10px">Join Seahub Media</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <span style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:4px 13px;font-size:11px;font-weight:600;color:#e0e0e0">🏢 Comfortable office</span>
+              <span style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:4px 13px;font-size:11px;font-weight:600;color:#e0e0e0">✈️ China training trip</span>
+              <span style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:4px 13px;font-size:11px;font-weight:600;color:#e0e0e0">🏠 Accommodation</span>
+              <span style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:4px 13px;font-size:11px;font-weight:600;color:#e0e0e0">🍱 Free lunch & dinner</span>
+              <span style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:4px 13px;font-size:11px;font-weight:600;color:#e0e0e0">💰 Competitive salary</span>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0">
+          <a href="/careers/" style="background:linear-gradient(135deg,#f58529,#dd2a7b);color:#fff;padding:11px 22px;border-radius:9px;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap">View Open Roles →</a>
+          <a href="https://wa.me/6285860439931?text=Hi%2C%20I%27m%20interested%20in%20joining%20Seahub%20Media" target="_blank" rel="noopener" style="border:1.5px solid rgba(255,255,255,0.2);color:#fff;padding:11px 22px;border-radius:9px;font-weight:600;font-size:13px;text-decoration:none;white-space:nowrap">WhatsApp HR →</a>
+        </div>
+      </div>
+    </section>
+
+        <!-- Contact -->
+    <section id="contact" class="section-panel" style="margin-bottom:0">
+      <h2>Contact Us</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p><strong>Office hours:</strong> 9am – 9pm</p>
+          <p><strong>Contact:</strong> Vanesha — <a href="tel:+6281574581433">+62 815 7458 1433</a></p>
+          <p><strong>Address:</strong> Jl. Pluit Samudra 5 No.2, RT.5/RW.5, Pluit, Kec. Penjaringan, Jakarta Utara 14450</p>
+          <div class="map-nav" style="display:flex;gap:8px;align-items:center;margin-top:12px;flex-wrap:wrap">
+            <a class="cta" href="https://www.google.com/maps/search/?api=1&query=Jl.+Pluit+Samudra+5+No.2,+Jakarta" target="_blank" rel="noopener">Open in Google Maps</a>
+            <a class="cta" href="https://www.google.com/maps/dir/?api=1&destination=Jl.+Pluit+Samudra+5+No.2,+Jakarta" target="_blank" rel="noopener">Get Directions</a>
+          </div>
+        </div>
+        <div class="contact-map">
+          <iframe
+            src="https://www.google.com/maps?q=Jl.+Pluit+Samudra+5+No.2%2C+Pluit%2C+Jakarta+14450&output=embed"
+            width="100%" height="300" style="border:0;border-radius:10px;" loading="lazy"
+            title="Seahub Media office location">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="about">
+    <p>© 2025 Seahub Media. All rights reserved.</p>
+  </footer>
+
+  <script src="/scripts.js"></script>
 </body>
 </html>
