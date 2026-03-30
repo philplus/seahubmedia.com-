@@ -822,13 +822,9 @@
           width:100%;height:500px;position:relative;
           background:#04060d;border-radius:20px;overflow:hidden;
         }
-        #talent-matrix::before{
-          content:'';position:absolute;inset:0;z-index:3;pointer-events:none;
-          background:repeating-linear-gradient(to bottom,transparent 0px,transparent 3px,rgba(0,0,0,0.15) 3px,rgba(0,0,0,0.15) 4px);
-        }
         #talent-matrix::after{
           content:'';position:absolute;inset:0;z-index:4;pointer-events:none;
-          background:radial-gradient(ellipse at center,transparent 28%,rgba(4,6,13,0.5) 68%,rgba(4,6,13,0.85) 100%);
+          background:linear-gradient(to right,rgba(4,6,13,0.6) 0%,transparent 10%,transparent 90%,rgba(4,6,13,0.6) 100%);
         }
         .tm-rows-wrap{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:6px 0;z-index:2}
         .tm-row{display:flex;gap:6px;align-items:center;will-change:transform}
@@ -841,7 +837,7 @@
         .tm-tile:hover{border-color:rgba(221,42,123,0.75);transform:scale(1.08);z-index:10}
         .tm-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:filter .3s}
         .tm-tile:hover img{filter:brightness(1.08)}
-        .tm-tile::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(135deg,rgba(64,93,230,0.1),rgba(221,42,123,0.07));mix-blend-mode:screen}
+
         .tm-tile .tm-name{
           position:absolute;bottom:0;left:0;right:0;
           background:linear-gradient(transparent,rgba(0,0,0,0.78));
@@ -882,10 +878,7 @@
       </div>
 
       <div id="talent-matrix">
-        <div class="tm-scan"></div>
-        <div class="tm-scan"></div>
-        <div class="tm-scan"></div>
-        <div class="tm-hud tl">SEAHUB CREATOR NETWORK<br>3000+ ACTIVE</div>
+<div class="tm-hud tl">SEAHUB CREATOR NETWORK<br>3000+ ACTIVE</div>
         <div class="tm-hud tr">FMCG · LIFESTYLE · SEA</div>
         <div class="tm-hud bl" id="tm-hud-time">--</div>
         <div class="tm-corner tl"></div>
@@ -922,18 +915,9 @@
           {img:'/assets/hosts/host_14.jpg', name:'Lola Felicia'},
         ];
         var N = CREATORS.length;
-        var TAGS = ['KOL','MCN','LIVE','FMCG','TOP','SEA','GMV+','CREATOR'];
         var SPEEDS = [32, -24, 40, -30, 28];
         var TILE_W = 136; /* 130 + 6 gap */
         var ONE_SET_W = TILE_W * N;
-
-        /* HUD time */
-        function updateTM(){
-          var d = new Date();
-          document.getElementById('tm-hud-time').textContent =
-            d.toISOString().replace('T',' ').substring(0,19) + ' UTC';
-        }
-        updateTM(); setInterval(updateTM, 1000);
 
         var wrap = document.getElementById('tm-rows');
         var rows = [];
@@ -955,7 +939,7 @@
             var tile = document.createElement('div');
             tile.className = 'tm-tile';
             tile.innerHTML = '<img src="'+c.img+'" loading="lazy" alt="'+c.name+'">'
-              + '<div class="tm-data">'+TAGS[idx%TAGS.length]+' #'+String(idx).padStart(3,'0')+'</div>'
+              
               + '<div class="tm-name">'+c.name+'</div>';
             rowEl.appendChild(tile);
           });
