@@ -14,18 +14,29 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    .site-header{padding:0;border-bottom:1px solid rgba(0,0,0,0.06);background:rgba(255,255,255,0.9);backdrop-filter:blur(8px);position:sticky;top:0;z-index:100}
-    .header-inner{padding:10px 28px!important;display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto}
-    .logo{height:40px!important;width:auto!important;border-radius:6px;object-fit:contain}
-    .nav a{color:#4b5563;font-size:14px;font-weight:600;text-decoration:none;margin-left:24px}
-    .nav a:hover{color:#111}
-    .wrap.header-inner{padding:10px 28px}
+    .site-header{padding:0;border-bottom:1px solid rgba(0,0,0,0.08);background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);position:sticky;top:0;z-index:100}
+    .header-inner{padding:12px 28px!important;display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;gap:16px}
+    .brand-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .brand-logo img{height:36px;width:auto;border-radius:6px;object-fit:contain;flex-shrink:0}
+    .brand-logo-text{display:flex;flex-direction:column;line-height:1.1}
+    .brand-logo-text .name{font-size:18px;font-weight:800;color:#0f1724;letter-spacing:-0.3px}
+    .brand-logo-text .name span{color:#dd2a7b}
+    .brand-logo-text .tagline{font-size:10px;color:#6b7280;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;margin-top:2px}
+    .nav a{color:#4b5563;font-size:13px;font-weight:600;text-decoration:none;margin-left:20px}
+    .nav a:hover{color:#dd2a7b}
+    @media(max-width:880px){.brand-logo-text .tagline{display:none}.nav a{margin-left:12px;font-size:12px}}
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="wrap header-inner">
-      <img src="/assets/logo.jpg" alt="Seahub Media" class="logo" style="height:44px;width:auto;border-radius:8px;object-fit:contain">
+      <a class="brand-logo" href="#home">
+        <img src="/assets/logo.jpg" alt="Seahub Media logo">
+        <div class="brand-logo-text">
+          <span class="name">Sea<span>Hub</span> Media</span>
+          <span class="tagline">TikTok Shop Partner &amp; MCN</span>
+        </div>
+      </a>
       <nav class="nav">
         <a href="#home">Home</a>
         <a href="/tsp/">TSP</a>
@@ -241,9 +252,9 @@
       </div>
     </section>
 
-    <!-- Case Studies -->
+    <!-- Our Showcase -->
     <section id="cases" class="section-panel">
-      <h2>Selected Case Studies</h2>
+      <h2>Our Showcase</h2>
       <div class="grid">
         <article>
           <h3>Brand Launch — Fashion</h3>
@@ -322,7 +333,7 @@
       <p class="muted" style="text-align:center;margin-top:12px">Our team — Seahub Family</p>
     </section>
 
-    <!-- Brand Partners - multi-row marquee -->
+<!-- Brand Partners - multi-row marquee -->
     <section id="brand-partners" class="section-panel">
       <h2>Brand Partners</h2>
       <p class="muted">Brands we've worked with</p>
@@ -371,254 +382,7 @@
       </div>
     </section>
 
-        <!-- MCN Dashboard -->
-    <section id="mcn" class="section-panel">
-      <h2>Dashboard — MCN Business</h2>
-      <div class="tsp-dashboard">
-        <div class="gmv-card">
-          <div class="gmv-label">Total GMV to date</div>
-          <div id="gmv-mcn" class="gmv-value">$318,630,000</div>
-          <div class="gmv-meta">Live simulated counter — updates every 15 minutes</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MCN Services (differentiated from TSP) -->
-    <section id="mcn-services" class="section-panel">
-      <h2>MCN Services</h2>
-      <div class="grid">
-        <article>
-          <figure class="service-media">
-            <img src="/assets/site/mcn_creators.jpg" alt="Creator Management" loading="lazy">
-          </figure>
-          <h3>Creator Management</h3>
-          <ul>
-            <li><strong>Talent Signing & Development</strong> — 达人签约、培训与长期成长规划。</li>
-            <li><strong>Content Strategy</strong> — 短视频内容策划、脚本与拍摄支持。</li>
-            <li><strong>Channel Growth</strong> — 粉丝增长策略与算法优化。</li>
-          </ul>
-        </article>
-        <article>
-          <figure class="service-media">
-            <img src="/assets/site/mcn_monetization.jpg" alt="Monetization" loading="lazy">
-          </figure>
-          <h3>Monetization & Brand Deals</h3>
-          <ul>
-            <li><strong>Brand Collaboration Matching</strong> — 为达人精准对接品牌合作机会。</li>
-            <li><strong>Deal Negotiation & Management</strong> — 合同谈判、排期管理与结算支持。</li>
-            <li><strong>Affiliate & Commission Programs</strong> — 搭建达人专属 affiliate 激励体系。</li>
-          </ul>
-        </article>
-        <article>
-          <figure class="service-media">
-            <img src="/assets/site/mcn_production.jpg" alt="Content Production" loading="lazy">
-          </figure>
-          <h3>Content Production</h3>
-          <ul>
-            <li><strong>Studio Access</strong> — 专业直播间与拍摄场地开放给签约达人使用。</li>
-            <li><strong>Video Editing & Post</strong> — 剪辑、调色与特效后期制作团队支持。</li>
-            <li><strong>Creative Direction</strong> — 品牌调性指导与视觉风格统一。</li>
-          </ul>
-        </article>
-        <article>
-          <figure class="service-media">
-            <img src="/assets/site/mcn_analytics.jpg" alt="Analytics & Growth" loading="lazy">
-          </figure>
-          <h3>Analytics & Growth</h3>
-          <ul>
-            <li><strong>Performance Dashboards</strong> — 实时数据追踪与 KPI 仪表盘。</li>
-            <li><strong>Audience Insights</strong> — 粉丝画像分析与内容优化建议。</li>
-            <li><strong>Monthly Reviews</strong> — 月度数据复盘与下阶段增长计划。</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- Case Studies -->
-    <section id="cases" class="section-panel">
-      <h2>Selected Case Studies</h2>
-      <div class="grid">
-        <article>
-          <h3>Brand Launch — Fashion</h3>
-          <p>Kickstarted a TikTok Shop launch with 3 back-to-back livestreams in week one.</p>
-          <ul class="case-metrics">
-            <li><strong>GMV</strong><span>+120% first-week</span></li>
-            <li><strong>Conversion</strong><span>+4.2%</span></li>
-          </ul>
-        </article>
-        <article>
-          <h3>Creator Campaign — Beauty</h3>
-          <p>Creator-led affiliate campaign with 30+ targeted KOLs across SEA.</p>
-          <ul class="case-metrics">
-            <li><strong>Engagement</strong><span>+38% MoM</span></li>
-            <li><strong>Sales</strong><span>+30% MoM</span></li>
-          </ul>
-        </article>
-        <article>
-          <h3>Performance Boost — FMCG</h3>
-          <p>Integrated ads + live commerce campaign optimized for ROAS.</p>
-          <ul class="case-metrics">
-            <li><strong>ROAS</strong><span>2.8x</span></li>
-            <li><strong>CPA</strong><span>−34%</span></li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- Live Studio -->
-    <section id="studio" class="section-panel">
-      <h2>Live Studio & Scenes</h2>
-      <div class="gallery-grid">
-        <div class="scene"><img src="/assets/site/studio_1.jpg" alt="Studio scene 1" loading="lazy"></div>
-        <div class="scene"><img src="/assets/site/studio_2.jpg" alt="Studio scene 2" loading="lazy"></div>
-        <div class="scene"><img src="/assets/site/studio_3.jpg" alt="Studio scene 3" loading="lazy"></div>
-        <div class="scene"><img src="/assets/site/studio_4.jpg" alt="Studio scene 4" loading="lazy"></div>
-      </div>
-      <p class="muted" style="margin-top:16px">Want to tour our studio? <a class="cta" href="#contact">Book a visit</a></p>
-    </section>
-
-    <!-- Talent / Hosts -->
-    <section id="talent" class="section-panel">
-      <div class="creator-showcase">
-        <div class="cs-left">
-          <h2>200+ Hosts</h2>
-          <p class="lead">Creators, hosts and presenters across SEA — handpicked for livestream and short-form content.</p>
-          <p><a class="cta" href="#contact">Work with creators</a></p>
-        </div>
-        <div class="cs-right">
-          <div class="creator-grid">
-            <div class="creator"><img src="/assets/hosts/host_01.jpg" alt="Yenni Ng" loading="lazy"><div class="creator-meta"><strong>Yenni Ng</strong><span class="category">Lifestyle & Fashion</span></div></div>
-            <div class="creator"><img src="/assets/hosts/host_02.jpg" alt="Anard" loading="lazy"><div class="creator-meta"><strong>Anard</strong><span class="category">Entertainment</span></div></div>
-            <div class="creator"><img src="/assets/hosts/host_03.jpg" alt="Racun Nuuna" loading="lazy"><div class="creator-meta"><strong>Racun Nuuna</strong><span class="category">Beauty & Skincare</span></div></div>
-            <div class="creator"><img src="/assets/hosts/host_04.png" alt="Cece Ketarketir" loading="lazy"><div class="creator-meta"><strong>Cece Ketarketir</strong><span class="category">Comedy & Lifestyle</span></div></div>
-            <div class="creator"><img src="/assets/hosts/host_05.jpg" alt="Anitta Maryam" loading="lazy"><div class="creator-meta"><strong>Anitta Maryam</strong><span class="category">Fashion & Beauty</span></div></div>
-            <div class="creator"><img src="/assets/hosts/host_06.png" alt="Racun Diana" loading="lazy"><div class="creator-meta"><strong>Racun Diana</strong><span class="category">Beauty & FMCG</span></div></div>
-            <div class="creator"><img src="/assets/hosts/host_07.jpg" alt="Prima Pym" loading="lazy"><div class="creator-meta"><strong>Prima Pym</strong><span class="category">Lifestyle</span></div></div>
-            <div class="creator"><img src="/assets/hosts/host_08.jpg" alt="Neny Ari" loading="lazy"><div class="creator-meta"><strong>Neny Ari</strong><span class="category">Fashion</span></div></div>
-            <div class="creator"><img src="/assets/hosts/host_09.jpg" alt="Brigette Doang" loading="lazy"><div class="creator-meta"><strong>Brigette Doang</strong><span class="category">Lifestyle & Travel</span></div></div>
-            <div class="creator"><img src="/assets/hosts/host_10.jpg" alt="Bellfiita" loading="lazy"><div class="creator-meta"><strong>Bellfiita</strong><span class="category">Beauty & Fashion</span></div></div>
-            <div class="creator"><img src="/assets/hosts/host_11.jpg" alt="Dinara Rizqiyyaraf" loading="lazy"><div class="creator-meta"><strong>Dinara Rizqiyyaraf</strong><span class="category">Beauty</span></div></div>
-            <div class="creator"><img src="/assets/hosts/host_12.jpg" alt="Nida Henida" loading="lazy"><div class="creator-meta"><strong>Nida Henida</strong><span class="category">Fashion & Beauty</span></div></div>
-            <div class="creator"><img src="/assets/hosts/host_13.jpg" alt="Desy Elisabeth" loading="lazy"><div class="creator-meta"><strong>Desy Elisabeth</strong><span class="category">Lifestyle & Fashion</span></div></div>
-            <div class="creator"><img src="/assets/hosts/host_14.jpg" alt="Lola Felicia" loading="lazy"><div class="creator-meta"><strong>Lola Felicia</strong><span class="category">Lifestyle & Travel</span></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seahub Family -->
-    <section id="seahub-family" class="section-panel">
-      <h2>Seahub Family</h2>
-      <div style="text-align:center">
-        <img src="/assets/site/seahub_family.jpg" alt="Seahub Family team photo" loading="lazy" style="width:100%;max-width:560px;height:300px;object-fit:cover;border-radius:12px;display:inline-block">
-      </div>
-      <p class="muted" style="text-align:center;margin-top:12px">Our team — Seahub Family</p>
-    </section>
-
-    <!-- Brand Partners (marquee) - after Seahub Family -->
-    <section id="brand-partners" class="section-panel">
-      <h2>Brand Partners</h2>
-      <p class="muted">Brands we've worked with</p>
-      <style>.brands-marquee .brand{flex:0 0 auto;width:120px}.brands-marquee .brand img{width:100%;height:64px;object-fit:contain;background:#fff;padding:10px 14px;border-radius:10px;box-shadow:0 4px 12px rgba(12,24,48,0.07)}</style>
-      <div class="brands-marquee">
-        <div class="brands-track">
-          <div class="brand"><img src="/assets/brands/final/vivo2.png" alt="vivo"></div>
-          <div class="brand"><img src="/assets/brands/final/iqoo.png" alt="iQOO"></div>
-          <div class="brand"><img src="/assets/brands/final/motorola.png" alt="Motorola"></div>
-          <div class="brand"><img src="/assets/brands/final/popmart.png" alt="POP MART"></div>
-          <div class="brand"><img src="/assets/brands/final/adidas2.png" alt="Adidas"></div>
-          <div class="brand"><img src="/assets/brands/final/adidas_originals.png" alt="Adidas Originals"></div>
-          <div class="brand"><img src="/assets/brands/final/advan.png" alt="ADVAN"></div>
-          <div class="brand"><img src="/assets/brands/final/anker.png" alt="Anker"></div>
-          <div class="brand"><img src="/assets/brands/final/baseus.png" alt="Baseus"></div>
-          <div class="brand"><img src="/assets/brands/final/bravhome.png" alt="BravHome"></div>
-          <div class="brand"><img src="/assets/brands/final/fantech.png" alt="Fantech"></div>
-          <div class="brand"><img src="/assets/brands/final/infinix.png" alt="Infinix"></div>
-          <div class="brand"><img src="/assets/brands/final/itel.png" alt="itel"></div>
-          <div class="brand"><img src="/assets/brands/final/miniso.svg" alt="MINISO"></div>
-          <div class="brand"><img src="/assets/brands/final/olike.png" alt="Olike"></div>
-          <div class="brand"><img src="/assets/brands/final/oraimo.png" alt="Oraimo"></div>
-          <div class="brand"><img src="/assets/brands/final/realme.png" alt="realme"></div>
-          <div class="brand"><img src="/assets/brands/final/toshiba.png" alt="Toshiba"></div>
-          <div class="brand"><img src="/assets/brands/final/vivan.png" alt="VIVAN"></div>
-          <div class="brand"><img src="/assets/brands/final/huawei.png" alt="Huawei"></div>
-          <div class="brand"><img src="/assets/brands/final/xiaomi.png" alt="Xiaomi"></div>
-          <div class="brand"><img src="/assets/brands/final/oppo.png" alt="OPPO"></div>
-          <div class="brand"><img src="/assets/brands/final/ameterasun.png" alt="Amaterasun"></div>
-          <div class="brand"><img src="/assets/brands/final/bioaqua.png" alt="BIOAQUA"></div>
-          <div class="brand"><img src="/assets/brands/final/biore.png" alt="Bioré"></div>
-          <div class="brand"><img src="/assets/brands/final/coolvita.png" alt="Cool-Vita"></div>
-          <div class="brand"><img src="/assets/brands/final/elsheskin.png" alt="Elshe Skin"></div>
-          <div class="brand"><img src="/assets/brands/final/garnier.png" alt="Garnier"></div>
-          <div class="brand"><img src="/assets/brands/final/hanasui.png" alt="Hanasui"></div>
-          <div class="brand"><img src="/assets/brands/final/judydoll.png" alt="Judydoll"></div>
-          <div class="brand"><img src="/assets/brands/final/npure.png" alt="N-Pure"></div>
-          <div class="brand"><img src="/assets/brands/final/rohto.png" alt="Rohto"></div>
-          <div class="brand"><img src="/assets/brands/final/shinzui.png" alt="Shinzu'i"></div>
-          <div class="brand"><img src="/assets/brands/final/wardah.png" alt="Wardah"></div>
-          <div class="brand"><img src="/assets/brands/final/advance_digital.png" alt="Advance Digital"></div>
-          <div class="brand"><img src="/assets/brands/final/ecentio.png" alt="ecentio"></div>
-          <div class="brand"><img src="/assets/brands/final/finito.png" alt="Finito"></div>
-          <div class="brand"><img src="/assets/brands/final/goto_living.png" alt="Goto Living"></div>
-          <div class="brand"><img src="/assets/brands/final/inthebox.png" alt="in.the.box"></div>
-          <div class="brand"><img src="/assets/brands/final/jisulife.png" alt="JisuLife"></div>
-          <div class="brand"><img src="/assets/brands/final/kintakun.png" alt="Kintakun"></div>
-          <div class="brand"><img src="/assets/brands/final/locknlock.png" alt="LocknLock"></div>
-          <div class="brand"><img src="/assets/brands/final/mito.png" alt="Mito Electronic"></div>
-          <div class="brand"><img src="/assets/brands/final/oxone.png" alt="Oxone"></div>
-          <div class="brand"><img src="/assets/brands/final/simplus.png" alt="Simplus"></div>
-          <div class="brand"><img src="/assets/brands/final/speeds.png" alt="Speeds"></div>
-          <div class="brand"><img src="/assets/brands/final/vivo2.png" alt="vivo"></div>
-          <div class="brand"><img src="/assets/brands/final/iqoo.png" alt="iQOO"></div>
-          <div class="brand"><img src="/assets/brands/final/motorola.png" alt="Motorola"></div>
-          <div class="brand"><img src="/assets/brands/final/popmart.png" alt="POP MART"></div>
-          <div class="brand"><img src="/assets/brands/final/adidas2.png" alt="Adidas"></div>
-          <div class="brand"><img src="/assets/brands/final/adidas_originals.png" alt="Adidas Originals"></div>
-          <div class="brand"><img src="/assets/brands/final/advan.png" alt="ADVAN"></div>
-          <div class="brand"><img src="/assets/brands/final/anker.png" alt="Anker"></div>
-          <div class="brand"><img src="/assets/brands/final/baseus.png" alt="Baseus"></div>
-          <div class="brand"><img src="/assets/brands/final/bravhome.png" alt="BravHome"></div>
-          <div class="brand"><img src="/assets/brands/final/fantech.png" alt="Fantech"></div>
-          <div class="brand"><img src="/assets/brands/final/infinix.png" alt="Infinix"></div>
-          <div class="brand"><img src="/assets/brands/final/itel.png" alt="itel"></div>
-          <div class="brand"><img src="/assets/brands/final/miniso.svg" alt="MINISO"></div>
-          <div class="brand"><img src="/assets/brands/final/olike.png" alt="Olike"></div>
-          <div class="brand"><img src="/assets/brands/final/oraimo.png" alt="Oraimo"></div>
-          <div class="brand"><img src="/assets/brands/final/realme.png" alt="realme"></div>
-          <div class="brand"><img src="/assets/brands/final/toshiba.png" alt="Toshiba"></div>
-          <div class="brand"><img src="/assets/brands/final/vivan.png" alt="VIVAN"></div>
-          <div class="brand"><img src="/assets/brands/final/huawei.png" alt="Huawei"></div>
-          <div class="brand"><img src="/assets/brands/final/xiaomi.png" alt="Xiaomi"></div>
-          <div class="brand"><img src="/assets/brands/final/oppo.png" alt="OPPO"></div>
-          <div class="brand"><img src="/assets/brands/final/ameterasun.png" alt="Amaterasun"></div>
-          <div class="brand"><img src="/assets/brands/final/bioaqua.png" alt="BIOAQUA"></div>
-          <div class="brand"><img src="/assets/brands/final/biore.png" alt="Bioré"></div>
-          <div class="brand"><img src="/assets/brands/final/coolvita.png" alt="Cool-Vita"></div>
-          <div class="brand"><img src="/assets/brands/final/elsheskin.png" alt="Elshe Skin"></div>
-          <div class="brand"><img src="/assets/brands/final/garnier.png" alt="Garnier"></div>
-          <div class="brand"><img src="/assets/brands/final/hanasui.png" alt="Hanasui"></div>
-          <div class="brand"><img src="/assets/brands/final/judydoll.png" alt="Judydoll"></div>
-          <div class="brand"><img src="/assets/brands/final/npure.png" alt="N-Pure"></div>
-          <div class="brand"><img src="/assets/brands/final/rohto.png" alt="Rohto"></div>
-          <div class="brand"><img src="/assets/brands/final/shinzui.png" alt="Shinzu'i"></div>
-          <div class="brand"><img src="/assets/brands/final/wardah.png" alt="Wardah"></div>
-          <div class="brand"><img src="/assets/brands/final/advance_digital.png" alt="Advance Digital"></div>
-          <div class="brand"><img src="/assets/brands/final/ecentio.png" alt="ecentio"></div>
-          <div class="brand"><img src="/assets/brands/final/finito.png" alt="Finito"></div>
-          <div class="brand"><img src="/assets/brands/final/goto_living.png" alt="Goto Living"></div>
-          <div class="brand"><img src="/assets/brands/final/inthebox.png" alt="in.the.box"></div>
-          <div class="brand"><img src="/assets/brands/final/jisulife.png" alt="JisuLife"></div>
-          <div class="brand"><img src="/assets/brands/final/kintakun.png" alt="Kintakun"></div>
-          <div class="brand"><img src="/assets/brands/final/locknlock.png" alt="LocknLock"></div>
-          <div class="brand"><img src="/assets/brands/final/mito.png" alt="Mito Electronic"></div>
-          <div class="brand"><img src="/assets/brands/final/oxone.png" alt="Oxone"></div>
-          <div class="brand"><img src="/assets/brands/final/simplus.png" alt="Simplus"></div>
-          <div class="brand"><img src="/assets/brands/final/speeds.png" alt="Speeds"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
+        <!-- Contact -->
     <section id="contact" class="section-panel" style="margin-bottom:0">
       <h2>Contact Us</h2>
       <div class="contact-grid">
