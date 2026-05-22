@@ -980,6 +980,12 @@
           {img:'/assets/hosts/host_12.jpg', name:'Nida Henida'},
           {img:'/assets/hosts/host_13.jpg', name:'Desy Elisabeth'},
           {img:'/assets/hosts/host_14.jpg', name:'Lola Felicia'},
+          {img:'/assets/hosts/host_15.jpg'},
+          {img:'/assets/hosts/host_16.jpg'},
+          {img:'/assets/hosts/host_17.jpg'},
+          {img:'/assets/hosts/host_18.jpg'},
+          {img:'/assets/hosts/host_19.jpg'},
+          {img:'/assets/hosts/host_20.jpg'},
         ];
         var N = CREATORS.length;
         var SPEEDS = [32, -24, 40, -30, 28];
@@ -1005,9 +1011,9 @@
           extended.forEach(function(c, idx){
             var tile = document.createElement('div');
             tile.className = 'tm-tile';
-            tile.innerHTML = '<img src="'+c.img+'" loading="lazy" alt="'+c.name+'">'
-              
-              + '<div class="tm-name">'+c.name+'</div>';
+            var nameHtml = c.name ? '<div class="tm-name">'+c.name+'</div>' : '';
+            tile.innerHTML = '<img src="'+c.img+'" loading="lazy" alt="'+(c.name || 'Seahub creator')+'">'
+              + nameHtml;
             rowEl.appendChild(tile);
           });
 
